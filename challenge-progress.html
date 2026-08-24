@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>StrengthHub | Challenge Progress</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header>
+
+    <div class="logo">
+        STRENGTH<span>HUB</span>
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="workouts.html">
+            Workouts
+        </a>
+
+        <a href="map.html">
+            Map
+        </a>
+
+        <a href="Community.html">
+            Community
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+        <a href="shop.html">
+            Aurex
+        </a>
+
+        <a href="profile.html">
+            My Profile
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ==========================================
+     CHALLENGE PROGRESS PAGE
+========================================== -->
+
+<main class="challenge-progress-page">
+
+
+    <!-- ======================================
+         BACK
+    ======================================= -->
+
+    <a
+        href="my-challenges.html"
+        class="community-member-btn"
+    >
+        ← MY CHALLENGES
+    </a>
+
+
+
+    <!-- ======================================
+         CHALLENGE HEADER
+    ======================================= -->
+
+    <section class="challenge-progress-header">
+
+
+        <div
+            id="challengeIcon"
+            class="challenge-progress-icon"
+        >
+            🏆
+        </div>
+
+
+        <span
+            id="challengeDifficulty"
+            class="challenge-progress-difficulty"
+        >
+            Loading...
+        </span>
+
+
+        <h1 id="challengeTitle">
+            Loading challenge...
+        </h1>
+
+
+        <p id="challengeDescription">
+            Loading challenge information...
+        </p>
+
+
+    </section>
+
+
+
+    <!-- ======================================
+         PROGRESS SUMMARY
+    ======================================= -->
+
+    <section class="challenge-progress-summary">
+
+
+        <div class="challenge-progress-stat">
+
+            <span>
+                PROGRESS
+            </span>
+
+            <strong id="progressText">
+                0%
+            </strong>
+
+        </div>
+
+
+
+        <div class="challenge-progress-stat">
+
+            <span>
+                DAYS COMPLETED
+            </span>
+
+            <strong id="daysCompleted">
+                0
+            </strong>
+
+        </div>
+
+
+
+        <div class="challenge-progress-stat">
+
+            <span>
+                TOTAL DAYS
+            </span>
+
+            <strong id="totalDays">
+                --
+            </strong>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ======================================
+         MAIN PROGRESS
+    ======================================= -->
+
+    <section class="challenge-progress-main">
+
+
+        <div class="challenge-progress-main-header">
+
+            <span>
+                YOUR PROGRESS
+            </span>
+
+
+            <strong id="progressPercentage">
+                0%
+            </strong>
+
+        </div>
+
+
+        <div class="challenge-progress-main-bar">
+
+            <div
+                id="progressFill"
+                class="challenge-progress-main-fill"
+                style="width: 0%;"
+            ></div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ======================================
+         TODAY'S CHALLENGE
+    ======================================= -->
+
+    <section
+        id="currentDay"
+        class="challenge-today"
+    >
+
+        <span class="challenge-today-label">
+            TODAY'S CHALLENGE
+        </span>
+
+
+        <h2>
+            Loading...
+        </h2>
+
+
+        <p>
+            Loading today's challenge...
+        </p>
+
+
+        <button
+            id="completeDayButton"
+            class="challenge-button"
+            type="button"
+        >
+            MARK DAY COMPLETE
+        </button>
+
+
+    </section>
+
+
+
+    <!-- ======================================
+         COMPLETED DAYS
+    ======================================= -->
+
+    <section class="challenge-history">
+
+
+        <h2>
+            Your Journey
+        </h2>
+
+
+        <div id="challengeDays">
+
+            <p>
+                Loading progress...
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer>
+
+    <h3>
+        StrengthHub
+    </h3>
+
+
+    <p>
+        Fitness Without Barriers
+    </p>
+
+
+    <p>
+        © 2026 StrengthHub by Abdulsalam
+    </p>
+
+</footer>
+
+
+
+<!-- ==========================================
+     SCRIPTS
+========================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="supabase.js"></script>
+
+<script src="challenge-progress.js"></script>
+
+
+</body>
+
+</html>
+

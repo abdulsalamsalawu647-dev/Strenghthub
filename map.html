@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StrengthHub | Fitness Map</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+</head>
+
+<body>
+
+<header>
+
+    <h1>💪 StrengthHub</h1>
+
+    <nav>
+       
+        <a href="index.html">Home</a>
+
+        <a href="workouts.html">Workouts</a>
+
+       
+
+        <a href="community.html">Community</a>
+
+        <a href="about.html">About</a>
+
+        <a href="contact.html">Contact</a>
+        
+        <a href="shop.html">Aurex</a>
+    </nav>
+
+</header>
+
+<section class="map-section">
+
+    <h2>Fitness Map of London</h2>
+
+    <p>
+        Discover gyms, outdoor parks and calisthenics spots across London.
+    </p>
+
+    <div class="location-search">
+
+        <input
+            type="text"
+            id="searchLocation"
+            placeholder="Search a location...">
+
+        <button onclick="searchLocation()">
+    Search
+</button>
+
+    </div>
+
+    <div id="map"></div>
+    <div class="filters">
+
+    <button onclick="showLocations('all')">
+        🌍 All
+    </button>
+
+    <button onclick="showLocations('indoor')">
+        🏋 Indoor
+    </button>
+
+    <button onclick="showLocations('outdoor')">
+        🌳 Outdoor
+    </button>
+
+    <button onclick="showLocations('calisthenics')">
+        🤸 Calisthenics
+    </button>
+
+</div>
+
+</section>
+
+<footer>
+
+    <p>© 2026 StrengthHub</p>
+
+</footer>
+
+<!-- Leaflet JavaScript -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+
+// ==========================
+// Create Map
+// ==========================
+
+const map = L.map('map').setView([51.5074, -0.1278], 11);
+
+// ==========================
+// Map Tiles
+// ==========================
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+// ==========================
+// Locations
+// ==========================
+
+const locations = [
+
+{
+    name: "Hyde Park Outdoor Gym",
+    coords: [51.5073, -0.1657],
+    type: "Outdoor Gym",
+    category: "outdoor"
+},
+
+{
+    name: "PureGym Oxford Street",
+    coords: [51.5155, -0.1410],
+    type: "Indoor Gym",
+    category: "indoor"
+},
+
+{
+    name: "Greenwich Fitness Area",
+    coords: [51.4826, 0.0077],
+    type: "Calisthenics Park",
+    category: "calisthenics"
+}
+
+];
+
+// ==========================
+// Add Markers
+// ==========================
+const markers = [];
+
+locations.forEach(function(place){
+
+    const marker = L.marker(place.coords)
+        .bindPopup(
+            "<h3>" + place.name + "</h3>" +
+            "<p>" + place.type + "</p>"
+        );
+
+    marker.addTo(map);
+
+    markers.push({
+
+        marker: marker,
+
+        place: place,
+
+        category: place.category
+
+    });
+
+});
+
+
+async function searchLocation(){
+
+    const query = document
+        .getElementById("searchLocation")
+        .value;
+
+    if(query.trim() === ""){
+        alert("Please enter a location");
+        return;
+    }
+
+
+    const url =
+    "https://nominatim.openstreetmap.org/search?format=json&q="
+    + query + ", London";
+
+
+    const response = await fetch(url);
+
+    const data = await response.json();
+
+
+    if(data.length > 0){
+
+        const lat = data[0].lat;
+        const lon = data[0].lon;
+
+
+        map.flyTo(
+            [lat, lon],
+            14,
+            {
+                duration:1.5
+            }
+        );
+        findWorkoutPlaces(lat, lon);
+
+
+       const name = place.tags.name || "Fitness Spot";
+
+
+const popupContent = `
+
+<div class="gym-popup">
+
+<h3>💪 ${name}</h3>
+
+<p>
+🏋 Fitness Location
+</p>
+
+<button onclick="openDirections(${place.lat},${place.lon})">
+📍 Get Directions
+</button>
+
+</div>
+
+`;
+
+
+L.marker([
+    place.lat,
+    place.lon
+])
+.addTo(map)
+.bindPopup(popupContent);
+
+
+    }else{
+
+        alert("Location not found");
+
+    }
+
+}
+function openDirections(lat, lon){
+
+    window.open(
+        "https://www.google.com/maps/dir/?api=1&destination="
+        + lat +
+        "," +
+        lon,
+        "_blank"
+    );
+
+}
+async function findWorkoutPlaces(lat, lon){
+
+
+    const query = `
+    [out:json];
+
+    (
+      node["leisure"="fitness_centre"](around:5000,${lat},${lon});
+      node["leisure"="sports_centre"](around:5000,${lat},${lon});
+      node["sport"="fitness"](around:5000,${lat},${lon});
+      node["leisure"="pitch"](around:5000,${lat},${lon});
+    );
+
+    out;
+    `;
+
+
+    const url =
+    "https://overpass-api.de/api/interpreter?data="
+    + encodeURIComponent(query);
+
+
+    const response = await fetch(url);
+
+    const data = await response.json();
+
+
+
+    data.elements.forEach(place=>{
+
+
+        if(place.lat && place.lon){
+
+
+            L.marker([
+                place.lat,
+                place.lon
+            ])
+            .addTo(map)
+            .bindPopup(
+                "<h3>"
+                +
+                (place.tags.name || "Fitness Spot")
+                +
+                "</h3>"
+            );
+
+
+        }
+
+
+    });
+
+
+}
+function showLocations(category){
+
+    // Remove every marker
+    markers.forEach(function(item){
+
+        map.removeLayer(item.marker);
+
+    });
+
+    // Add back only matching markers
+    markers.forEach(function(item){
+
+        if(category === "all" || item.category === category){
+
+            item.marker.addTo(map);
+
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>

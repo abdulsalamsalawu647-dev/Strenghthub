@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Training Partners | StrengthHub</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header>
+
+    <div class="logo">
+        STRENGTH<span>HUB</span>
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="workouts.html">
+            Workouts
+        </a>
+
+        <a href="map.html">
+            Map
+        </a>
+
+        <a href="Community.html">
+            Community
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+        <a href="shop.html">
+            Aurex
+        </a>
+
+        <a href="profile.html">
+            My Profile
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ==========================================
+     HERO
+========================================== -->
+
+<section class="training-partners-hero">
+
+    <div class="training-partners-hero-content">
+
+        <span class="section-label">
+            STRENGTHHUB COMMUNITY
+        </span>
+
+
+        <h1>
+
+            Find Your
+            <span>Training Partner.</span>
+
+        </h1>
+
+
+        <p>
+
+            Find athletes who share your training
+            goals, discipline and experience level.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     FIND ATHLETES
+========================================== -->
+
+<section class="training-partners-section">
+
+    <div class="training-partners-heading">
+
+        <span class="section-label">
+            FIND ATHLETES
+        </span>
+
+
+        <h2>
+            Find Someone Who Trains Like You
+        </h2>
+
+
+        <p>
+
+            Choose your preferences to find athletes
+            who match your training style.
+
+        </p>
+
+    </div>
+
+
+
+    <!-- ==========================================
+         FILTERS
+    ========================================== -->
+
+    <div class="training-partner-filters">
+
+
+        <!-- DISCIPLINE -->
+
+        <select id="disciplineFilter">
+
+            <option value="">
+                All Disciplines
+            </option>
+
+            <option value="Calisthenics">
+                Calisthenics
+            </option>
+
+            <option value="Bodybuilding">
+                Bodybuilding
+            </option>
+
+            <option value="Powerlifting">
+                Powerlifting
+            </option>
+
+            <option value="General Fitness">
+                General Fitness
+            </option>
+
+            <option value="Running">
+                Running
+            </option>
+
+        </select>
+
+
+
+        <!-- EXPERIENCE -->
+
+        <select id="experienceFilter">
+
+            <option value="">
+                All Experience Levels
+            </option>
+
+            <option value="Beginner">
+                Beginner
+            </option>
+
+            <option value="Intermediate">
+                Intermediate
+            </option>
+
+            <option value="Advanced">
+                Advanced
+            </option>
+
+        </select>
+
+
+
+        <!-- GOAL -->
+
+        <select id="goalFilter">
+
+            <option value="">
+                All Goals
+            </option>
+
+            <option value="Build Strength">
+                Build Strength
+            </option>
+
+            <option value="Build Muscle">
+                Build Muscle
+            </option>
+
+            <option value="Learn Skills">
+                Learn Skills
+            </option>
+
+            <option value="Lose Weight">
+                Lose Weight
+            </option>
+
+            <option value="General Fitness">
+                General Fitness
+            </option>
+
+        </select>
+
+
+
+        <!-- LOCATION -->
+
+        <input
+            type="text"
+            id="locationFilter"
+            placeholder="Location"
+        >
+
+
+
+        <!-- FIND BUTTON -->
+
+        <button
+            type="button"
+            id="findPartnersButton"
+            class="profile-button"
+        >
+
+            FIND PARTNERS
+
+        </button>
+
+    </div>
+
+
+
+    <!-- ==========================================
+         RESULTS
+    ========================================== -->
+
+    <div
+        id="trainingPartnerResults"
+        class="training-partner-results"
+    >
+
+        <div class="training-partner-empty">
+
+            <h3>
+                Find Your Training Community
+            </h3>
+
+
+            <p>
+
+                Choose your preferences above
+                to find athletes who train like you.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer>
+
+    <h3>
+        StrengthHub
+    </h3>
+
+
+    <p>
+        Fitness Without Barriers
+    </p>
+
+
+    <p>
+        © 2026 StrengthHub by Abdulsalam
+    </p>
+
+</footer>
+
+
+
+<!-- ==========================================
+     SCRIPTS
+========================================== -->
+
+<script src="script.js"></script>
+
+<!-- Supabase library -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- StrengthHub Supabase connection -->
+<script src="supabase.js"></script>
+
+<!-- Training Partners functionality -->
+<script src="training-partners.js"></script>
+
+
+</body>
+
+</html>
+

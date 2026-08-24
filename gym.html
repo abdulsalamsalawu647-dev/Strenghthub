@@ -1,0 +1,606 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gym Training | StrengthHub</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header>
+
+    <div class="logo">
+        STRENGTH<span>HUB</span>
+    </div>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+
+        <a href="workouts.html">Workouts</a>
+
+        <a href="map.html">Map</a>
+
+        <a href="Community.html">Community</a>
+
+        <a href="about.html">About</a>
+
+        <a href="contact.html">Contact</a>
+
+        <a href="shop.html">Aurex</a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ==========================================
+     GYM TRAINING HERO
+========================================== -->
+
+<section class="gym-training-hero">
+
+    <div class="gym-training-hero-content">
+
+        <span class="section-label">
+            STRENGTHHUB • GYM TRAINING
+        </span>
+
+        <h1>
+            Train Stronger.<br>
+            <span>Move Better.</span>
+        </h1>
+
+        <p>
+            Explore a complete gym exercise library designed
+            to help you build strength, improve technique and
+            train every major muscle group.
+        </p>
+
+        <div class="gym-training-buttons">
+
+            <a
+                href="#gym-library"
+                class="hero-btn">
+
+                Start Training
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     GYM TRAINING INTRO
+========================================== -->
+
+<section class="gym-training-intro">
+
+    <div class="gym-training-intro-content">
+
+        <span class="section-label">
+            TRAIN WITH PURPOSE
+        </span>
+
+        <h2>
+            Every Rep Has A Purpose.
+        </h2>
+
+        <p>
+            Gym training is more than moving weights.
+            Learn the exercises, understand the muscles
+            you're training and build your strength through
+            consistent progression.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     GYM EXERCISE LIBRARY
+========================================== -->
+
+<section
+    class="gym-library"
+    id="gym-library">
+
+
+    <div class="gym-heading">
+
+        <span class="section-label">
+            GYM EXERCISE LIBRARY
+        </span>
+
+        <h2>
+            Find Your Exercise
+        </h2>
+
+        <p>
+            Search for an exercise or explore the different
+            muscle groups below.
+        </p>
+
+    </div>
+
+
+
+    <!-- ======================================
+         SEARCH
+    ======================================= -->
+
+    <div class="exercise-search">
+
+        <input
+            type="text"
+            id="gymSearch"
+            placeholder="Search exercises..."
+            onkeyup="searchGymExercises()">
+
+    </div>
+
+
+
+    <!-- ======================================
+         FILTERS
+    ======================================= -->
+
+    <div class="exercise-filters">
+
+        <button
+            class="filter-btn active"
+            onclick="filterGymExercises('all')">
+
+            All
+
+        </button>
+
+
+        <button
+            class="filter-btn"
+            onclick="filterGymExercises('chest')">
+
+            Chest
+
+        </button>
+
+
+        <button
+            class="filter-btn"
+            onclick="filterGymExercises('back')">
+
+            Back
+
+        </button>
+
+
+        <button
+            class="filter-btn"
+            onclick="filterGymExercises('legs')">
+
+            Legs
+
+        </button>
+
+
+        <button
+            class="filter-btn"
+            onclick="filterGymExercises('shoulders')">
+
+            Shoulders
+
+        </button>
+
+
+        <button
+            class="filter-btn"
+            onclick="filterGymExercises('arms')">
+
+            Arms
+
+        </button>
+
+
+        <button
+            class="filter-btn"
+            onclick="filterGymExercises('core')">
+
+            Core
+
+        </button>
+
+    </div>
+
+
+
+    <!-- ======================================
+         EXERCISE GRID
+    ======================================= -->
+
+    <div
+        class="exercise-grid"
+        id="gymExerciseGrid">
+
+        <!-- JavaScript inserts exercises here -->
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     EXERCISE MODAL
+========================================== -->
+
+<div
+    class="exercise-modal"
+    id="gymExerciseModal">
+
+
+    <div class="exercise-modal-content">
+
+
+        <button
+            class="close-modal"
+            onclick="closeGymExercise()">
+
+            ×
+
+        </button>
+
+
+
+        <span
+            class="exercise-modal-category"
+            id="gymModalCategory">
+        </span>
+
+
+
+        <h2 id="gymModalTitle">
+            Exercise
+        </h2>
+
+
+
+        <!-- EXERCISE INFORMATION -->
+
+        <div class="exercise-modal-info">
+
+
+            <div>
+
+                <span>
+                    Difficulty
+                </span>
+
+                <strong id="gymModalDifficulty">
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Target Muscles
+                </span>
+
+                <strong id="gymModalMuscles">
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Equipment
+                </span>
+
+                <strong id="gymModalEquipment">
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- WORKOUT DETAILS -->
+
+        <div class="exercise-workout-details">
+
+
+            <div>
+
+                <span>
+                    Sets
+                </span>
+
+                <strong id="gymModalSets">
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Reps
+                </span>
+
+                <strong id="gymModalReps">
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Rest
+                </span>
+
+                <strong id="gymModalRest">
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- HOW TO PERFORM -->
+
+        <div class="exercise-description">
+
+            <h3>
+                How To Perform
+            </h3>
+
+            <p id="gymModalDescription">
+            </p>
+
+        </div>
+
+
+
+        <!-- PROGRESSION -->
+
+        <div class="exercise-progression">
+
+
+            <div>
+
+                <h3>
+                    Progression
+                </h3>
+
+                <p id="gymModalProgression">
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Alternative
+                </h3>
+
+                <p id="gymModalAlternative">
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ==========================================
+     TRAINING LEVELS
+========================================== -->
+
+<section class="gym-training-levels">
+
+    <div class="gym-heading">
+
+        <span class="section-label">
+            TRAINING LEVEL
+        </span>
+
+        <h2>
+            Find Your Level
+        </h2>
+
+        <p>
+            Start where you are and progress as you get stronger.
+        </p>
+
+    </div>
+
+
+
+    <div class="level-grid">
+
+
+        <!-- BEGINNER -->
+
+        <button
+            class="level-card"
+            onclick="filterGymDifficulty('Beginner')">
+
+            <span class="level-number">
+                01
+            </span>
+
+            <h3>
+                Beginner
+            </h3>
+
+            <p>
+                Learn the fundamentals, develop proper technique
+                and build a strong foundation.
+            </p>
+
+            <span class="level-link">
+                Explore Beginner →
+            </span>
+
+        </button>
+
+
+
+        <!-- INTERMEDIATE -->
+
+        <button
+            class="level-card"
+            onclick="filterGymDifficulty('Intermediate')">
+
+            <span class="level-number">
+                02
+            </span>
+
+            <h3>
+                Intermediate
+            </h3>
+
+            <p>
+                Increase your training intensity and continue
+                building strength and muscle.
+            </p>
+
+            <span class="level-link">
+                Explore Intermediate →
+            </span>
+
+        </button>
+
+
+
+        <!-- ADVANCED -->
+
+        <button
+            class="level-card"
+            onclick="filterGymDifficulty('Advanced')">
+
+            <span class="level-number">
+                03
+            </span>
+
+            <h3>
+                Advanced
+            </h3>
+
+            <p>
+                Challenge yourself with heavier training,
+                greater intensity and advanced movements.
+            </p>
+
+            <span class="level-link">
+                Explore Advanced →
+            </span>
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     GYM TRAINING PHILOSOPHY
+========================================== -->
+
+<section class="gym-training-philosophy">
+
+    <div class="philosophy-content">
+
+        <span class="section-label">
+            THE STRENGTHHUB APPROACH
+        </span>
+
+        <h2>
+            Build Strength.<br>
+            Build Yourself.
+        </h2>
+
+        <p>
+            Train consistently, use proper technique,
+            progressively challenge yourself and give your
+            body time to recover. Strength is built one
+            session at a time.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer>
+
+    <h3>
+        StrengthHub
+    </h3>
+
+    <p>
+        Fitness Without Barriers
+    </p>
+
+    <p>
+        © 2026 StrengthHub by Abdulsalam
+    </p>
+
+</footer>
+
+
+
+<!-- ==========================================
+     GYM TRAINING JAVASCRIPT
+========================================== -->
+
+<script src="gym.js"></script>
+
+</body>
+
+</html>
+```

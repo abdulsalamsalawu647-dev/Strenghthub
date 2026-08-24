@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bodybuilding | StrengthHub</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header>
+
+    <div class="logo">
+        STRENGTH<span>HUB</span>
+    </div>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+
+        <a href="workouts.html">Workouts</a>
+
+
+        <a href="map.html">Map</a>
+
+        <a href="Community.html">Community</a>
+
+        <a href="about.html">About</a>
+
+        <a href="contact.html">Contact</a>
+
+        <a href="shop.html">Aurex</a>
+
+    </nav>
+
+</header>
+
+
+<!-- ==========================================
+     BODYBUILDING HERO
+========================================== -->
+
+<section class="bodybuilding-hero">
+
+    <div class="bodybuilding-hero-content">
+
+        <span class="section-label">
+            STRENGTHHUB • BODYBUILDING
+        </span>
+
+        <h1>
+            Build Muscle.<br>
+            <span>Build Your Physique.</span>
+        </h1>
+
+        <p>
+            Structured bodybuilding training designed to help
+            you build muscle, develop strength and improve
+            your physique — from beginner to advanced.
+        </p>
+
+        <div class="bodybuilding-buttons">
+
+            <a
+                href="#bodybuilding-library"
+                class="hero-btn">
+
+                Start Training
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     BODYBUILDING INTRO
+========================================== -->
+
+<section class="bodybuilding-intro">
+
+    <div class="bodybuilding-intro-content">
+
+        <span class="section-label">
+            TRAIN WITH PURPOSE
+        </span>
+
+        <h2>
+            Your Physique. Your Journey.
+        </h2>
+
+        <p>
+            Bodybuilding is more than lifting weights.
+            It's about consistency, progressive training,
+            proper recovery and understanding how to
+            build your body over time.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     BODYBUILDING EXERCISE LIBRARY
+========================================== -->
+
+<section
+    class="bodybuilding-library"
+    id="bodybuilding-library">
+
+
+    <div class="bodybuilding-heading">
+
+        <span class="section-label">
+            BODYBUILDING EXERCISE LIBRARY
+        </span>
+
+        <h2>
+            Find Your Exercise
+        </h2>
+
+        <p>
+            Search and explore bodybuilding exercises
+            based on movement type, equipment and
+            training style.
+        </p>
+
+    </div>
+
+
+    <!-- ======================================
+         SEARCH
+    ======================================= -->
+
+    <div class="exercise-search">
+
+        <input
+            type="text"
+            id="bodybuildingSearch"
+            placeholder="Search exercises, equipment or movement..."
+            onkeyup="searchBodybuildingExercises()">
+
+    </div>
+
+
+    <!-- ======================================
+         EXERCISE FILTERS
+    ======================================= -->
+
+    <div class="exercise-filters">
+
+        <button
+            class="filter-btn active"
+            onclick="filterBodybuildingExercises('all')">
+
+            All
+
+        </button>
+
+
+        <button
+            class="filter-btn"
+            onclick="filterBodybuildingExercises('compound')">
+
+            Compound
+
+        </button>
+
+
+        <button
+            class="filter-btn"
+            onclick="filterBodybuildingExercises('isolation')">
+
+            Isolation
+
+        </button>
+
+
+        <button
+            class="filter-btn"
+            onclick="filterBodybuildingExercises('free-weight')">
+
+            Free Weights
+
+        </button>
+
+
+        <button
+            class="filter-btn"
+            onclick="filterBodybuildingExercises('machine')">
+
+            Machines
+
+        </button>
+
+
+        <button
+            class="filter-btn"
+            onclick="filterBodybuildingExercises('cable')">
+
+            Cables
+
+        </button>
+
+
+        <button
+            class="filter-btn"
+            onclick="filterBodybuildingExercises('bodyweight')">
+
+            Bodyweight
+
+        </button>
+
+    </div>
+
+
+    <!-- ======================================
+         EXERCISE GRID
+    ======================================= -->
+
+    <div
+        class="exercise-grid"
+        id="bodybuildingExerciseGrid">
+
+        <!-- JavaScript inserts exercises here -->
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     EXERCISE MODAL
+========================================== -->
+
+<div
+    class="exercise-modal"
+    id="bodybuildingExerciseModal">
+
+
+    <div class="exercise-modal-content">
+
+
+        <button
+            class="close-modal"
+            onclick="closeBodybuildingExercise()">
+
+            ×
+
+        </button>
+
+
+        <span
+            class="exercise-modal-category"
+            id="bodybuildingModalCategory">
+        </span>
+
+
+        <h2 id="bodybuildingModalTitle">
+            Exercise
+        </h2>
+
+
+        <!-- EXERCISE INFORMATION -->
+
+        <div class="exercise-modal-info">
+
+
+            <div>
+
+                <span>
+                    Difficulty
+                </span>
+
+                <strong
+                    id="bodybuildingModalDifficulty">
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Target Muscles
+                </span>
+
+                <strong
+                    id="bodybuildingModalMuscles">
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Equipment
+                </span>
+
+                <strong
+                    id="bodybuildingModalEquipment">
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- WORKOUT DETAILS -->
+
+        <div class="exercise-workout-details">
+
+
+            <div>
+
+                <span>
+                    Sets
+                </span>
+
+                <strong
+                    id="bodybuildingModalSets">
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Reps
+                </span>
+
+                <strong
+                    id="bodybuildingModalReps">
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Rest
+                </span>
+
+                <strong
+                    id="bodybuildingModalRest">
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- HOW TO PERFORM -->
+
+        <div class="exercise-description">
+
+            <h3>
+                How To Perform
+            </h3>
+
+            <p
+                id="bodybuildingModalDescription">
+            </p>
+
+        </div>
+
+
+        <!-- PROGRESSION -->
+
+        <div class="exercise-progression">
+
+
+            <div>
+
+                <h3>
+                    Progression
+                </h3>
+
+                <p
+                    id="bodybuildingModalProgression">
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Alternative
+                </h3>
+
+                <p
+                    id="bodybuildingModalAlternative">
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     TRAINING LEVELS
+========================================== -->
+
+<section class="bodybuilding-levels">
+
+    <div class="bodybuilding-heading">
+
+        <span class="section-label">
+            TRAINING LEVEL
+        </span>
+
+        <h2>
+            Find Your Level
+        </h2>
+
+        <p>
+            Start where you are and progress as you get stronger.
+        </p>
+
+    </div>
+
+
+    <div class="level-grid">
+
+
+        <!-- BEGINNER -->
+
+        <button
+            class="level-card"
+            onclick="filterBodybuildingDifficulty('Beginner')">
+
+            <span class="level-number">
+                01
+            </span>
+
+            <h3>
+                Beginner
+            </h3>
+
+            <p>
+                Learn the fundamentals, master your technique
+                and build a strong foundation.
+            </p>
+
+            <span class="level-link">
+                Explore Beginner →
+            </span>
+
+        </button>
+
+
+        <!-- INTERMEDIATE -->
+
+        <button
+            class="level-card"
+            onclick="filterBodybuildingDifficulty('Intermediate')">
+
+            <span class="level-number">
+                02
+            </span>
+
+            <h3>
+                Intermediate
+            </h3>
+
+            <p>
+                Increase training volume, improve strength
+                and continue building your physique.
+            </p>
+
+            <span class="level-link">
+                Explore Intermediate →
+            </span>
+
+        </button>
+
+
+        <!-- ADVANCED -->
+
+        <button
+            class="level-card"
+            onclick="filterBodybuildingDifficulty('Advanced')">
+
+            <span class="level-number">
+                03
+            </span>
+
+            <h3>
+                Advanced
+            </h3>
+
+            <p>
+                Push your training further with advanced
+                programming and greater intensity.
+            </p>
+
+            <span class="level-link">
+                Explore Advanced →
+            </span>
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     BODYBUILDING PHILOSOPHY
+========================================== -->
+
+<section class="bodybuilding-philosophy">
+
+    <div class="philosophy-content">
+
+        <span class="section-label">
+            THE STRENGTHHUB APPROACH
+        </span>
+
+        <h2>
+            Train Hard.<br>
+            Train Smart.
+        </h2>
+
+        <p>
+            Build your physique through consistent training,
+            progressive overload, proper technique and recovery.
+            StrengthHub is here to help you understand the process
+            — not just follow it.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer>
+
+    <h3>
+        StrengthHub
+    </h3>
+
+    <p>
+        Fitness Without Barriers
+    </p>
+
+    <p>
+        © 2026 StrengthHub by Abdulsalam
+    </p>
+
+</footer>
+
+
+<!-- ==========================================
+     BODYBUILDING JAVASCRIPT
+========================================== -->
+
+<script src="bodybuilding.js"></script>
+
+</body>
+
+</html>

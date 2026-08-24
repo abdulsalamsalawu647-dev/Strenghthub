@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StrengthHub | Profile</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header>
+
+    <div class="logo">
+        STRENGTH<span>HUB</span>
+    </div>
+
+    <nav id="main-nav">
+
+        <a href="index.html">Home</a>
+
+        <a href="workouts.html">Workouts</a>
+
+        <a href="map.html">Map</a>
+
+        <a href="Community.html">Community</a>
+
+        <a href="about.html">About</a>
+
+        <a href="contact.html">Contact</a>
+
+        <a href="shop.html">Aurex</a>
+
+        <a href="profile.html" class="active">
+            My Profile
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- ==========================================
+     PROFILE
+========================================== -->
+
+<main class="profile-page">
+
+    <section class="profile-card">
+
+        <!-- ==========================================
+             PROFILE HEADER
+        ========================================== -->
+
+        <div class="profile-header">
+
+            <div class="profile-avatar">
+
+                <img
+                    id="profileImage"
+                    src=""
+                    alt="Profile picture"
+                >
+
+                <span id="profileInitial">
+                    ?
+                </span>
+
+            </div>
+
+
+            <div class="profile-main-info">
+
+                <span class="section-label">
+                    STRENGTHHUB ATHLETE
+                </span>
+
+                <h1 id="profileUsername">
+                    Loading...
+                </h1>
+
+                <p id="profileFullName">
+                    Loading profile...
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==========================================
+             BIO
+        ========================================== -->
+
+        <div class="profile-bio">
+
+            <h3>
+                About Me
+            </h3>
+
+            <p id="profileBio">
+                No bio added yet.
+            </p>
+
+        </div>
+
+
+        <!-- ==========================================
+             FITNESS INFORMATION
+        ========================================== -->
+
+        <div class="profile-info-grid">
+
+            <div class="profile-info-box">
+
+                <span>
+                    DISCIPLINE
+                </span>
+
+                <strong id="profileDiscipline">
+                    Not set
+                </strong>
+
+            </div>
+
+
+            <div class="profile-info-box">
+
+                <span>
+                    EXPERIENCE
+                </span>
+
+                <strong id="profileExperience">
+                    Not set
+                </strong>
+
+            </div>
+
+
+            <div class="profile-info-box">
+
+                <span>
+                    TRAINING GOAL
+                </span>
+
+                <strong id="profileGoal">
+                    Not set
+                </strong>
+
+            </div>
+
+
+            <div class="profile-info-box">
+
+                <span>
+                    LOCATION
+                </span>
+
+                <strong id="profileLocation">
+                    Not set
+                </strong>
+
+            </div>
+
+
+            <div class="profile-info-box">
+
+                <span>
+                    MEMBER SINCE
+                </span>
+
+                <strong id="profileJoined">
+                    --
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==========================================
+             PROFILE ACTIONS
+        ========================================== -->
+
+        <div class="profile-actions">
+
+            <!-- MY PROFILE -->
+
+            <a
+                href="edit-profile.html"
+                id="editProfileButton"
+                class="profile-button"
+            >
+                EDIT PROFILE
+            </a>
+
+
+            <!-- OTHER ATHLETE -->
+
+            <button
+                id="connectButton"
+                class="profile-button"
+                type="button"
+                style="display: none;"
+            >
+                CONNECT
+            </button>
+
+
+            <!-- MY PROFILE -->
+
+            <button
+                id="logoutButton"
+                class="profile-button profile-logout"
+                type="button"
+            >
+                LOG OUT
+            </button>
+
+        </div>
+
+
+        <!-- CONNECTION MESSAGE -->
+
+        <p
+            id="connectionMessage"
+            class="account-message"
+        ></p>
+
+
+        <p
+            id="profileMessage"
+            class="account-message"
+        ></p>
+
+    </section>
+
+
+    <!-- ==========================================
+         PROFILE STATS
+    ========================================== -->
+
+    <section class="profile-stats">
+
+        <div class="profile-stat">
+
+            <strong id="workoutCount">
+                0
+            </strong>
+
+            <span>
+                WORKOUTS
+            </span>
+
+        </div>
+
+
+        <div class="profile-stat">
+
+            <strong id="achievementCount">
+                0
+            </strong>
+
+            <span>
+                ACHIEVEMENTS
+            </span>
+
+        </div>
+
+
+        <div class="profile-stat">
+
+            <strong id="postCount">
+                0
+            </strong>
+
+            <span>
+                POSTS
+            </span>
+
+        </div>
+
+    </section>
+    
+
+</main>
+
+
+<!-- ==========================================
+     SCRIPTS
+========================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="supabase.js"></script>
+
+<script src="profile.js"></script>
+
+</body>
+
+</html>

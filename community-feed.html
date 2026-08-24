@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Community Feed | StrengthHub</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header>
+
+    <div class="logo">
+        STRENGTH<span>HUB</span>
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="workouts.html">
+            Workouts
+        </a>
+
+        <a href="map.html">
+            Map
+        </a>
+
+        <a href="Community.html">
+            Community
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+        <a href="shop.html">
+            Aurex
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ==========================================
+     COMMUNITY FEED HERO
+========================================== -->
+
+<section class="community-feed-hero">
+
+    <div class="community-feed-hero-content">
+
+        <span class="section-label">
+            STRENGTHHUB COMMUNITY
+        </span>
+
+
+        <h1>
+
+            Community
+            <span>Feed.</span>
+
+        </h1>
+
+
+        <p>
+
+            Share your training journey,
+            celebrate your progress and
+            connect with other athletes.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     COMMUNITY FEED
+========================================== -->
+
+<main class="community-feed-container">
+
+
+    <!-- ======================================
+         CREATE POST
+    ======================================= -->
+
+    <section
+        class="community-create-post"
+        id="createPostSection"
+    >
+
+        <div class="community-create-header">
+
+            <div>
+
+                <span class="section-label">
+                    SHARE YOUR PROGRESS
+                </span>
+
+
+                <h2>
+                    What's happening?
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==================================
+             POST TYPE
+        =================================== -->
+
+        <div class="community-post-type">
+
+            <label for="postType">
+                WHAT ARE YOU SHARING?
+            </label>
+
+
+            <select
+                id="postType"
+                class="community-post-input"
+            >
+
+                <option value="Training Update">
+                    Training Update
+                </option>
+
+                <option value="Progress">
+                    Progress
+                </option>
+
+                <option value="Achievement">
+                    Achievement
+                </option>
+
+                <option value="Challenge">
+                    Challenge
+                </option>
+
+                <option value="Motivation">
+                    Motivation
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <!-- ==================================
+             POST CONTENT
+        =================================== -->
+
+        <textarea
+            id="postContent"
+            class="community-post-input"
+            placeholder="Share your training, progress, achievement or motivation..."
+            maxlength="1000"
+        ></textarea>
+
+
+
+        <!-- ==================================
+             CREATE POST ACTIONS
+        =================================== -->
+
+        <div class="community-create-actions">
+
+            <span
+                id="postCharacterCount"
+                class="community-character-count"
+            >
+                0 / 1000
+            </span>
+
+
+            <button
+                type="button"
+                id="createPostButton"
+                class="community-feature-btn"
+            >
+                POST
+            </button>
+
+        </div>
+
+
+
+        <!-- ==================================
+             POST MESSAGE
+        =================================== -->
+
+        <p
+            id="postMessage"
+            class="community-post-message"
+        ></p>
+
+    </section>
+
+
+
+    <!-- ======================================
+         LOGIN MESSAGE
+    ======================================= -->
+
+    <section
+        id="loginRequired"
+        class="community-login-required"
+        style="display: none;"
+    >
+
+        <span class="section-label">
+            STRENGTHHUB MEMBERS
+        </span>
+
+
+        <h2>
+            Join the conversation.
+        </h2>
+
+
+        <p>
+            Log in to share your training journey
+            with the StrengthHub community.
+        </p>
+
+
+        <a
+            href="login.html"
+            class="community-feature-btn"
+        >
+            LOG IN
+        </a>
+
+    </section>
+
+
+
+    <!-- ======================================
+         FEED HEADER
+    ======================================= -->
+
+    <section class="community-feed-section">
+
+        <div class="community-feed-heading">
+
+            <div>
+
+                <span class="section-label">
+                    COMMUNITY
+                </span>
+
+
+                <h2>
+                    Latest Posts
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="refreshFeedButton"
+                class="community-refresh-btn"
+            >
+                ↻ REFRESH
+            </button>
+
+        </div>
+
+
+
+        <!-- ==================================
+             LOADING
+        =================================== -->
+
+        <div
+            id="feedLoading"
+            class="community-feed-status"
+        >
+            Loading community posts...
+        </div>
+
+
+
+        <!-- ==================================
+             EMPTY STATE
+        =================================== -->
+
+        <div
+            id="feedEmpty"
+            class="community-feed-status"
+            style="display: none;"
+        >
+
+            <h3>
+                No posts yet.
+            </h3>
+
+
+            <p>
+                Be the first StrengthHub member
+                to share something with the community.
+            </p>
+
+        </div>
+
+
+
+        <!-- ==================================
+             POSTS
+        =================================== -->
+
+        <div
+            id="communityPosts"
+            class="community-posts"
+        ></div>
+
+    </section>
+
+</main>
+
+
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer>
+
+    <h3>
+        StrengthHub
+    </h3>
+
+
+    <p>
+        Fitness Without Barriers
+    </p>
+
+
+    <p>
+        © 2026 StrengthHub by Abdulsalam
+    </p>
+
+</footer>
+
+
+
+<!-- ==========================================
+     SCRIPTS
+========================================== -->
+
+<script src="script.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="supabase.js"></script>
+
+<script src="community-feed.js"></script>
+
+
+</body>
+
+</html>

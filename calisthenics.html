@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calisthenics | StrengthHub</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header>
+
+    <div class="logo">
+        STRENGTH<span>HUB</span>
+    </div>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+
+        <a href="workouts.html">Workouts</a>
+
+       
+
+        <a href="map.html">Map</a>
+
+        <a href="Community.html">Community</a>
+
+        <a href="about.html">About</a>
+
+        <a href="contact.html">Contact</a>
+
+        <a href="shop.html">Aurex</a>
+
+    </nav>
+
+</header>
+
+
+<!-- ==========================================
+     CALISTHENICS HERO
+========================================== -->
+
+<section class="training-hero calisthenics-hero">
+
+    <div class="training-hero-content">
+
+        <span class="section-label">
+            STRENGTHHUB • CALISTHENICS
+        </span>
+
+        <h1>
+            Master Your Body.<br>
+            <span>Master Your Strength.</span>
+        </h1>
+
+        <p>
+            Build incredible bodyweight strength, control
+            and movement through structured calisthenics
+            training — from your first push-up to advanced skills.
+        </p>
+
+        <div class="training-buttons">
+
+            <a href="#exercise-database" class="hero-btn">
+                Start Training
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+<div class="training-heading">
+
+    <span class="section-label">
+        CALISTHENICS EXERCISE LIBRARY
+    </span>
+
+    <h2>
+        Find Your Exercise
+    </h2>
+
+    <p>
+        Explore calisthenics exercises by movement,
+        difficulty and training goal.
+    </p>
+
+</div>
+
+
+<!-- ==========================================
+     INTRO
+========================================== -->
+
+<section class="training-intro">
+
+    <div class="training-intro-content">
+
+        <span class="section-label">
+            CALISTHENICS TRAINING
+        </span>
+
+        <h2>
+            Strength. Control. Skill.
+        </h2>
+
+        <p>
+            Calisthenics combines strength, mobility, balance
+            and body control. Build your foundation first,
+            then progress towards advanced movements and skills.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     EXERCISE DATABASE
+========================================== -->
+
+<section class="exercise-section" id="exercise-database">
+
+    <div class="training-heading">
+
+        <span class="section-label">
+            EXERCISE DATABASE
+        </span>
+
+        <h2>
+            Find Your Exercise
+        </h2>
+
+        <p>
+            Explore calisthenics exercises by movement,
+            difficulty and training goal.
+        </p>
+
+    </div>
+
+
+    <!-- ======================================
+         SEARCH
+    ======================================= -->
+
+    <div class="exercise-search">
+
+        <input
+            type="text"
+            id="exerciseSearch"
+            placeholder="Search exercises..."
+            onkeyup="searchExercises()"
+        >
+
+    </div>
+
+
+    <!-- ======================================
+         FILTER BUTTONS
+    ======================================= -->
+
+    <div class="exercise-filters">
+
+        <button
+            class="filter-btn active"
+            onclick="filterExercises('all')">
+            All
+        </button>
+
+        <button
+            class="filter-btn"
+            onclick="filterExercises('push')">
+            Push
+        </button>
+
+        <button
+            class="filter-btn"
+            onclick="filterExercises('pull')">
+            Pull
+        </button>
+
+        <button
+            class="filter-btn"
+            onclick="filterExercises('legs')">
+            Legs
+        </button>
+
+        <button
+            class="filter-btn"
+            onclick="filterExercises('core')">
+            Core
+        </button>
+
+        <button
+            class="filter-btn"
+            onclick="filterExercises('skills')">
+            Skills
+        </button>
+
+        <button
+            class="filter-btn"
+            onclick="filterExercises('fullbody')">
+            Full Body
+        </button>
+
+    </div>
+
+
+    <!-- ======================================
+         EXERCISE CARDS
+    ======================================= -->
+
+    <div
+        class="exercise-grid"
+        id="exerciseGrid">
+
+        <!-- JavaScript will insert exercises here -->
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     EXERCISE MODAL
+========================================== -->
+
+<div
+    class="exercise-modal"
+    id="exerciseModal">
+
+    <div class="exercise-modal-content">
+
+        <button
+            class="close-modal"
+            onclick="closeExercise()">
+            ×
+        </button>
+
+
+        <span
+            class="exercise-modal-category"
+            id="modalCategory">
+        </span>
+
+
+        <h2 id="modalTitle">
+            Exercise
+        </h2>
+
+
+        <div class="exercise-modal-info">
+
+            <div>
+                <span>Difficulty</span>
+                <strong id="modalDifficulty"></strong>
+            </div>
+
+            <div>
+                <span>Target</span>
+                <strong id="modalMuscles"></strong>
+            </div>
+
+            <div>
+                <span>Equipment</span>
+                <strong id="modalEquipment"></strong>
+            </div>
+
+        </div>
+
+
+        <div class="exercise-workout-details">
+
+            <div>
+
+                <span>
+                    Sets
+                </span>
+
+                <strong id="modalSets">
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Reps
+                </span>
+
+                <strong id="modalReps">
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Rest
+                </span>
+
+                <strong id="modalRest">
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="exercise-description">
+
+            <h3>
+                How To Perform
+            </h3>
+
+            <p id="modalDescription">
+            </p>
+
+        </div>
+
+
+        <div class="exercise-progression">
+
+            <div>
+
+                <h3>
+                    Progression
+                </h3>
+
+                <p id="modalProgression">
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Regression
+                </h3>
+
+                <p id="modalRegression">
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     CALISTHENICS LEVELS
+========================================== -->
+
+<section class="training-levels">
+
+    <div class="training-heading">
+
+        <span class="section-label">
+            YOUR LEVEL
+        </span>
+
+        <h2>
+            Progress At Your Own Pace
+        </h2>
+
+        <p>
+            Start with the fundamentals and build towards
+            advanced bodyweight skills.
+        </p>
+
+    </div>
+
+
+    <div class="level-grid">
+
+
+        <!-- BEGINNER -->
+
+        <button
+            class="level-card"
+            onclick="filterDifficulty('Beginner')">
+
+            <span class="level-number">
+                01
+            </span>
+
+            <h3>
+                Beginner
+            </h3>
+
+            <p>
+                Build your foundation with basic movements,
+                technique and body control.
+            </p>
+
+            <span class="level-link">
+                Start Beginner →
+            </span>
+
+        </button>
+
+
+        <!-- INTERMEDIATE -->
+
+        <button
+            class="level-card"
+            onclick="filterDifficulty('Intermediate')">
+
+            <span class="level-number">
+                02
+            </span>
+
+            <h3>
+                Intermediate
+            </h3>
+
+            <p>
+                Increase your strength and begin working
+                towards more demanding movements.
+            </p>
+
+            <span class="level-link">
+                Train Intermediate →
+            </span>
+
+        </button>
+
+
+        <!-- ADVANCED -->
+
+        <button
+            class="level-card"
+            onclick="filterDifficulty('Advanced')">
+
+            <span class="level-number">
+                03
+            </span>
+
+            <h3>
+                Advanced
+            </h3>
+
+            <p>
+                Challenge your body with advanced skills,
+                strength holds and complex movements.
+            </p>
+
+            <span class="level-link">
+                Explore Advanced →
+            </span>
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     PHILOSOPHY
+========================================== -->
+
+<section class="training-philosophy">
+
+    <div class="philosophy-content">
+
+        <span class="section-label">
+            THE STRENGTHHUB APPROACH
+        </span>
+
+        <h2>
+            Control Your Body.<br>
+            Control Your Progress.
+        </h2>
+
+        <p>
+            Calisthenics isn't about rushing into advanced
+            skills. Build the fundamentals, develop strength,
+            improve your technique and progress one movement
+            at a time.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer>
+
+    <h3>
+        StrengthHub
+    </h3>
+
+    <p>
+        Fitness Without Barriers
+    </p>
+
+    <p>
+        © 2026 StrengthHub by Abdulsalam
+    </p>
+
+</footer>
+
+
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
+<script src="calisthenics.js"></script>
+
+</body>
+
+</html>

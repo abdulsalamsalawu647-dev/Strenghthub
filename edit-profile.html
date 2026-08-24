@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StrengthHub | Edit Profile</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        STRENGTH<span>HUB</span>
+    </div>
+
+    <nav id="main-nav">
+
+        <a href="index.html">Home</a>
+        <a href="workouts.html">Workouts</a>
+        <a href="map.html">Map</a>
+        <a href="Community.html">Community</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="shop.html">Aurex</a>
+        <a href="profile.html">My Profile</a>
+
+    </nav>
+
+</header>
+
+
+<main class="edit-profile-page">
+
+    <div class="edit-profile-container">
+
+        <span class="section-label">
+            STRENGTHHUB PROFILE
+        </span>
+
+        <h1>Edit Profile</h1>
+
+        <p class="edit-profile-subtitle">
+            Update your StrengthHub profile.
+        </p>
+
+
+        <form id="editProfileForm">
+
+
+            <div class="profile-image-preview">
+
+                <div id="profileAvatar">
+                    ?
+                </div>
+
+            </div>
+
+
+            <label for="username">
+                Username
+            </label>
+
+            <input
+                type="text"
+                id="username"
+                required
+            >
+
+
+            <label for="fullname">
+                Full Name
+            </label>
+
+            <input
+                type="text"
+                id="fullname"
+                required
+            >
+
+
+            <label for="bio">
+                Bio
+            </label>
+
+            <textarea
+                id="bio"
+                rows="5"
+                placeholder="Tell the StrengthHub community about yourself..."
+            ></textarea>
+            <label for="discipline">
+    Training Discipline
+</label>
+
+<select id="discipline">
+
+    <option value="">
+        Select your discipline
+    </option>
+
+    <option value="Calisthenics">
+        Calisthenics
+    </option>
+
+    <option value="Bodybuilding">
+        Bodybuilding
+    </option>
+
+    <option value="Powerlifting">
+        Powerlifting
+    </option>
+
+    <option value="General Fitness">
+        General Fitness
+    </option>
+
+    <option value="Running">
+        Running
+    </option>
+
+    <option value="Other">
+        Other
+    </option>
+
+</select>
+
+
+<label for="experience_level">
+    Experience Level
+</label>
+
+<select id="experience_level">
+
+    <option value="">
+        Select your experience
+    </option>
+
+    <option value="Beginner">
+        Beginner
+    </option>
+
+    <option value="Intermediate">
+        Intermediate
+    </option>
+
+    <option value="Advanced">
+        Advanced
+    </option>
+
+</select>
+
+
+<label for="training_goal">
+    Training Goal
+</label>
+
+<select id="training_goal">
+
+    <option value="">
+        Select your goal
+    </option>
+
+    <option value="Build Strength">
+        Build Strength
+    </option>
+
+    <option value="Build Muscle">
+        Build Muscle
+    </option>
+
+    <option value="Learn Skills">
+        Learn Skills
+    </option>
+
+    <option value="Lose Weight">
+        Lose Weight
+    </option>
+
+    <option value="General Fitness">
+        General Fitness
+    </option>
+
+</select>
+
+
+<label for="location">
+    Training Location
+</label>
+
+<input
+    type="text"
+    id="location"
+    placeholder="e.g. London"
+>
+
+
+            <label for="profile_image">
+                Profile Image URL
+            </label>
+
+           <input
+             type="text"
+             id="profile_image"
+             placeholder="images/dave.jpg"
+          >
+            
+
+
+            <button
+                type="submit"
+                class="profile-button"
+            >
+                SAVE CHANGES
+            </button>
+
+
+            <a
+                href="profile.html"
+                class="edit-cancel"
+            >
+                Cancel
+            </a>
+
+
+            <p
+                id="editProfileMessage"
+                class="account-message"
+            ></p>
+
+        </form>
+
+    </div>
+
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="supabase.js"></script>
+
+<script src="edit-profile.js"></script>
+
+</body>
+
+</html>

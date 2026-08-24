@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StrengthHub | My Account</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header>
+
+    <div class="logo">
+        STRENGTH<span>HUB</span>
+    </div>
+
+    <nav id="main-nav">
+
+        <a href="index.html">Home</a>
+
+        <a href="workouts.html">Workouts</a>
+
+        <a href="map.html">Map</a>
+
+        <a href="Community.html">Community</a>
+
+        <a href="about.html">About</a>
+
+        <a href="contact.html">Contact</a>
+
+        <a href="shop.html">Aurex</a>
+
+        <a href="account.html">My Account</a>
+
+    </nav>
+
+</header>
+
+
+<!-- ==========================================
+     ACCOUNT
+========================================== -->
+
+<main class="account-page">
+
+    <div class="account-container">
+
+        <h1 id="accountTitle">My Account</h1>
+
+        <p id="accountSubtitle" class="account-subtitle">
+            Welcome to StrengthHub
+        </p>
+
+
+        <!-- LOGGED OUT -->
+
+        <div id="loggedOutSection">
+
+            <a href="login.html" class="account-button">
+                Log In
+            </a>
+
+            <div class="account-divider">
+                <span>OR</span>
+            </div>
+
+            <p class="account-create-text">
+                Don't have a StrengthHub account?
+            </p>
+
+            <a href="signup.html"
+               class="account-button account-button-outline">
+                Create Account
+            </a>
+
+        </div>
+
+
+        <!-- LOGGED IN -->
+
+        <div id="loggedInSection" style="display: none;">
+
+            <p class="account-subtitle">
+                Welcome back,
+                <strong id="accountUsername"></strong> 👋
+            </p>
+
+            <a href="profile.html" class="account-button">
+                My Profile
+            </a>
+
+            <button id="accountLogout"
+                    class="account-button account-logout">
+                Log Out
+            </button>
+
+            <p id="accountMessage"
+               class="account-message"></p>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+<script src="account.js"></script>
+
+</body>
+
+</html>
