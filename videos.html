@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aurex | Videos</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="videos.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header>
+
+    <div class="logo">
+        Aurex<span>HUB</span>
+    </div>
+
+    <nav id="main-nav">
+
+        <a href="index.html">Home</a>
+
+        <a href="workouts.html">Workouts</a>
+
+        <a href="videos.html">Videos</a>
+
+        <a href="map.html">Map</a>
+
+        <a href="community.html">community</a>
+
+        <a href="about.html">About</a>
+
+        <a href="contact.html">Contact</a>
+
+        <a href="shop.html">Aurex</a>
+
+        <a href="account.html">Account</a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ==========================================
+     VIDEOS HERO
+========================================== -->
+
+<section class="videos-hero">
+
+    <div class="videos-hero-content">
+
+        <span class="videos-label">
+            AUREX MEDIA
+        </span>
+
+        <h1>
+            TRAIN.<br>
+            <span>WATCH.</span><br>
+            PROGRESS.
+        </h1>
+
+        <p>
+            Training, athletes, events and fitness content from Aurex.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     VIDEO LIBRARY
+========================================== -->
+
+<section class="videos-section">
+
+    <div class="videos-section-heading">
+
+        <span class="section-label">
+            AUREX VIDEOS
+        </span>
+
+        <h2>
+            Watch & Learn.
+        </h2>
+
+        <p>
+            Explore training, athletes, events and fitness content.
+        </p>
+
+    </div>
+
+
+    <p id="videosMessage">
+        Loading videos...
+    </p>
+
+
+    <section
+        id="videoGrid"
+        class="video-grid"
+    ></section>
+
+</section>
+
+
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer>
+
+    <h3>
+        AurexHub
+    </h3>
+
+    <p>
+        Fitness Without Barriers
+    </p>
+
+    <p>
+        © 2026 AurexHub by Abdulsalam
+    </p>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="supabase.js"></script>
+
+
+<script>
+
+async function loadVideos() {
+
+    const message =
+        document.getElementById("videosMessage");
+
+    const grid =
+        document.getElementById("videoGrid");
+
+
+    const {
+        data: videos,
+        error
+    } =
+        await supabaseClient
+            .from("videos")
+            .select("*")
+            .order("created_at", {
+                ascending: false
+            });
+
+
+    if (error) {
+
+        console.error(error);
+
+        message.textContent =
+            "Unable to load videos.";
+
+        return;
+
+    }
+
+
+    if (!videos || videos.length === 0) {
+
+        message.textContent =
+            "No videos available yet.";
+
+        return;
+
+    }
+
+
+    message.textContent = "";
+
+
+    for (const video of videos) {
+
+        const {
+            data: signedUrlData,
+            error: signedUrlError
+        } =
+            await supabaseClient
+                .storage
+                .from("aurex-video")
+                .createSignedUrl(
+                    video.file_path,
+                    3600
+                );
+
+
+        if (signedUrlError) {
+
+            console.error(
+                signedUrlError
+            );
+
+            continue;
+
+        }
+
+
+        const card =
+            document.createElement("article");
+
+        card.className =
+            "video-card";
+
+
+        card.innerHTML = `
+
+            <video
+                class="video-player"
+                controls
+                preload="metadata"
+            >
+
+                <source
+                    src="${signedUrlData.signedUrl}"
+                >
+
+                Your browser does not support video playback.
+
+            </video>
+
+
+            <div class="video-info">
+
+                <span class="video-category">
+                    ${video.category || ""}
+                </span>
+
+                <h3>
+                    ${video.title}
+                </h3>
+
+                <p>
+                    ${video.description || ""}
+                </p>
+
+            </div>
+
+        `;
+
+
+        grid.appendChild(card);
+
+    }
+
+}
+
+
+loadVideos();
+
+</script>
+
+
+</body>
+
+</html>

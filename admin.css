@@ -1,0 +1,393 @@
+/* =========================================
+   AUREX ADMIN DASHBOARD
+   BLACK / GREEN / WHITE
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #000;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.admin-header {
+    width: 100%;
+    height: 72px;
+    padding: 0 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #000;
+    border-bottom: 1px solid #1f7a3f;
+}
+
+.admin-logo {
+    color: #22c55e;
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.admin-label {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+
+/* =========================================
+   MAIN
+   ========================================= */
+
+.admin-container {
+    width: min(900px, 92%);
+    margin: 55px auto;
+}
+
+.admin-title {
+    color: #fff;
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.admin-subtitle {
+    color: #999;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+
+/* =========================================
+   ADMIN STATUS
+   ========================================= */
+
+#adminMessage {
+    margin-bottom: 25px;
+    color: #22c55e;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   ADMIN CARD
+   ========================================= */
+
+.admin-card {
+    background: #0a0a0a;
+    border: 1px solid #1f7a3f;
+    border-radius: 14px;
+    padding: 35px;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
+}
+
+.admin-card h2 {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.admin-card p {
+    color: #999;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   FORM
+   ========================================= */
+
+#videoUploadForm {
+    margin-top: 30px;
+}
+
+#videoUploadForm label {
+    display: block;
+
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    margin-top: 22px;
+    margin-bottom: 8px;
+}
+
+
+/* =========================================
+   INPUTS
+   ========================================= */
+
+#videoUploadForm input[type="text"],
+#videoUploadForm textarea,
+#videoUploadForm select {
+    width: 100%;
+
+    padding: 14px 15px;
+
+    background: #111;
+    color: #fff;
+
+    border: 1px solid #333;
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+#videoUploadForm input[type="text"]:focus,
+#videoUploadForm textarea:focus,
+#videoUploadForm select:focus {
+    border-color: #22c55e;
+    box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.12);
+}
+
+#videoUploadForm textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+#videoUploadForm select {
+    cursor: pointer;
+}
+
+
+/* =========================================
+   FILE INPUT
+   ========================================= */
+
+#videoUploadForm input[type="file"] {
+    width: 100%;
+
+    padding: 12px;
+
+    background: #111;
+    color: #aaa;
+
+    border: 1px dashed #1f7a3f;
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+#videoUploadForm input[type="file"]:hover {
+    border-color: #22c55e;
+}
+
+
+/* =========================================
+   UPLOAD BUTTON
+   ========================================= */
+
+.admin-button {
+    margin-top: 30px;
+
+    padding: 14px 28px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #22c55e;
+    color: #000;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.admin-button:hover {
+    background: #16a34a;
+    color: #fff;
+
+    transform: translateY(-1px);
+}
+
+.admin-button:disabled {
+    background: #245c38;
+    color: #999;
+
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* =========================================
+   UPLOAD MESSAGE
+   ========================================= */
+
+#uploadMessage {
+    margin-top: 18px;
+
+    color: #22c55e;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .admin-header {
+        height: 65px;
+        padding: 0 20px;
+    }
+
+    .admin-logo {
+        font-size: 21px;
+    }
+
+    .admin-label {
+        font-size: 11px;
+    }
+
+    .admin-container {
+        width: 92%;
+        margin: 35px auto;
+    }
+
+    .admin-title {
+        font-size: 30px;
+    }
+
+    .admin-card {
+        padding: 22px;
+    }
+
+    .admin-button {
+        width: 100%;
+    }
+}
+/* =========================================
+   VIDEO LIBRARY
+   ========================================= */
+
+.admin-divider {
+    margin: 40px 0 30px;
+    border: 0;
+    border-top: 1px solid #222;
+}
+
+.library-title {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.library-subtitle {
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.video-library {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.library-video {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 10px;
+}
+
+.library-video-info h3 {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.library-video-info p {
+    color: #22c55e;
+    font-size: 13px;
+}
+
+.delete-video-button {
+    padding: 10px 16px;
+    border: 1px solid #7f1d1d;
+    border-radius: 7px;
+    background: transparent;
+    color: #ef4444;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.delete-video-button:hover {
+    background: #7f1d1d;
+    color: #fff;
+}
+
+.delete-video-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .library-video {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .delete-video-button {
+        width: 100%;
+    }
+
+}
+/* =========================================
+   ADMIN NAVIGATION
+   ========================================= */
+
+#main-nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+#main-nav a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+#main-nav a:hover {
+    color: #22c55e;
+}

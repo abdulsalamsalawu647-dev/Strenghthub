@@ -1,0 +1,153 @@
+/* =========================================
+   AUREX VIDEOS
+========================================= */
+
+.videos-hero {
+    min-height: 55vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: #050505;
+    border-bottom: 1px solid #222;
+}
+
+.videos-hero-content {
+    width: min(1100px, 90%);
+    margin: auto;
+}
+
+.videos-label {
+    color: #22c55e;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.videos-hero h1 {
+    margin-top: 18px;
+    font-size: clamp(48px, 7vw, 90px);
+    line-height: 0.95;
+    color: #fff;
+}
+
+.videos-hero h1 span {
+    color: #22c55e;
+}
+
+.videos-hero p {
+    max-width: 550px;
+    margin-top: 25px;
+    color: #999;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   VIDEO SECTION
+========================================= */
+
+.videos-section {
+    width: min(1200px, 90%);
+    margin: 90px auto;
+}
+
+.videos-section-heading {
+    margin-bottom: 45px;
+}
+
+.videos-section-heading h2 {
+    margin-top: 10px;
+    color: #fff;
+    font-size: 42px;
+}
+
+.videos-section-heading p {
+    margin-top: 12px;
+    color: #999;
+    line-height: 1.6;
+}
+
+#videosMessage {
+    color: #999;
+    margin-bottom: 25px;
+}
+
+
+/* =========================================
+   VIDEO GRID
+========================================= */
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.video-card {
+    overflow: hidden;
+    background: #0a0a0a;
+    border: 1px solid #222;
+    border-radius: 10px;
+    transition: 0.2s ease;
+}
+
+.video-card:hover {
+    border-color: #22c55e;
+    transform: translateY(-3px);
+}
+
+.video-player {
+    width: 100%;
+    display: block;
+    background: #000;
+}
+
+.video-info {
+    padding: 22px;
+}
+
+.video-category {
+    color: #22c55e;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.video-info h3 {
+    margin-top: 9px;
+    color: #fff;
+    font-size: 22px;
+}
+
+.video-info p {
+    margin-top: 10px;
+    color: #999;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .videos-hero {
+        min-height: 50vh;
+    }
+
+    .videos-section {
+        margin: 60px auto;
+    }
+
+    .videos-section-heading h2 {
+        font-size: 34px;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+
+}

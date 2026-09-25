@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>StrengthHub | My Account</title>
+    <title> AUREXHUB | My Account</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -21,7 +21,7 @@
 <header>
 
     <div class="logo">
-        STRENGTH<span>HUB</span>
+        AUREX<span>HUB</span>
     </div>
 
     <nav id="main-nav">
@@ -37,11 +37,13 @@
         <a href="about.html">About</a>
 
         <a href="contact.html">Contact</a>
+         <a href="shop.html">Aurex</a>
 
-        <a href="shop.html">Aurex</a>
+         <a href="account.html">My Account</a>
 
-        <a href="account.html">My Account</a>
-
+<a href="admin.html" id="adminNavLink" style="display: none;">
+    Admin
+</a>
     </nav>
 
 </header>
@@ -55,33 +57,35 @@
 
     <div class="account-container">
 
-        <h1 id="accountTitle">My Account</h1>
-
-        <p id="accountSubtitle" class="account-subtitle">
-            Welcome to StrengthHub
-        </p>
-
-
         <!-- LOGGED OUT -->
 
         <div id="loggedOutSection">
 
-            <a href="login.html" class="account-button">
-                Log In
-            </a>
+            <span class="account-label">
+                MY ACCOUNT
+            </span>
 
-            <div class="account-divider">
-                <span>OR</span>
-            </div>
+            <h1>
+                Welcome to<br>
+                AurexHub!
+            </h1>
 
-            <p class="account-create-text">
-                Don't have a StrengthHub account?
+            <p class="account-subtitle">
+                Log in to access your account and continue your training journey.
             </p>
 
-            <a href="signup.html"
-               class="account-button account-button-outline">
-                Create Account
-            </a>
+            <div class="account-actions">
+
+                <a href="login.html" class="account-button">
+                    Log In
+                </a>
+
+                <a href="signup.html"
+                   class="account-button account-button-outline">
+                    Create Account
+                </a>
+
+            </div>
 
         </div>
 
@@ -90,19 +94,31 @@
 
         <div id="loggedInSection" style="display: none;">
 
-            <p class="account-subtitle">
-                Welcome back,
+            <span class="account-label">
+                MY ACCOUNT
+            </span>
+
+            <h1>
+                Welcome back,<br>
                 <strong id="accountUsername"></strong> 👋
+            </h1>
+
+            <p class="account-subtitle">
+                Keep training. Keep progressing.
             </p>
 
-            <a href="profile.html" class="account-button">
-                My Profile
-            </a>
+            <div class="account-actions">
 
-            <button id="accountLogout"
-                    class="account-button account-logout">
-                Log Out
-            </button>
+                <a href="profile.html" class="account-button">
+                    My Profile
+                </a>
+
+                <button id="accountLogout"
+                        class="account-button account-logout">
+                    Log Out
+                </button>
+
+            </div>
 
             <p id="accountMessage"
                class="account-message"></p>

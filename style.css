@@ -15480,3 +15480,131 @@ section.community-login-required {
     }
 
 }
+/* =========================================
+   ACCOUNT PAGE
+========================================= */
+
+.account-page {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    padding: 80px 20px;
+    background: #050505;
+}
+
+.account-container {
+    width: min(1000px, 90%);
+    margin: 0 auto;
+}
+
+.account-label {
+    display: block;
+    color: #22c55e;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.account-container h1 {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(45px, 7vw, 80px);
+    line-height: 1;
+}
+
+.account-container h1 strong {
+    color: #22c55e;
+    font-weight: 700;
+}
+
+.account-subtitle {
+    max-width: 500px;
+    margin-top: 25px;
+    color: #999;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.account-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 35px;
+    flex-wrap: wrap;
+}
+
+.account-button {
+    display: inline-block;
+    padding: 13px 24px;
+    border: 1px solid #22c55e;
+    border-radius: 6px;
+    background: #22c55e;
+    color: #000;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.account-button:hover {
+    background: #16a34a;
+    border-color: #16a34a;
+}
+
+.account-button-outline {
+    background: transparent;
+    color: #fff;
+    border-color: #333;
+}
+
+.account-button-outline:hover {
+    background: #111;
+    border-color: #22c55e;
+    color: #fff;
+}
+
+.account-logout {
+    background: transparent;
+    border-color: #333;
+    color: #fff;
+}
+
+.account-logout:hover {
+    background: #111;
+    border-color: #ef4444;
+    color: #fff;
+}
+
+.account-message {
+    margin-top: 15px;
+    color: #ef4444;
+    font-size: 14px;
+}
+
+@media (max-width: 700px) {
+
+    .account-page {
+        min-height: calc(100vh - 70px);
+        padding: 60px 20px;
+    }
+
+    .account-container {
+        width: 100%;
+    }
+
+    .account-container h1 {
+        font-size: 48px;
+    }
+
+    .account-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .account-button {
+        text-align: center;
+    }
+
+}
