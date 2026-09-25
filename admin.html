@@ -19,7 +19,7 @@
     <script src="supabase.js"></script>
 
 </head>
-S
+
 
 <body>
 
@@ -483,7 +483,186 @@ async function loadVideoLibrary() {
 
 }
 
+// ==========================================
+// VIDEO UPLOAD
+// ==========================================
 
+const videoUploadForm =
+    document.getElementById("videoUploadForm");
+
+const uploadButton =
+    document.getElementById("uploadButton");
+
+const uploadMessage =
+    document.getElementById("uploadMessage");
+
+
+videoUploadForm.addEventListener(
+    "submit",
+    async function (event) {
+
+        event.preventDefault();
+
+
+        const title =
+            document.getElementById("videoTitle").value.trim();
+
+        const description =
+            document.getElementById("videoDescription").value.trim();
+
+        const category =
+            document.getElementById("videoCategory").value;
+
+        const file =
+            document.getElementById("videoFile").files[0];
+
+
+        if (!title || !category || !file) {
+
+            uploadMessage.textContent =
+                "Please complete all required fields.";
+
+            return;
+
+        }
+
+
+        uploadButton.disabled = true;
+
+        uploadButton.textContent =
+            "Uploading...";
+
+        uploadMessage.textContent =
+            "Uploading video...";
+
+
+        try {
+
+            // ==========================================
+            // CREATE UNIQUE FILE NAME
+            // ==========================================
+
+            const fileExtension =
+                file.name.split(".").pop();
+
+            const fileName =
+                `${Date.now()}-${crypto.randomUUID()}.${fileExtension}`;
+
+
+            const filePath =
+                `videos/${fileName}`;
+
+
+            // ==========================================
+            // UPLOAD VIDEO TO STORAGE
+            // ==========================================
+
+            const {
+                error: storageError
+            } =
+                await supabaseClient
+                    .storage
+                    .from("aurex-video")
+                    .upload(
+                        filePath,
+                        file,
+                        {
+                            cacheControl: "3600",
+                            upsert: false,
+                            contentType: file.type
+                        }
+                    );
+
+
+            if (storageError) {
+
+                console.error(
+                    "Storage upload error:",
+                    storageError
+                );
+
+                throw storageError;
+
+            }
+
+
+            // ==========================================
+            // SAVE VIDEO INFORMATION
+            // ==========================================
+
+            const {
+                error: databaseError
+            } =
+                await supabaseClient
+                    .from("videos")
+                    .insert({
+                        title: title,
+                        description: description,
+                        category: category,
+                        file_path: filePath
+                    });
+
+
+            if (databaseError) {
+
+                console.error(
+                    "Database error:",
+                    databaseError
+                );
+
+
+                // Remove uploaded file if database
+                // record could not be created
+
+                await supabaseClient
+                    .storage
+                    .from("aurex-video")
+                    .remove([
+                        filePath
+                    ]);
+
+
+                throw databaseError;
+
+            }
+
+
+            // ==========================================
+            // SUCCESS
+            // ==========================================
+
+            uploadMessage.textContent =
+                "Video uploaded successfully!";
+
+
+            videoUploadForm.reset();
+
+
+            await loadVideoLibrary();
+
+
+        } catch (error) {
+
+            console.error(
+                "Video upload failed:",
+                error
+            );
+
+
+            uploadMessage.textContent =
+                error.message ||
+                "Video upload failed.";
+
+        }
+
+
+        uploadButton.disabled = false;
+
+        uploadButton.textContent =
+            "Upload Video";
+
+    }
+);
 // Load library
 
 loadVideoLibrary();
