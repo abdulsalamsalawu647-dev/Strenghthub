@@ -107,9 +107,45 @@
 
 
     <p id="videosMessage">
-        Loading videos...
-    </p>
+    Loading videos...
+</p>
 
+<div class="video-filters">
+
+    <button class="video-filter active" data-category="all">
+        All
+    </button>
+
+    <button class="video-filter" data-category="Workouts">
+        Workouts
+    </button>
+
+    <button class="video-filter" data-category="Calisthenics">
+        Calisthenics
+    </button>
+
+    <button class="video-filter" data-category="Athletes">
+        Athletes
+    </button>
+
+    <button class="video-filter" data-category="Events">
+        Events
+    </button>
+
+    <button class="video-filter" data-category="Nutrition">
+        Nutrition
+    </button>
+
+    <button class="video-filter" data-category="Other">
+        Other
+    </button>
+
+</div>
+
+<section
+    id="videoGrid"
+    class="video-grid"
+></section>
 
     <section
         id="videoGrid"
@@ -148,8 +184,9 @@
 
 <script src="supabase.js"></script>
 
-
 <script>
+
+let allVideos = [];
 
 async function loadVideos() {
 
@@ -194,7 +231,32 @@ async function loadVideos() {
     }
 
 
+    allVideos = videos;
+
     message.textContent = "";
+
+    displayVideos(allVideos);
+
+}
+
+
+async function displayVideos(videos) {
+
+    const grid =
+        document.getElementById("videoGrid");
+
+
+    grid.innerHTML = "";
+
+
+    if (videos.length === 0) {
+
+        grid.innerHTML =
+            "<p>No videos found in this category.</p>";
+
+        return;
+
+    }
 
 
     for (const video of videos) {
@@ -273,9 +335,61 @@ async function loadVideos() {
 }
 
 
+// ==========================================
+// VIDEO FILTERS
+// ==========================================
+
+const filterButtons =
+    document.querySelectorAll(".video-filter");
+
+
+filterButtons.forEach(button => {
+
+    button.addEventListener(
+        "click",
+        function () {
+
+            filterButtons.forEach(btn => {
+
+                btn.classList.remove("active");
+
+            });
+
+
+            this.classList.add("active");
+
+
+            const category =
+                this.dataset.category;
+
+
+            if (category === "all") {
+
+                displayVideos(allVideos);
+
+                return;
+
+            }
+
+
+            const filteredVideos =
+                allVideos.filter(video =>
+                    video.category === category
+                );
+
+
+            displayVideos(filteredVideos);
+
+        }
+    );
+
+});
+
+
 loadVideos();
 
 </script>
+
 
 
 </body>

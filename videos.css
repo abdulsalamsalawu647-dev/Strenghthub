@@ -151,3 +151,49 @@
     }
 
 }
+/* ==========================================
+   VIDEO FILTERS
+========================================== */
+
+.video-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 30px 0 35px;
+}
+
+.video-filter {
+    padding: 10px 18px;
+    border: 1px solid #333;
+    border-radius: 6px;
+    background: transparent;
+    color: #aaa;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.video-filter:hover {
+    border-color: #22c55e;
+    color: #fff;
+}
+
+.video-filter.active {
+    background: #22c55e;
+    border-color: #22c55e;
+    color: #000;
+}
+
+@media (max-width: 700px) {
+
+    .video-filters {
+        gap: 8px;
+    }
+
+    .video-filter {
+        padding: 9px 14px;
+        font-size: 12px;
+    }
+
+}
