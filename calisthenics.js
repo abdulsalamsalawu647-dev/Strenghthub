@@ -1050,6 +1050,15 @@ function openExercise(exerciseName) {
         exercise.regression;
 
 
+    /* ==========================================
+       LINK EXERCISE TO VIDEOS
+    ========================================== */
+
+    document.querySelector(".exercise-video-btn")
+        .href =
+        `videos.html?exercise=${encodeURIComponent(exercise.name)}`;
+
+
     exerciseModal.classList.add("active");
 
 

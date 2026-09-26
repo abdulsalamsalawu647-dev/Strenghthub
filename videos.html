@@ -107,50 +107,72 @@
 
 
     <p id="videosMessage">
-    Loading videos...
-</p>
+        Loading videos...
+    </p>
 
-<div class="video-filters">
 
-    <button class="video-filter active" data-category="all">
-        All
-    </button>
+    <div class="video-filters">
 
-    <button class="video-filter" data-category="Workouts">
-        Workouts
-    </button>
+        <button
+            class="video-filter active"
+            data-category="all">
 
-    <button class="video-filter" data-category="Calisthenics">
-        Calisthenics
-    </button>
+            All
 
-    <button class="video-filter" data-category="Athletes">
-        Athletes
-    </button>
+        </button>
 
-    <button class="video-filter" data-category="Events">
-        Events
-    </button>
 
-    <button class="video-filter" data-category="Nutrition">
-        Nutrition
-    </button>
+        <button
+            class="video-filter"
+            data-category="Calisthenics">
 
-    <button class="video-filter" data-category="Other">
-        Other
-    </button>
+            Calisthenics
 
-</div>
+        </button>
 
-<section
-    id="videoGrid"
-    class="video-grid"
-></section>
+
+        <button
+            class="video-filter"
+            data-category="Bodybuilding">
+
+            Bodybuilding
+
+        </button>
+
+
+        <button
+            class="video-filter"
+            data-category="Martial Arts">
+
+            Martial Arts
+
+        </button>
+
+
+        <button
+            class="video-filter"
+            data-category="Gymnastics">
+
+            Gymnastics
+
+        </button>
+
+
+        <button
+            class="video-filter"
+            data-category="Nutrition">
+
+            Nutrition
+
+        </button>
+
+    </div>
+
 
     <section
         id="videoGrid"
-        class="video-grid"
-    ></section>
+        class="video-grid">
+    </section>
 
 </section>
 
@@ -184,9 +206,31 @@
 
 <script src="supabase.js"></script>
 
+
 <script>
 
 let allVideos = [];
+
+let selectedExercise = null;
+
+
+/* ==========================================
+   CHECK FOR EXERCISE IN URL
+========================================== */
+
+const urlParams =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+selectedExercise =
+    urlParams.get("exercise");
+
+
+/* ==========================================
+   LOAD VIDEOS
+========================================== */
 
 async function loadVideos() {
 
@@ -233,12 +277,60 @@ async function loadVideos() {
 
     allVideos = videos;
 
+
+    /*
+       If an exercise was passed in the URL,
+       find the matching video.
+    */
+
+    if (selectedExercise) {
+
+        const matchingVideos =
+            allVideos.filter(video =>
+
+                video.title &&
+                video.title
+                    .trim()
+                    .toLowerCase() ===
+                selectedExercise
+                    .trim()
+                    .toLowerCase()
+
+            );
+
+
+        if (matchingVideos.length > 0) {
+
+            message.textContent =
+                `Tutorial: ${selectedExercise}`;
+
+            displayVideos(matchingVideos);
+
+            return;
+
+        }
+
+
+        message.textContent =
+            `No tutorial found for ${selectedExercise}.`;
+
+        displayVideos([]);
+
+        return;
+
+    }
+
+
     message.textContent = "";
 
     displayVideos(allVideos);
 
 }
 
+
+/* ==========================================
+   DISPLAY VIDEOS
+========================================== */
 
 async function displayVideos(videos) {
 
@@ -251,8 +343,11 @@ async function displayVideos(videos) {
 
     if (videos.length === 0) {
 
-        grid.innerHTML =
-            "<p>No videos found in this category.</p>";
+        grid.innerHTML = `
+            <p>
+                No videos found.
+            </p>
+        `;
 
         return;
 
@@ -287,6 +382,7 @@ async function displayVideos(videos) {
 
         const card =
             document.createElement("article");
+
 
         card.className =
             "video-card";
@@ -335,12 +431,14 @@ async function displayVideos(videos) {
 }
 
 
-// ==========================================
-// VIDEO FILTERS
-// ==========================================
+/* ==========================================
+   VIDEO FILTERS
+========================================== */
 
 const filterButtons =
-    document.querySelectorAll(".video-filter");
+    document.querySelectorAll(
+        ".video-filter"
+    );
 
 
 filterButtons.forEach(button => {
@@ -351,7 +449,9 @@ filterButtons.forEach(button => {
 
             filterButtons.forEach(btn => {
 
-                btn.classList.remove("active");
+                btn.classList.remove(
+                    "active"
+                );
 
             });
 
@@ -367,6 +467,10 @@ filterButtons.forEach(button => {
 
                 displayVideos(allVideos);
 
+                document.getElementById(
+                    "videosMessage"
+                ).textContent = "";
+
                 return;
 
             }
@@ -378,7 +482,14 @@ filterButtons.forEach(button => {
                 );
 
 
-            displayVideos(filteredVideos);
+            document.getElementById(
+                "videosMessage"
+            ).textContent = "";
+
+
+            displayVideos(
+                filteredVideos
+            );
 
         }
     );
@@ -386,10 +497,13 @@ filterButtons.forEach(button => {
 });
 
 
+/* ==========================================
+   START
+========================================== */
+
 loadVideos();
 
 </script>
-
 
 
 </body>

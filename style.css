@@ -15608,3 +15608,88 @@ section.community-login-required {
     }
 
 }
+.exercise-video-link {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #222;
+}
+
+.exercise-video-link p {
+    margin: 0 0 12px;
+    color: #888;
+    font-size: 14px;
+}
+
+.exercise-video-btn {
+    display: inline-block;
+    padding: 11px 18px;
+    background: #22c55e;
+    color: #000;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    transition: 0.2s ease;
+}
+
+.exercise-video-btn:hover {
+    background: #fff;
+    color: #000;
+}
+/* ==========================================
+   HEADER & NAVIGATION
+========================================== */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 5%;
+    background: #000;
+    border-bottom: 1px solid #222;
+}
+
+header h1 {
+    margin: 0;
+    color: #fff;
+    font-size: 24px;
+}
+
+header h1 span {
+    color: #22c55e;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+nav a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+nav a:hover {
+    color: #fff;
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer {
+    padding: 40px 5%;
+    background: #000;
+    border-top: 1px solid #222;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    color: #666;
+    font-size: 13px;
+}
