@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Aurex | Courses</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="courses.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header>
+
+    <div class="logo">
+        AUREX
+    </div>
+
+
+    <nav id="main-nav">
+
+        <a href="index.html">Home</a>
+
+        <a href="workouts.html">Workouts</a>
+
+        <a href="nutrition.html">Nutrition</a>
+
+        <a href="map.html">Map</a>
+
+        <a href="community.html">Community</a>
+
+        <a href="athletes.html">Athletes</a>
+
+        <a href="videos.html">Videos</a>
+
+        <a href="about.html">About</a>
+
+        <a href="contact.html">Contact</a>
+
+        <a
+            href="https://www.teamaurex.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Aurex
+        </a>
+
+        <a href="account.html">Account</a>
+
+        <a
+            href="admin.html"
+            id="adminNavLink"
+            style="display: none;"
+        >
+            Admin
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ==========================================
+     COURSES PAGE
+========================================== -->
+
+<main class="courses-page">
+
+
+    <!-- ======================================
+         HERO
+    ======================================= -->
+
+    <section class="courses-hero">
+
+        <div class="courses-hero-content">
+
+            <span class="courses-label">
+                AUREX PLATFORM
+            </span>
+
+
+            <h1>
+                LEARN.
+                <span>TRAIN.</span>
+                PROGRESS.
+            </h1>
+
+
+            <p>
+                Structured education designed to help you understand
+                training, develop your skills and become more
+                intentional with your progress.
+            </p>
+
+
+            <div class="courses-actions">
+
+                <a
+                    href="dashboard.html"
+                    class="courses-button courses-button-secondary"
+                >
+                    ← DASHBOARD
+                </a>
+
+
+                <a
+                    href="workouts.html"
+                    class="courses-button courses-button-primary"
+                >
+                    START TRAINING →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="courses-hero-mark">
+            AUREX
+        </div>
+
+    </section>
+
+
+
+    <!-- ======================================
+         COURSE OVERVIEW
+    ======================================= -->
+
+    <section class="courses-overview">
+
+        <div class="courses-overview-item">
+
+            <span>01</span>
+
+            <strong>TRAINING</strong>
+
+            <p>
+                Understand how to train.
+            </p>
+
+        </div>
+
+
+        <div class="courses-overview-item">
+
+            <span>02</span>
+
+            <strong>STRENGTH</strong>
+
+            <p>
+                Build a stronger foundation.
+            </p>
+
+        </div>
+
+
+        <div class="courses-overview-item">
+
+            <span>03</span>
+
+            <strong>SKILLS</strong>
+
+            <p>
+                Develop better movement.
+            </p>
+
+        </div>
+
+
+        <div class="courses-overview-item">
+
+            <span>04</span>
+
+            <strong>PROGRESS</strong>
+
+            <p>
+                Keep moving forward.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ======================================
+         AVAILABLE COURSES
+    ======================================= -->
+
+    <section class="courses-section">
+
+        <div class="courses-section-heading">
+
+            <div>
+
+                <span class="courses-label">
+                    LEARNING LIBRARY
+                </span>
+
+                <h2>
+                    Build Your
+                    <span>Foundation.</span>
+                </h2>
+
+            </div>
+
+
+            <p>
+                Aurex courses are designed to turn training knowledge
+                into practical understanding.
+            </p>
+
+        </div>
+
+
+
+        <!-- DATABASE STATUS -->
+
+        <div
+            id="coursesStatus"
+            style="
+                text-align:center;
+                margin:30px 0;
+                color:#22C55E;
+            "
+        >
+            Loading Aurex courses...
+        </div>
+
+
+
+        <!-- DATABASE COURSE GRID -->
+
+        <div
+            class="course-grid"
+            id="courseGrid"
+        >
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ======================================
+         COURSE VIEWER
+    ======================================= -->
+
+    <section
+        class="courses-section"
+        id="courseViewer"
+        style="display:none;"
+    >
+
+        <div class="courses-section-heading">
+
+            <div>
+
+                <span class="courses-label">
+                    COURSE
+                </span>
+
+                <h2 id="viewerCourseTitle">
+                    Course
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="courses-button courses-button-secondary"
+                id="closeCourseViewer"
+            >
+                ← BACK TO COURSES
+            </button>
+
+        </div>
+
+
+
+        <div
+            id="viewerCourseMeta"
+            style="
+                margin-bottom:30px;
+                color:#aaa;
+            "
+        >
+        </div>
+
+
+
+        <div
+            id="lessonList"
+            class="course-grid"
+        >
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ======================================
+         HOW COURSES WORK
+    ======================================= -->
+
+    <section class="courses-process">
+
+        <div class="courses-process-heading">
+
+            <span class="courses-label">
+                THE AUREX APPROACH
+            </span>
+
+            <h2>
+                Learn it.
+                <span>Use it.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="courses-process-grid">
+
+            <div class="courses-process-item">
+
+                <span>01</span>
+
+                <h3>Learn</h3>
+
+                <p>
+                    Understand the principles behind the training
+                    you are doing.
+                </p>
+
+            </div>
+
+
+            <div class="courses-process-item">
+
+                <span>02</span>
+
+                <h3>Apply</h3>
+
+                <p>
+                    Take what you learn and apply it to your training.
+                </p>
+
+            </div>
+
+
+            <div class="courses-process-item">
+
+                <span>03</span>
+
+                <h3>Progress</h3>
+
+                <p>
+                    Build consistency and continue developing.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ======================================
+         FUTURE COURSES
+    ======================================= -->
+
+    <section class="courses-coming">
+
+        <div>
+
+            <span class="courses-label">
+                EXPANDING THE PLATFORM
+            </span>
+
+            <h2>
+                More courses.
+                <span>More ways to progress.</span>
+            </h2>
+
+            <p>
+                The Aurex learning library can grow alongside the
+                platform with new training programmes, educational
+                content and structured learning experiences.
+            </p>
+
+        </div>
+
+
+        <a
+            href="dashboard.html"
+            class="courses-button courses-button-primary"
+        >
+            BACK TO PLATFORM →
+        </a>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ==========================================
+     VIDEO MODAL
+========================================== -->
+
+<div
+    id="videoModal"
+    style="
+        display:none;
+        position:fixed;
+        inset:0;
+        z-index:9999;
+        background:rgba(0,0,0,.92);
+        align-items:center;
+        justify-content:center;
+        padding:20px;
+    "
+>
+
+    <div
+        style="
+            width:min(1000px,100%);
+            position:relative;
+        "
+    >
+
+        <button
+            type="button"
+            id="closeVideoModal"
+            style="
+                position:absolute;
+                right:0;
+                top:-45px;
+                background:none;
+                border:none;
+                color:white;
+                font-size:30px;
+                cursor:pointer;
+            "
+        >
+            ×
+        </button>
+
+
+        <video
+            id="lessonVideo"
+            controls
+            playsinline
+            style="
+                width:100%;
+                max-height:75vh;
+                background:#000;
+                border-radius:8px;
+            "
+        >
+        </video>
+
+
+        <div
+            id="videoTitle"
+            style="
+                margin-top:15px;
+                color:white;
+                font-size:18px;
+                font-weight:700;
+            "
+        >
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer>
+
+    <div class="logo">
+        AUREX
+    </div>
+
+
+    <p>
+        Train. Progress. Become stronger.
+    </p>
+
+</footer>
+
+
+
+<!-- ==========================================
+     SUPABASE
+========================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="supabase.js"></script>
+
+
+
+<!-- ==========================================
+     COURSES SYSTEM
+========================================== -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", async () => {
+
+
+    /* ==========================================
+       ELEMENTS
+    ========================================== */
+
+    const courseGrid =
+        document.getElementById("courseGrid");
+
+    const coursesStatus =
+        document.getElementById("coursesStatus");
+
+    const courseViewer =
+        document.getElementById("courseViewer");
+
+    const viewerCourseTitle =
+        document.getElementById("viewerCourseTitle");
+
+    const viewerCourseMeta =
+        document.getElementById("viewerCourseMeta");
+
+    const lessonList =
+        document.getElementById("lessonList");
+
+    const closeCourseViewer =
+        document.getElementById("closeCourseViewer");
+
+    const videoModal =
+        document.getElementById("videoModal");
+
+    const lessonVideo =
+        document.getElementById("lessonVideo");
+
+    const videoTitle =
+        document.getElementById("videoTitle");
+
+    const closeVideoModal =
+        document.getElementById("closeVideoModal");
+
+
+    let currentCourses = [];
+
+
+    /* ==========================================
+       ESCAPE HTML
+    ========================================== */
+
+    function escapeHtml(value) {
+
+        if (value === null || value === undefined) {
+            return "";
+        }
+
+        return String(value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+
+    /* ==========================================
+       FORMAT TEXT
+    ========================================== */
+
+    function formatText(value) {
+
+        if (!value) {
+            return "—";
+        }
+
+        return escapeHtml(value);
+    }
+
+
+    /* ==========================================
+       AUTHENTICATION
+    ========================================== */
+
+    const {
+        data: {
+            user
+        },
+        error: authError
+    } = await supabaseClient.auth.getUser();
+
+
+    if (
+        authError ||
+        !user
+    ) {
+
+        window.location.href =
+            "login.html";
+
+        return;
+
+    }
+
+
+    /* ==========================================
+       ADMIN CHECK
+    ========================================== */
+
+    try {
+
+        const {
+            data: adminUser
+        } = await supabaseClient
+            .from("admin_users")
+            .select("id")
+            .eq("user_id", user.id)
+            .maybeSingle();
+
+
+        if (adminUser) {
+
+            const adminNavLink =
+                document.getElementById("adminNavLink");
+
+            if (adminNavLink) {
+
+                adminNavLink.style.display =
+                    "inline-block";
+
+            }
+
+        }
+
+    }
+    catch (error) {
+
+        console.log(
+            "Admin check skipped."
+        );
+
+    }
+
+
+    /* ==========================================
+       LOAD COURSES
+    ========================================== */
+
+    async function loadCourses() {
+
+        coursesStatus.textContent =
+            "Loading Aurex courses...";
+
+
+        const {
+            data: courses,
+            error
+        } = await supabaseClient
+
+            .from("courses")
+
+            .select(`
+                id,
+                title,
+                description,
+                discipline,
+                difficulty,
+                duration_minutes,
+                is_active,
+                created_at
+            `)
+
+            .eq(
+                "is_active",
+                true
+            )
+
+            .order(
+                "created_at",
+                {
+                    ascending: true
+                }
+            );
+
+
+        if (error) {
+
+            console.error(
+                "Course loading error:",
+                error
+            );
+
+            coursesStatus.textContent =
+                "Unable to load courses right now.";
+
+            return;
+
+        }
+
+
+        currentCourses =
+            courses || [];
+
+
+        if (!currentCourses.length) {
+
+            coursesStatus.textContent =
+                "No courses are available yet.";
+
+            courseGrid.innerHTML = "";
+
+            return;
+
+        }
+
+
+        coursesStatus.textContent =
+            `${currentCourses.length} Aurex course${currentCourses.length === 1 ? "" : "s"} available.`;
+
+
+        renderCourses(
+            currentCourses
+        );
+
+    }
+
+
+    /* ==========================================
+       RENDER COURSES
+    ========================================== */
+
+    function renderCourses(courses) {
+
+        courseGrid.innerHTML =
+            courses.map(
+                (
+                    course,
+                    index
+                ) => {
+
+                    const number =
+                        String(index + 1)
+                            .padStart(2, "0");
+
+
+                    return `
+
+                        <article class="course-card">
+
+                            <div class="course-card-top">
+
+                                <span class="course-number">
+                                    ${number}
+                                </span>
+
+                                <span class="course-category">
+                                    ${formatText(course.discipline || "GENERAL FITNESS")}
+                                </span>
+
+                            </div>
+
+
+                            <div class="course-card-visual">
+
+                                <span>
+                                    AUREX
+                                </span>
+
+                                <strong>
+                                    ${formatText(course.discipline || "COURSE")}
+                                </strong>
+
+                            </div>
+
+
+                            <div class="course-content">
+
+                                <div class="course-status">
+                                    AVAILABLE
+                                </div>
+
+
+                                <h3>
+                                    ${formatText(course.title)}
+                                </h3>
+
+
+                                <p>
+                                    ${formatText(
+                                        course.description ||
+                                        "Structured Aurex learning designed to help you train with greater understanding."
+                                    )}
+                                </p>
+
+
+                                <div class="course-meta">
+
+                                    <span>
+                                        ${formatText(course.difficulty || "GENERAL")}
+                                    </span>
+
+                                    <span>
+                                        ${
+                                            course.duration_minutes
+                                                ? `${course.duration_minutes} MIN`
+                                                : "AUREX COURSE"
+                                        }
+                                    </span>
+
+                                </div>
+
+
+                                <div class="course-footer">
+
+                                    <span>
+                                        AUREX COURSE
+                                    </span>
+
+
+                                    <button
+                                        type="button"
+                                        class="courses-button courses-button-primary"
+                                        onclick="openCourse('${course.id}')"
+                                    >
+                                        VIEW COURSE →
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+                    `;
+
+                }
+            ).join("");
+
+    }
+
+
+    /* ==========================================
+       OPEN COURSE
+    ========================================== */
+
+    window.openCourse =
+        async function(courseId) {
+
+            const course =
+                currentCourses.find(
+                    item =>
+                        item.id === courseId
+                );
+
+
+            if (!course) {
+                return;
+            }
+
+
+            viewerCourseTitle.textContent =
+                course.title;
+
+
+            viewerCourseMeta.innerHTML = `
+
+                <strong>
+                    ${formatText(course.discipline || "General Fitness")}
+                </strong>
+
+                &nbsp; • &nbsp;
+
+                ${formatText(course.difficulty || "All Levels")}
+
+                ${
+                    course.duration_minutes
+                        ? `&nbsp; • &nbsp; ${course.duration_minutes} minutes`
+                        : ""
+                }
+
+                <br><br>
+
+                ${formatText(course.description)}
+
+            `;
+
+
+            courseGrid.style.display =
+                "none";
+
+
+            coursesStatus.style.display =
+                "none";
+
+
+            courseViewer.style.display =
+                "block";
+
+
+            lessonList.innerHTML = `
+
+                <div
+                    style="
+                        grid-column:1/-1;
+                        text-align:center;
+                        padding:40px;
+                    "
+                >
+                    Loading lessons...
+                </div>
+
+            `;
+
+
+            courseViewer.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+
+            await loadLessons(
+                courseId
+            );
+
+        };
+
+
+    /* ==========================================
+       LOAD LESSONS
+    ========================================== */
+
+    async function loadLessons(courseId) {
+
+        const {
+            data: lessons,
+            error
+        } = await supabaseClient
+
+            .from("course_lessons")
+
+            .select(`
+                id,
+                title,
+                description,
+                lesson_order,
+                video_id,
+                videos (
+                    id,
+                    title,
+                    category,
+                    file_path
+                )
+            `)
+
+            .eq(
+                "course_id",
+                courseId
+            )
+
+            .order(
+                "lesson_order",
+                {
+                    ascending: true
+                }
+            );
+
+
+        if (error) {
+
+            console.error(
+                "Lesson loading error:",
+                error
+            );
+
+
+            lessonList.innerHTML = `
+
+                <div
+                    style="
+                        grid-column:1/-1;
+                        text-align:center;
+                        padding:40px;
+                    "
+                >
+
+                    <h3>
+                        Unable to load lessons
+                    </h3>
+
+                    <p>
+                        Please try again.
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        if (!lessons || !lessons.length) {
+
+            lessonList.innerHTML = `
+
+                <div
+                    style="
+                        grid-column:1/-1;
+                        text-align:center;
+                        padding:40px;
+                    "
+                >
+
+                    <h3>
+                        Lessons coming soon.
+                    </h3>
+
+                    <p>
+                        This course does not have any lessons yet.
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        lessonList.innerHTML =
+
+            lessons.map(
+                (
+                    lesson,
+                    index
+                ) => {
+
+                    const video =
+                        lesson.videos;
+
+
+                    const number =
+                        String(
+                            lesson.lesson_order ||
+                            index + 1
+                        ).padStart(
+                            2,
+                            "0"
+                        );
+
+
+                    return `
+
+                        <article
+                            class="course-card"
+                        >
+
+                            <div class="course-card-top">
+
+                                <span class="course-number">
+                                    ${number}
+                                </span>
+
+                                <span class="course-category">
+                                    LESSON
+                                </span>
+
+                            </div>
+
+
+                            <div class="course-card-visual">
+
+                                <span>
+                                    AUREX
+                                </span>
+
+                                <strong>
+                                    LESSON ${number}
+                                </strong>
+
+                            </div>
+
+
+                            <div class="course-content">
+
+                                <div class="course-status">
+                                    LESSON ${number}
+                                </div>
+
+
+                                <h3>
+                                    ${formatText(lesson.title)}
+                                </h3>
+
+
+                                <p>
+                                    ${formatText(
+                                        lesson.description ||
+                                        "Aurex course lesson."
+                                    )}
+                                </p>
+
+
+                                <div class="course-meta">
+
+                                    <span>
+                                        ${
+                                            video
+                                                ? formatText(video.category || "VIDEO")
+                                                : "LESSON"
+                                        }
+                                    </span>
+
+                                    <span>
+                                        ${
+                                            video
+                                                ? "VIDEO AVAILABLE"
+                                                : "READING"
+                                        }
+                                    </span>
+
+                                </div>
+
+
+                                <div class="course-footer">
+
+                                    <span>
+                                        ${
+                                            video
+                                                ? formatText(video.title)
+                                                : "AUREX LESSON"
+                                        }
+                                    </span>
+
+
+                                    ${
+                                        video
+                                            ? `
+
+                                                <button
+                                                    type="button"
+                                                    class="courses-button courses-button-primary"
+                                                    onclick="playLessonVideo(
+                                                        '${video.id}',
+                                                        '${escapeHtml(video.file_path || "")}',
+                                                        '${escapeHtml(video.title || lesson.title)}'
+                                                    )"
+                                                >
+                                                    WATCH LESSON →
+                                                </button>
+
+                                            `
+                                            : `
+
+                                                <span>
+                                                    CONTENT AVAILABLE
+                                                </span>
+
+                                            `
+                                    }
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+                    `;
+
+                }
+            ).join("");
+
+    }
+
+
+    /* ==========================================
+       PLAY LESSON VIDEO
+    ========================================== */
+
+    window.playLessonVideo =
+        async function(
+            videoId,
+            filePath,
+            title
+        ) {
+
+            if (!filePath) {
+
+                alert(
+                    "This lesson does not have a video file yet."
+                );
+
+                return;
+
+            }
+
+
+            const {
+                data,
+                error
+            } = await supabaseClient
+                .storage
+                .from("aurex-video")
+                .createSignedUrl(
+                    filePath,
+                    3600
+                );
+
+
+            if (
+                error ||
+                !data?.signedUrl
+            ) {
+
+                console.error(
+                    "Video URL error:",
+                    error
+                );
+
+
+                alert(
+                    "Unable to open this lesson video."
+                );
+
+                return;
+
+            }
+
+
+            lessonVideo.src =
+                data.signedUrl;
+
+
+            videoTitle.textContent =
+                title || "Aurex Lesson";
+
+
+            videoModal.style.display =
+                "flex";
+
+
+            lessonVideo.play()
+                .catch(
+                    () => {}
+                );
+
+        };
+
+
+    /* ==========================================
+       CLOSE COURSE VIEWER
+    ========================================== */
+
+    closeCourseViewer.addEventListener(
+        "click",
+        () => {
+
+            courseViewer.style.display =
+                "none";
+
+
+            courseGrid.style.display =
+                "";
+
+
+            coursesStatus.style.display =
+                "";
+
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+    );
+
+
+    /* ==========================================
+       CLOSE VIDEO
+    ========================================== */
+
+    function closeVideo() {
+
+        lessonVideo.pause();
+
+        lessonVideo.removeAttribute(
+            "src"
+        );
+
+        lessonVideo.load();
+
+        videoModal.style.display =
+            "none";
+
+    }
+
+
+    closeVideoModal.addEventListener(
+        "click",
+        closeVideo
+    );
+
+
+    videoModal.addEventListener(
+        "click",
+        event => {
+
+            if (
+                event.target ===
+                videoModal
+            ) {
+
+                closeVideo();
+
+            }
+
+        }
+    );
+
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key === "Escape"
+            ) {
+
+                closeVideo();
+
+            }
+
+        }
+    );
+
+
+    /* ==========================================
+       START
+    ========================================== */
+
+    await loadCourses();
+
+});
+
+</script>
+
+
+</body>
+
+</html>
