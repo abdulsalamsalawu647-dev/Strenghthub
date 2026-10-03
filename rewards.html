@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rewards & Coupons | AUREX</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================================
+           REWARDS PAGE
+        ========================================= */
+
+        .rewards-page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+
+        .rewards-header {
+            margin-bottom: 50px;
+        }
+
+
+        .rewards-label {
+            color: #22C55E;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+
+        .rewards-header h1 {
+            font-size: 48px;
+            margin: 10px 0;
+        }
+
+
+        .rewards-header p {
+            max-width: 700px;
+            color: #aaa;
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           ACTIONS
+        ========================================= */
+
+        .rewards-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+
+        .reward-button {
+            display: inline-block;
+            padding: 13px 22px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+
+        .reward-button.primary {
+            background: #22C55E;
+            color: #000;
+        }
+
+
+        .reward-button.secondary {
+            border: 1px solid #333;
+            color: #fff;
+        }
+
+
+        /* =========================================
+           REWARD INTRO
+        ========================================= */
+
+        .reward-intro {
+            background: #0d0d0d;
+            border: 1px solid #222;
+            border-radius: 10px;
+            padding: 35px;
+            margin-bottom: 50px;
+        }
+
+
+        .reward-intro h2 {
+            margin-top: 0;
+            font-size: 26px;
+        }
+
+
+        .reward-intro p {
+            color: #999;
+            line-height: 1.7;
+            max-width: 800px;
+        }
+
+
+        /* =========================================
+           COUPON SECTION
+        ========================================= */
+
+        .rewards-section {
+            margin-bottom: 55px;
+        }
+
+
+        .rewards-section h2 {
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+
+
+        .coupon-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+
+        .coupon-card {
+            background: #0d0d0d;
+            border: 1px solid #222;
+            border-radius: 10px;
+            padding: 28px;
+        }
+
+
+        .coupon-card h3 {
+            margin: 10px 0;
+            font-size: 21px;
+        }
+
+
+        .coupon-label {
+            color: #22C55E;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+
+        .coupon-card p {
+            color: #888;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+
+        .coupon-code {
+            margin-top: 20px;
+            padding: 12px;
+            border: 1px dashed #333;
+            border-radius: 6px;
+            text-align: center;
+            color: #666;
+            font-size: 13px;
+        }
+
+
+        /* =========================================
+           EMPTY STATE
+        ========================================= */
+
+        .empty-rewards {
+            border: 1px dashed #333;
+            border-radius: 10px;
+            padding: 55px 25px;
+            text-align: center;
+            background: #0a0a0a;
+        }
+
+
+        .empty-rewards h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+
+        .empty-rewards p {
+            color: #888;
+            max-width: 650px;
+            margin: 0 auto 25px;
+            line-height: 1.6;
+        }
+
+
+        /* =========================================
+           HOW IT WORKS
+        ========================================= */
+
+        .reward-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+
+        .reward-step {
+            background: #0d0d0d;
+            border: 1px solid #222;
+            border-radius: 10px;
+            padding: 28px;
+        }
+
+
+        .step-number {
+            color: #22C55E;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+
+        .reward-step h3 {
+            margin: 12px 0 10px;
+        }
+
+
+        .reward-step p {
+            color: #888;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 900px) {
+
+            .coupon-grid,
+            .reward-steps {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .rewards-page {
+                padding: 50px 20px;
+            }
+
+
+            .rewards-header h1 {
+                font-size: 36px;
+            }
+
+
+            .coupon-grid,
+            .reward-steps {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <div class="logo">
+        AUREX
+    </div>
+
+
+    <nav id="main-nav">
+
+        <a href="index.html">Home</a>
+
+        <a href="workouts.html">Workouts</a>
+
+        <a href="nutrition.html">Nutrition</a>
+
+        <a href="map.html">Map</a>
+
+        <a href="community.html">Community</a>
+
+        <a href="athletes.html">Athletes</a>
+
+        <a href="videos.html">Videos</a>
+
+        <a href="about.html">About</a>
+
+        <a href="contact.html">Contact</a>
+
+        <a href="https://www.teamaurex.com/">
+            Aurex
+        </a>
+
+        <a href="account.html">Account</a>
+
+        <a href="admin.html" id="adminNavLink" style="display: none;">
+            Admin
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================================
+     REWARDS PAGE
+========================================= -->
+
+<main class="rewards-page">
+
+
+    <section class="rewards-header">
+
+        <span class="rewards-label">
+            AUREX PLATFORM
+        </span>
+
+
+        <h1>
+            Rewards & Coupons
+        </h1>
+
+
+        <p>
+            Your Aurex rewards and promotional coupons will be
+            available here when you become eligible for them.
+        </p>
+
+
+        <div class="rewards-actions">
+
+            <a
+                href="dashboard.html"
+                class="reward-button secondary"
+            >
+                Back to Dashboard
+            </a>
+
+
+            <a
+                href="https://www.teamaurex.com/"
+                class="reward-button primary"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Visit Aurex Clothing
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         INTRODUCTION
+    ========================================= -->
+
+    <section class="reward-intro">
+
+        <h2>
+            Your Aurex Rewards
+        </h2>
+
+
+        <p>
+            Aurex rewards can be connected to activities such as
+            qualifying purchases from the Aurex clothing brand.
+            Your available rewards and coupons will appear here
+            once the reward system is connected to the relevant
+            Aurex services.
+        </p>
+
+
+        <p>
+            Any future reward rules, coupon values, expiry dates
+            and eligibility requirements will be defined by Aurex.
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================================
+         ACTIVE COUPONS
+    ========================================= -->
+
+    <section class="rewards-section">
+
+        <h2>
+            Available Coupons
+        </h2>
+
+
+        <div id="couponContainer">
+
+            <div class="empty-rewards">
+
+                <h3>
+                    No active coupons
+                </h3>
+
+
+                <p>
+                    When a coupon is issued to your Aurex account,
+                    it will appear here with its value, code,
+                    expiry date and usage information.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         REWARD HISTORY
+    ========================================= -->
+
+    <section class="rewards-section">
+
+        <h2>
+            Reward History
+        </h2>
+
+
+        <div class="empty-rewards">
+
+            <h3>
+                No reward history yet
+            </h3>
+
+
+            <p>
+                Previously issued rewards and used coupons can
+                eventually be displayed here.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         HOW IT WORKS
+    ========================================= -->
+
+    <section class="rewards-section">
+
+        <h2>
+            How Rewards Can Work
+        </h2>
+
+
+        <div class="reward-steps">
+
+
+            <article class="reward-step">
+
+                <span class="step-number">
+                    01
+                </span>
+
+
+                <h3>
+                    Qualify
+                </h3>
+
+
+                <p>
+                    Complete whatever action Aurex defines as
+                    eligible for a reward.
+                </p>
+
+            </article>
+
+
+
+            <article class="reward-step">
+
+                <span class="step-number">
+                    02
+                </span>
+
+
+                <h3>
+                    Receive
+                </h3>
+
+
+                <p>
+                    An eligible reward or coupon can be assigned
+                    to your Aurex account.
+                </p>
+
+            </article>
+
+
+
+            <article class="reward-step">
+
+                <span class="step-number">
+                    03
+                </span>
+
+
+                <h3>
+                    Redeem
+                </h3>
+
+
+                <p>
+                    Use the coupon according to its specific
+                    terms and conditions.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    <div class="logo">
+        AUREX
+    </div>
+
+
+    <p>
+        Train. Progress. Become stronger.
+    </p>
+
+</footer>
+
+
+
+<!-- =========================================
+     SUPABASE
+========================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="supabase.js"></script>
+
+
+
+<!-- =========================================
+     AUTHENTICATION
+========================================= -->
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", async () => {
+
+
+        const {
+            data: { user },
+            error
+        } = await supabase.auth.getUser();
+
+
+        if (error || !user) {
+
+            window.location.href = "login.html";
+
+            return;
+
+        }
+
+
+
+        /* =========================================
+           ADMIN CHECK
+        ========================================= */
+
+        try {
+
+            const { data: adminUser } = await supabase
+
+                .from("admin_users")
+
+                .select("id")
+
+                .eq("user_id", user.id)
+
+                .maybeSingle();
+
+
+            if (adminUser) {
+
+                document.getElementById("adminNavLink").style.display =
+                    "inline-block";
+
+            }
+
+        } catch (error) {
+
+            console.log("Admin check skipped.");
+
+        }
+
+
+        /*
+         * REWARD DATA WILL BE CONNECTED LATER.
+         *
+         * We are deliberately not creating fake
+         * coupon data or assuming the final reward rules.
+         */
+
+
+    });
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1240 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Workout Session | AUREX</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="workout-session.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header>
+
+    <div class="logo">
+        AUREX
+    </div>
+
+
+    <nav id="main-nav">
+
+        <a href="index.html">Home</a>
+
+        <a href="workouts.html">Workouts</a>
+
+        <a href="nutrition.html">Nutrition</a>
+
+        <a href="map.html">Map</a>
+
+        <a href="community.html">Community</a>
+
+        <a href="athletes.html">Athletes</a>
+
+        <a href="videos.html">Videos</a>
+
+        <a href="about.html">About</a>
+
+        <a href="contact.html">Contact</a>
+
+        <a
+            href="https://www.teamaurex.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Aurex
+        </a>
+
+        <a href="account.html">
+            Account
+        </a>
+
+        <a
+            href="admin.html"
+            id="adminNavLink"
+            style="display: none;"
+        >
+            Admin
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<main class="workout-session-page">
+
+
+<!-- ==========================================
+     SESSION HERO
+========================================== -->
+
+<section class="session-hero">
+
+    <div class="session-hero-content">
+
+        <span class="section-label">
+            AUREX WORKOUT SESSION
+        </span>
+
+
+        <h1 id="sessionTitle">
+            Loading...
+        </h1>
+
+
+        <p id="sessionDescription">
+            Preparing your workout session.
+        </p>
+
+
+        <div
+            class="session-meta"
+            id="sessionMeta"
+        >
+        </div>
+
+    </div>
+
+
+    <div class="session-hero-number">
+        01
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     SESSION PROGRESS
+========================================== -->
+
+<section class="session-progress-section">
+
+    <div class="session-progress-header">
+
+        <div>
+
+            <span class="section-label">
+                SESSION PROGRESS
+            </span>
+
+            <h2>
+                COMPLETE YOUR <span>SESSION.</span>
+            </h2>
+
+        </div>
+
+
+        <div
+            class="session-progress-count"
+            id="sessionProgressCount"
+        >
+            0 / 0
+        </div>
+
+    </div>
+
+
+    <div class="session-progress-bar">
+
+        <div
+            id="sessionProgressBar"
+            class="session-progress-fill"
+        ></div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     EXERCISES
+========================================== -->
+
+<section class="session-exercises-section">
+
+    <div
+        id="sessionExercises"
+        class="session-exercises"
+    >
+
+        <div class="session-loading">
+
+            <span></span>
+
+            Loading workout...
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     SESSION FOOTER
+========================================== -->
+
+<section class="session-completion">
+
+    <div class="completion-content">
+
+        <span class="section-label">
+            AUREX TRAINING
+        </span>
+
+
+        <h2>
+            READY TO <span>FINISH?</span>
+        </h2>
+
+
+        <p id="completionMessage">
+            Complete every exercise above before finishing
+            your workout session.
+        </p>
+
+
+        <button
+            type="button"
+            id="finishWorkoutButton"
+            class="finish-workout-button"
+            disabled
+        >
+            Complete Workout
+        </button>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer>
+
+    <div class="logo">
+        AUREX
+    </div>
+
+
+    <p>
+        Fitness Without Barriers.
+    </p>
+
+</footer>
+
+
+
+<!-- ==========================================
+     SCRIPTS
+========================================== -->
+
+<script src="script.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="supabase.js"></script>
+
+
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    async () => {
+
+
+    /* =========================================
+       ELEMENTS
+    ========================================= */
+
+    const sessionTitle =
+        document.getElementById(
+            "sessionTitle"
+        );
+
+    const sessionDescription =
+        document.getElementById(
+            "sessionDescription"
+        );
+
+    const sessionMeta =
+        document.getElementById(
+            "sessionMeta"
+        );
+
+    const sessionExercises =
+        document.getElementById(
+            "sessionExercises"
+        );
+
+    const progressCount =
+        document.getElementById(
+            "sessionProgressCount"
+        );
+
+    const progressBar =
+        document.getElementById(
+            "sessionProgressBar"
+        );
+
+    const finishButton =
+        document.getElementById(
+            "finishWorkoutButton"
+        );
+
+    const completionMessage =
+        document.getElementById(
+            "completionMessage"
+        );
+
+    const adminLink =
+        document.getElementById(
+            "adminNavLink"
+        );
+
+
+    /* =========================================
+       GET WORKOUT ID
+    ========================================= */
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const workoutId =
+        params.get("id");
+
+
+    if (!workoutId) {
+
+        showError(
+            "No workout was selected."
+        );
+
+        return;
+
+    }
+
+
+    /* =========================================
+       CHECK LOGIN
+    ========================================= */
+
+    const {
+        data: { user },
+        error: authError
+    } =
+        await supabaseClient.auth.getUser();
+
+
+    if (authError || !user) {
+
+        window.location.href =
+            "login.html";
+
+        return;
+
+    }
+
+
+    /* =========================================
+       CHECK ADMIN
+    ========================================= */
+
+    try {
+
+        const {
+            data: adminUser
+        } =
+            await supabaseClient
+                .from("admin_users")
+                .select("id")
+                .eq(
+                    "user_id",
+                    user.id
+                )
+                .maybeSingle();
+
+
+        if (
+            adminUser &&
+            adminLink
+        ) {
+
+            adminLink.style.display =
+                "inline-block";
+
+        }
+
+    } catch (error) {
+
+        console.log(
+            "Admin check skipped."
+        );
+
+    }
+
+
+    /* =========================================
+       LOAD WORKOUT
+    ========================================= */
+
+    try {
+
+        const {
+            data: workout,
+            error: workoutError
+        } =
+            await supabaseClient
+
+                .from("workouts")
+
+                .select(`
+                    id,
+                    title,
+                    description,
+                    discipline,
+                    difficulty,
+                    duration_minutes,
+                    is_active
+                `)
+
+                .eq(
+                    "id",
+                    workoutId
+                )
+
+                .eq(
+                    "is_active",
+                    true
+                )
+
+                .maybeSingle();
+
+
+        if (workoutError) {
+
+            throw workoutError;
+
+        }
+
+
+        if (!workout) {
+
+            showError(
+                "This workout could not be found."
+            );
+
+            return;
+
+        }
+
+
+        /* =====================================
+           LOAD EXERCISES
+        ===================================== */
+
+        const {
+            data: workoutExercises,
+            error: exerciseError
+        } =
+            await supabaseClient
+
+                .from("workout_exercises")
+
+                .select(`
+                    id,
+                    workout_id,
+                    exercise_order,
+                    sets,
+                    reps,
+                    rest,
+                    exercise:exercises (
+                        id,
+                        name,
+                        discipline,
+                        category,
+                        difficulty,
+                        muscles,
+                        equipment,
+                        description,
+                        progression,
+                        regression,
+                        alternative
+                    )
+                `)
+
+                .eq(
+                    "workout_id",
+                    workoutId
+                )
+
+                .order(
+                    "exercise_order",
+                    {
+                        ascending: true
+                    }
+                );
+
+
+        if (exerciseError) {
+
+            throw exerciseError;
+
+        }
+
+
+        renderWorkout(
+            workout,
+            workoutExercises || []
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Workout session error:",
+            error
+        );
+
+
+        showError(
+            "We couldn't load this workout."
+        );
+
+    }
+
+
+
+    /* =========================================
+       RENDER WORKOUT
+    ========================================= */
+
+    function renderWorkout(
+        workout,
+        exercises
+    ) {
+
+        sessionTitle.textContent =
+            workout.title;
+
+
+        sessionDescription.textContent =
+            workout.description ||
+            "Complete this Aurex training session at your own pace.";
+
+
+        sessionMeta.innerHTML = `
+
+            <span>
+                ${escapeHtml(
+                    workout.discipline ||
+                    "Training"
+                )}
+            </span>
+
+            <span>
+                ${escapeHtml(
+                    workout.difficulty ||
+                    "All Levels"
+                )}
+            </span>
+
+            <span>
+                ${workout.duration_minutes || 0}
+                MIN
+            </span>
+
+            <span>
+                ${exercises.length}
+                EXERCISES
+            </span>
+
+        `;
+
+
+        if (!exercises.length) {
+
+            sessionExercises.innerHTML = `
+
+                <div class="session-empty">
+
+                    <span class="section-label">
+                        WORKOUT SESSION
+                    </span>
+
+                    <h3>
+                        No exercises yet.
+                    </h3>
+
+                    <p>
+                        This workout does not have any
+                        exercises attached to it yet.
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        sessionExercises.innerHTML =
+            exercises
+                .map(
+                    (item, index) =>
+                        renderExercise(
+                            item,
+                            index
+                        )
+                )
+                .join("");
+
+
+        attachExerciseEvents(
+            exercises.length
+        );
+
+
+        updateProgress(
+            exercises.length
+        );
+
+    }
+
+
+
+    /* =========================================
+       RENDER EXERCISE
+    ========================================= */
+
+    function renderExercise(
+        item,
+        index
+    ) {
+
+        const exercise =
+            item.exercise;
+
+
+        if (!exercise) {
+
+            return "";
+
+        }
+
+
+        return `
+
+            <article
+                class="session-exercise"
+                data-exercise-index="${index}"
+            >
+
+                <div class="session-exercise-number">
+
+                    ${String(
+                        index + 1
+                    ).padStart(2, "0")}
+
+                </div>
+
+
+                <div class="session-exercise-main">
+
+                    <div class="session-exercise-heading">
+
+                        <div>
+
+                            <span class="session-exercise-category">
+
+                                ${escapeHtml(
+                                    exercise.category ||
+                                    exercise.discipline ||
+                                    "Exercise"
+                                )}
+
+                            </span>
+
+
+                            <h3>
+
+                                ${escapeHtml(
+                                    exercise.name
+                                )}
+
+                            </h3>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="exercise-complete-button"
+                            data-index="${index}"
+                        >
+                            Complete Exercise
+                        </button>
+
+                    </div>
+
+
+                    <div class="session-exercise-details">
+
+                        <div>
+
+                            <strong>
+                                ${escapeHtml(
+                                    item.sets ||
+                                    "—"
+                                )}
+                            </strong>
+
+                            <span>
+                                SETS
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                ${escapeHtml(
+                                    item.reps ||
+                                    "—"
+                                )}
+                            </strong>
+
+                            <span>
+                                REPS
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                ${escapeHtml(
+                                    item.rest ||
+                                    "—"
+                                )}
+                            </strong>
+
+                            <span>
+                                REST
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                ${escapeHtml(
+                                    exercise.difficulty ||
+                                    "—"
+                                )}
+                            </strong>
+
+                            <span>
+                                LEVEL
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="session-exercise-info">
+
+                        <div>
+
+                            <span>
+                                TARGET MUSCLES
+                            </span>
+
+                            <strong>
+                                ${escapeHtml(
+                                    exercise.muscles ||
+                                    "Full body"
+                                )}
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                EQUIPMENT
+                            </span>
+
+                            <strong>
+                                ${escapeHtml(
+                                    exercise.equipment ||
+                                    "Standard"
+                                )}
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    ${
+                        exercise.description
+                            ? `
+                                <div class="session-exercise-description">
+
+                                    <span>
+                                        HOW TO PERFORM
+                                    </span>
+
+                                    <p>
+                                        ${escapeHtml(
+                                            exercise.description
+                                        )}
+                                    </p>
+
+                                </div>
+                            `
+                            : ""
+                    }
+
+                </div>
+
+            </article>
+
+        `;
+
+    }
+
+
+
+    /* =========================================
+       EXERCISE EVENTS
+    ========================================= */
+
+    function attachExerciseEvents(
+        totalExercises
+    ) {
+
+        const buttons =
+            document.querySelectorAll(
+                ".exercise-complete-button"
+            );
+
+
+        buttons.forEach(
+            button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        const index =
+                            button.dataset.index;
+
+
+                        const exercise =
+                            document.querySelector(
+                                `[data-exercise-index="${index}"]`
+                            );
+
+
+                        if (!exercise) {
+                            return;
+                        }
+
+
+                        if (
+                            exercise.classList.contains(
+                                "completed"
+                            )
+                        ) {
+
+                            exercise.classList.remove(
+                                "completed"
+                            );
+
+                            button.textContent =
+                                "Complete Exercise";
+
+                        } else {
+
+                            exercise.classList.add(
+                                "completed"
+                            );
+
+                            button.textContent =
+                                "Completed ✓";
+
+                        }
+
+
+                        updateProgress(
+                            totalExercises
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+    }
+
+
+
+    /* =========================================
+       UPDATE PROGRESS
+    ========================================= */
+
+    function updateProgress(
+        totalExercises
+    ) {
+
+        const completed =
+            document.querySelectorAll(
+                ".session-exercise.completed"
+            ).length;
+
+
+        progressCount.textContent =
+            completed +
+            " / " +
+            totalExercises;
+
+
+        const percentage =
+            totalExercises > 0
+                ? (
+                    completed /
+                    totalExercises
+                ) * 100
+                : 0;
+
+
+        progressBar.style.width =
+            percentage + "%";
+
+
+        if (
+            completed ===
+            totalExercises &&
+            totalExercises > 0
+        ) {
+
+            finishButton.disabled =
+                false;
+
+            completionMessage.textContent =
+                "All exercises are complete. Finish your session when you're ready.";
+
+            finishButton.classList.add(
+                "ready"
+            );
+
+        } else {
+
+            finishButton.disabled =
+                true;
+
+            completionMessage.textContent =
+                "Complete every exercise above before finishing your workout.";
+
+            finishButton.classList.remove(
+                "ready"
+            );
+
+        }
+
+    }
+
+
+
+    /* =========================================
+       COMPLETE WORKOUT
+    ========================================= */
+
+    finishButton.addEventListener(
+        "click",
+        async () => {
+
+            if (
+                finishButton.disabled
+            ) {
+
+                return;
+
+            }
+
+
+            /* =====================================
+               PREVENT DOUBLE CLICK
+            ===================================== */
+
+            finishButton.disabled =
+                true;
+
+            finishButton.textContent =
+                "Saving Workout...";
+
+
+            completionMessage.textContent =
+                "Saving your workout session...";
+
+
+            try {
+
+                /* =================================
+                   SAVE WORKOUT SESSION
+                ================================= */
+
+                const {
+                    error: sessionError
+                } =
+                    await supabaseClient
+                        .from("workout_sessions")
+                        .insert({
+                            user_id: user.id,
+                            workout_id: workoutId,
+                            started_at: new Date().toISOString(),
+                            completed_at: new Date().toISOString(),
+                            status: "completed"
+                        });
+
+
+                if (sessionError) {
+
+                    throw sessionError;
+
+                }
+
+
+                /* =================================
+                   UPDATE USER WORKOUT
+                ================================= */
+
+                const {
+                    error: userWorkoutError
+                } =
+                    await supabaseClient
+                        .from("user_workouts")
+                        .update({
+                            status: "completed",
+                            completed_at: new Date().toISOString()
+                        })
+                        .eq(
+                            "user_id",
+                            user.id
+                        )
+                        .eq(
+                            "workout_id",
+                            workoutId
+                        );
+
+
+                if (userWorkoutError) {
+
+                    console.warn(
+                        "Workout session saved, but user workout status could not be updated:",
+                        userWorkoutError
+                    );
+
+                }
+
+
+                /* =================================
+                   SUCCESS
+                ================================= */
+
+                completionMessage.textContent =
+                    "Workout complete. Your progress has been saved.";
+
+
+                finishButton.textContent =
+                    "Workout Complete ✓";
+
+
+                finishButton.classList.remove(
+                    "ready"
+                );
+
+
+                finishButton.classList.add(
+                    "completed"
+                );
+
+
+            } catch (error) {
+
+                console.error(
+                    "Failed to save workout:",
+                    error
+                );
+
+
+                finishButton.disabled =
+                    false;
+
+                finishButton.textContent =
+                    "Complete Workout";
+
+
+                finishButton.classList.remove(
+                    "completed"
+                );
+
+
+                completionMessage.textContent =
+                    "We couldn't save your workout. Please try again.";
+
+            }
+
+        }
+    );
+
+
+
+    /* =========================================
+       ERROR STATE
+    ========================================= */
+
+    function showError(
+        message
+    ) {
+
+        sessionTitle.textContent =
+            "Workout Unavailable";
+
+
+        sessionDescription.textContent =
+            message;
+
+
+        sessionMeta.innerHTML = "";
+
+
+        sessionExercises.innerHTML = `
+
+            <div class="session-empty">
+
+                <span class="section-label">
+                    AUREX PLATFORM
+                </span>
+
+                <h3>
+                    Something went wrong.
+                </h3>
+
+                <p>
+                    ${escapeHtml(message)}
+                </p>
+
+
+                <a
+                    href="my-workouts.html"
+                    class="session-back-button"
+                >
+                    Back To My Workouts
+                </a>
+
+            </div>
+
+        `;
+
+    }
+
+
+
+    /* =========================================
+       ESCAPE HTML
+    ========================================= */
+
+    function escapeHtml(
+        value
+    ) {
+
+        if (
+            value === null ||
+            value === undefined
+        ) {
+
+            return "";
+
+        }
+
+
+        return String(value)
+
+            .replaceAll(
+                "&",
+                "&amp;"
+            )
+
+            .replaceAll(
+                "<",
+                "&lt;"
+            )
+
+            .replaceAll(
+                ">",
+                "&gt;"
+            )
+
+            .replaceAll(
+                '"',
+                "&quot;"
+            )
+
+            .replaceAll(
+                "'",
+                "&#039;"
+            );
+
+    }
+
+});
+
+</script>
+
+
+</body>
+
+</html>

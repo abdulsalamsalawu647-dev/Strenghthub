@@ -1,0 +1,460 @@
+/* =========================================
+   AUREX PROGRESS PAGE
+========================================= */
+
+.progress-page {
+    background: #050505;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.progress-hero {
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    padding: 100px 8%;
+    border-bottom: 1px solid #1c1c1c;
+    background:
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(34, 197, 94, 0.10),
+            transparent 35%
+        ),
+        #050505;
+}
+
+.progress-hero-content {
+    max-width: 850px;
+}
+
+.progress-hero h1 {
+    margin: 18px 0;
+    font-size: clamp(48px, 7vw, 88px);
+    line-height: 0.95;
+    letter-spacing: -3px;
+    font-weight: 800;
+}
+
+.progress-hero p {
+    max-width: 600px;
+    margin: 0;
+    color: #999;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   SHARED HEADINGS
+========================================= */
+
+.section-label {
+    display: inline-block;
+    color: #22C55E;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.section-heading {
+    max-width: 700px;
+    margin-bottom: 45px;
+}
+
+.section-heading h2 {
+    margin: 12px 0;
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1;
+    letter-spacing: -1.5px;
+}
+
+.section-heading p {
+    margin: 0;
+    color: #888;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   OVERVIEW
+========================================= */
+
+.progress-overview {
+    padding: 100px 8%;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.progress-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.progress-stat-card {
+    min-height: 170px;
+    padding: 30px;
+    background: #0b0b0b;
+    border: 1px solid #1d1d1d;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: border-color 0.2s ease,
+                transform 0.2s ease;
+}
+
+.progress-stat-card:hover {
+    border-color: #22C55E;
+    transform: translateY(-3px);
+}
+
+.progress-stat-number {
+    font-size: 52px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -2px;
+    color: #ffffff;
+}
+
+.progress-stat-label {
+    color: #777;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   GENERAL SECTIONS
+========================================= */
+
+.progress-section {
+    padding: 100px 8%;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+
+/* =========================================
+   WEEK TRACKER
+========================================= */
+
+.week-tracker {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 12px;
+}
+
+.week-day {
+    min-height: 150px;
+    padding: 24px 12px;
+    background: #0b0b0b;
+    border: 1px solid #1d1d1d;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    position: relative;
+    transition: 0.2s ease;
+}
+
+.week-day:hover {
+    border-color: #333;
+}
+
+.week-day-name {
+    color: #777;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.week-day-number {
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.week-day-status {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #151515;
+    color: #555;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.week-day.completed {
+    border-color: rgba(34, 197, 94, 0.5);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(34, 197, 94, 0.08),
+            #0b0b0b
+        );
+}
+
+.week-day.completed .week-day-status {
+    background: #22C55E;
+    color: #000000;
+}
+
+.week-day.completed .week-day-name {
+    color: #22C55E;
+}
+
+.week-day.today {
+    box-shadow: inset 0 0 0 1px #22C55E;
+}
+
+.week-day.today::after {
+    content: "TODAY";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #22C55E;
+}
+
+
+/* =========================================
+   ACTIVITY SUMMARY
+========================================= */
+
+.activity-summary {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.activity-card {
+    padding: 35px;
+    background: #0b0b0b;
+    border: 1px solid #1d1d1d;
+    border-radius: 18px;
+}
+
+.activity-label {
+    display: block;
+    margin-bottom: 20px;
+    color: #22C55E;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.activity-card strong {
+    display: block;
+    margin-bottom: 12px;
+    color: #ffffff;
+    font-size: 34px;
+    line-height: 1;
+}
+
+.activity-card p {
+    margin: 0;
+    color: #777;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   NEXT STEP
+========================================= */
+
+.progress-action {
+    padding: 40px;
+    border: 1px solid #1d1d1d;
+    border-radius: 20px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(34, 197, 94, 0.08),
+            #0b0b0b 45%
+        );
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.progress-action h3 {
+    margin: 12px 0 8px;
+    font-size: 34px;
+    letter-spacing: -1px;
+}
+
+.progress-action p {
+    margin: 0;
+    color: #888;
+    line-height: 1.6;
+}
+
+.progress-btn {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 22px;
+    background: #22C55E;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    transition: 0.2s ease;
+}
+
+.progress-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+
+/* =========================================
+   ERROR
+========================================= */
+
+.progress-error {
+    grid-column: 1 / -1;
+    padding: 40px;
+    text-align: center;
+    background: #0b0b0b;
+    border: 1px solid #2a2a2a;
+    border-radius: 16px;
+}
+
+.progress-error strong {
+    display: block;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.progress-error p {
+    margin: 0;
+    color: #777;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.progress-page + footer {
+    background: #000000;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .progress-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .week-tracker {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .progress-action {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .progress-hero {
+        min-height: 340px;
+        padding: 80px 6%;
+    }
+
+    .progress-hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .progress-overview,
+    .progress-section {
+        padding: 70px 6%;
+    }
+
+    .progress-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .progress-stat-card {
+        min-height: 140px;
+        padding: 22px;
+    }
+
+    .progress-stat-number {
+        font-size: 38px;
+    }
+
+    .progress-stat-label {
+        font-size: 10px;
+    }
+
+    .week-tracker {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .week-day {
+        min-height: 125px;
+    }
+
+    .activity-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .progress-action {
+        padding: 28px;
+    }
+
+    .progress-action h3 {
+        font-size: 28px;
+    }
+
+    .progress-btn {
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 380px) {
+
+    .progress-stats {
+        grid-template-columns: 1fr;
+    }
+
+}

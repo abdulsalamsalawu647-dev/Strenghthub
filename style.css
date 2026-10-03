@@ -15693,3 +15693,227 @@ footer p {
     color: #666;
     font-size: 13px;
 }
+/* =========================================
+   AUREX GYM WORKOUT LIBRARY
+========================================= */
+
+.gym-workout-library {
+    padding: 90px 7%;
+    background: #050505;
+}
+
+.gym-workouts-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 45px;
+}
+
+.gym-workout-card {
+    background: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.gym-workout-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: #22C55E;
+}
+
+.gym-workout-card-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.gym-workout-card-top span {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: #22C55E;
+}
+
+.gym-workout-card h3 {
+    color: #fff;
+    font-size: 28px;
+    margin: 0 0 15px;
+}
+
+.gym-workout-description {
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.7;
+    margin-bottom: 22px;
+}
+
+.gym-workout-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.gym-workout-meta span {
+    padding: 7px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.gym-workout-exercises {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 24px;
+}
+
+.gym-workout-exercise {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.gym-workout-exercise:last-child {
+    border-bottom: none;
+}
+
+.gym-workout-exercise span {
+    color: #22C55E;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.gym-workout-exercise strong {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+}
+
+.gym-workout-more {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 11px;
+    margin-top: -12px;
+    margin-bottom: 24px;
+}
+
+.gym-workout-card-footer {
+    display: flex;
+    gap: 10px;
+}
+
+.gym-workout-action {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 12px 16px;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.gym-workout-action.primary {
+    background: #22C55E;
+    color: #050505;
+    border-color: #22C55E;
+}
+
+.gym-workout-action.primary:hover {
+    opacity: 0.85;
+}
+
+.gym-workout-action.secondary {
+    background: transparent;
+    color: #fff;
+}
+
+.gym-workout-action.secondary:hover {
+    border-color: #22C55E;
+    color: #22C55E;
+}
+
+.gym-workout-action:disabled {
+    cursor: default;
+    opacity: 0.65;
+}
+
+.gym-workout-action.added {
+    background: transparent;
+    color: #22C55E;
+    border-color: #22C55E;
+}
+
+.gym-workouts-loading,
+.gym-workouts-empty {
+    grid-column: 1 / -1;
+    padding: 45px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.gym-workouts-loading span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background: #22C55E;
+    animation: aurexWorkoutPulse 1s infinite ease-in-out;
+}
+
+@keyframes aurexWorkoutPulse {
+
+    0%,
+    100% {
+        opacity: 0.35;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
+@media (max-width: 800px) {
+
+    .gym-workouts-container {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .gym-workout-library {
+        padding: 70px 5%;
+    }
+
+    .gym-workout-card {
+        padding: 22px;
+    }
+
+    .gym-workout-card h3 {
+        font-size: 23px;
+    }
+
+    .gym-workout-card-footer {
+        flex-direction: column;
+    }
+
+    .gym-workout-action {
+        width: 100%;
+    }
+
+}

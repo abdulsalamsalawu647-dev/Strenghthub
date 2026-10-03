@@ -5,13 +5,22 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Aurex | Videos</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
-    <link rel="stylesheet" href="videos.css">
+    <link
+        rel="stylesheet"
+        href="videos.css"
+    >
 
 </head>
 
@@ -26,28 +35,70 @@
 <header>
 
     <div class="logo">
-        Aurex<span>HUB</span>
+        AUREX
     </div>
+
 
     <nav id="main-nav">
 
-        <a href="index.html">Home</a>
+        <a href="index.html">
+            Home
+        </a>
 
-        <a href="workouts.html">Workouts</a>
+        <a href="workouts.html">
+            Workouts
+        </a>
 
-        <a href="videos.html">Videos</a>
+        <a href="nutrition.html">
+            Nutrition
+        </a>
 
-        <a href="map.html">Map</a>
+        <a href="map.html">
+            Map
+        </a>
 
-        <a href="community.html">community</a>
+        <a href="community.html">
+            Community
+        </a>
 
-        <a href="about.html">About</a>
+        <a href="athletes.html">
+            Athletes
+        </a>
 
-        <a href="contact.html">Contact</a>
+        <a
+            href="videos.html"
+            class="active"
+        >
+            Videos
+        </a>
 
-        <a href="shop.html">Aurex</a>
+        <a href="about.html">
+            About
+        </a>
 
-        <a href="account.html">Account</a>
+        <a href="contact.html">
+            Contact
+        </a>
+
+        <a
+            href="https://www.teamaurex.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Aurex
+        </a>
+
+        <a href="account.html">
+            Account
+        </a>
+
+        <a
+            href="admin.html"
+            id="adminNavLink"
+            style="display: none;"
+        >
+            Admin
+        </a>
 
     </nav>
 
@@ -56,7 +107,14 @@
 
 
 <!-- ==========================================
-     VIDEOS HERO
+     VIDEO PAGE
+========================================== -->
+
+<main class="videos-page">
+
+
+<!-- ==========================================
+     HERO
 ========================================== -->
 
 <section class="videos-hero">
@@ -67,15 +125,52 @@
             AUREX MEDIA
         </span>
 
+
         <h1>
-            TRAIN.<br>
-            <span>WATCH.</span><br>
+            TRAIN.
+            <span>WATCH.</span>
             PROGRESS.
         </h1>
 
+
         <p>
-            Training, athletes, events and fitness content from Aurex.
+            Training, athletes, education and fitness
+            content built to help you keep moving forward.
         </p>
+
+
+        <div class="videos-hero-actions">
+
+            <a
+                href="#video-library"
+                class="videos-primary-button"
+            >
+                EXPLORE VIDEOS
+            </a>
+
+
+            <a
+                href="my-videos.html"
+                class="videos-secondary-button"
+                id="myVideosButton"
+            >
+                MY VIDEOS
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="videos-hero-mark">
+
+        <span>
+            A
+        </span>
+
+        <small>
+            AUREX MEDIA
+        </small>
 
     </div>
 
@@ -87,94 +182,235 @@
      VIDEO LIBRARY
 ========================================== -->
 
-<section class="videos-section">
+<section
+    class="videos-section"
+    id="video-library"
+>
+
+
+    <!-- SECTION HEADER -->
 
     <div class="videos-section-heading">
 
-        <span class="section-label">
-            AUREX VIDEOS
-        </span>
+        <div>
 
-        <h2>
-            Watch & Learn.
-        </h2>
+            <span class="section-label">
+                VIDEO LIBRARY
+            </span>
+
+            <h2>
+                Watch & Learn.
+            </h2>
+
+        </div>
+
 
         <p>
-            Explore training, athletes, events and fitness content.
+            Explore training, athletes, events,
+            education and fitness content from Aurex.
         </p>
 
     </div>
 
 
-    <p id="videosMessage">
-        Loading videos...
-    </p>
 
+    <!-- ======================================
+         SEARCH
+    ======================================= -->
+
+    <div class="video-tools">
+
+        <div class="video-search">
+
+            <span class="video-search-icon">
+                SEARCH
+            </span>
+
+
+            <input
+                type="search"
+                id="videoSearch"
+                placeholder="Search videos..."
+                autocomplete="off"
+            >
+
+        </div>
+
+
+        <div class="video-library-status">
+
+            <span id="videoCount">
+                0 VIDEOS
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ======================================
+         FILTERS
+    ======================================= -->
 
     <div class="video-filters">
 
         <button
             class="video-filter active"
-            data-category="all">
-
+            data-category="all"
+        >
             All
-
         </button>
 
 
         <button
             class="video-filter"
-            data-category="Calisthenics">
-
+            data-category="Calisthenics"
+        >
             Calisthenics
-
         </button>
 
 
         <button
             class="video-filter"
-            data-category="Bodybuilding">
-
+            data-category="Bodybuilding"
+        >
             Bodybuilding
-
         </button>
 
 
         <button
             class="video-filter"
-            data-category="Martial Arts">
-
+            data-category="Martial Arts"
+        >
             Martial Arts
-
         </button>
 
 
         <button
             class="video-filter"
-            data-category="Gymnastics">
-
+            data-category="Gymnastics"
+        >
             Gymnastics
-
         </button>
 
 
         <button
             class="video-filter"
-            data-category="Nutrition">
-
+            data-category="Nutrition"
+        >
             Nutrition
+        </button>
 
+
+        <button
+            class="video-filter"
+            data-category="Aurex"
+        >
+            Aurex
         </button>
 
     </div>
 
 
+
+    <!-- ======================================
+         STATUS
+    ======================================= -->
+
+    <div
+        id="videosMessage"
+        class="videos-message"
+    >
+        Loading videos...
+    </div>
+
+
+
+    <!-- ======================================
+         VIDEO GRID
+    ======================================= -->
+
     <section
         id="videoGrid"
-        class="video-grid">
+        class="video-grid"
+    >
     </section>
 
+
 </section>
+
+
+
+<!-- ==========================================
+     VIDEO MODAL
+========================================== -->
+
+<div
+    id="videoModal"
+    class="video-modal"
+    aria-hidden="true"
+>
+
+
+    <div class="video-modal-overlay"></div>
+
+
+    <div
+        class="video-modal-content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalVideoTitle"
+    >
+
+        <button
+            type="button"
+            id="closeVideoModal"
+            class="video-modal-close"
+            aria-label="Close video"
+        >
+            ×
+        </button>
+
+
+        <div class="video-modal-player">
+
+            <video
+                id="modalVideoPlayer"
+                controls
+                playsinline
+            >
+                Your browser does not support video playback.
+            </video>
+
+        </div>
+
+
+        <div class="video-modal-info">
+
+            <span
+                id="modalVideoCategory"
+                class="video-modal-category"
+            >
+            </span>
+
+
+            <h2 id="modalVideoTitle">
+            </h2>
+
+
+            <p id="modalVideoDescription">
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+</main>
 
 
 
@@ -185,37 +421,54 @@
 <footer>
 
     <h3>
-        AurexHub
+        AUREX
     </h3>
+
 
     <p>
         Fitness Without Barriers
     </p>
 
+
     <p>
-        © 2026 AurexHub by Abdulsalam
+        © 2026 Aurex by Abdulsalam
     </p>
 
 </footer>
 
 
 
+<!-- ==========================================
+     SCRIPTS
+========================================== -->
+
 <script src="script.js"></script>
 
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 
 <script src="supabase.js"></script>
 
 
+
 <script>
 
+
+/* ==========================================
+   STATE
+========================================== */
+
 let allVideos = [];
+
+let selectedCategory = "all";
 
 let selectedExercise = null;
 
 
+
 /* ==========================================
-   CHECK FOR EXERCISE IN URL
+   URL PARAMETERS
 ========================================== */
 
 const urlParams =
@@ -228,104 +481,319 @@ selectedExercise =
     urlParams.get("exercise");
 
 
+
+/* ==========================================
+   ELEMENTS
+========================================== */
+
+const videoGrid =
+    document.getElementById(
+        "videoGrid"
+    );
+
+
+const videosMessage =
+    document.getElementById(
+        "videosMessage"
+    );
+
+
+const videoSearch =
+    document.getElementById(
+        "videoSearch"
+    );
+
+
+const videoCount =
+    document.getElementById(
+        "videoCount"
+    );
+
+
+const videoModal =
+    document.getElementById(
+        "videoModal"
+    );
+
+
+const modalPlayer =
+    document.getElementById(
+        "modalVideoPlayer"
+    );
+
+
+const modalTitle =
+    document.getElementById(
+        "modalVideoTitle"
+    );
+
+
+const modalDescription =
+    document.getElementById(
+        "modalVideoDescription"
+    );
+
+
+const modalCategory =
+    document.getElementById(
+        "modalVideoCategory"
+    );
+
+
+const closeVideoModal =
+    document.getElementById(
+        "closeVideoModal"
+    );
+
+
+
+/* ==========================================
+   ESCAPE HTML
+========================================== */
+
+function escapeHtml(value) {
+
+    if (!value) {
+        return "";
+    }
+
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+
+/* ==========================================
+   FORMAT DATE
+========================================== */
+
+function formatVideoDate(dateValue) {
+
+    if (!dateValue) {
+        return "";
+    }
+
+
+    const date =
+        new Date(dateValue);
+
+
+    if (Number.isNaN(date.getTime())) {
+        return "";
+    }
+
+
+    return date.toLocaleDateString(
+        "en-GB",
+        {
+            day: "numeric",
+            month: "short",
+            year: "numeric"
+        }
+    );
+
+}
+
+
+
+/* ==========================================
+   UPDATE VIDEO COUNT
+========================================== */
+
+function updateVideoCount(count) {
+
+    videoCount.textContent =
+        `${count} ${count === 1 ? "VIDEO" : "VIDEOS"}`;
+
+}
+
+
+
 /* ==========================================
    LOAD VIDEOS
 ========================================== */
 
 async function loadVideos() {
 
-    const message =
-        document.getElementById("videosMessage");
-
-    const grid =
-        document.getElementById("videoGrid");
+    videosMessage.textContent =
+        "Loading videos...";
 
 
-    const {
-        data: videos,
-        error
-    } =
-        await supabaseClient
-            .from("videos")
-            .select("*")
-            .order("created_at", {
-                ascending: false
-            });
+    videoGrid.innerHTML = "";
 
 
-    if (error) {
+    try {
 
-        console.error(error);
-
-        message.textContent =
-            "Unable to load videos.";
-
-        return;
-
-    }
-
-
-    if (!videos || videos.length === 0) {
-
-        message.textContent =
-            "No videos available yet.";
-
-        return;
-
-    }
+        const {
+            data: videos,
+            error
+        } =
+            await supabaseClient
+                .from("videos")
+                .select("*")
+                .order(
+                    "created_at",
+                    {
+                        ascending: false
+                    }
+                );
 
 
-    allVideos = videos;
+        if (error) {
+
+            throw error;
+
+        }
 
 
-    /*
-       If an exercise was passed in the URL,
-       find the matching video.
-    */
+        if (!videos || videos.length === 0) {
 
-    if (selectedExercise) {
+            allVideos = [];
 
-        const matchingVideos =
-            allVideos.filter(video =>
-
-                video.title &&
-                video.title
-                    .trim()
-                    .toLowerCase() ===
-                selectedExercise
-                    .trim()
-                    .toLowerCase()
-
-            );
+            updateVideoCount(0);
 
 
-        if (matchingVideos.length > 0) {
+            videosMessage.textContent =
+                "No videos are available yet.";
 
-            message.textContent =
-                `Tutorial: ${selectedExercise}`;
-
-            displayVideos(matchingVideos);
 
             return;
 
         }
 
 
-        message.textContent =
-            `No tutorial found for ${selectedExercise}.`;
+        allVideos = videos;
 
-        displayVideos([]);
 
-        return;
+        updateVideoCount(
+            allVideos.length
+        );
+
+
+        if (selectedExercise) {
+
+            const matchingVideos =
+                allVideos.filter(video =>
+
+                    video.title &&
+                    video.title
+                        .trim()
+                        .toLowerCase() ===
+                    selectedExercise
+                        .trim()
+                        .toLowerCase()
+
+                );
+
+
+            if (
+                matchingVideos.length > 0
+            ) {
+
+                videosMessage.textContent =
+                    `Tutorial: ${selectedExercise}`;
+
+                displayVideos(
+                    matchingVideos
+                );
+
+                return;
+
+            }
+
+
+            videosMessage.textContent =
+                `No tutorial found for ${selectedExercise}.`;
+
+            displayVideos([]);
+
+            return;
+
+        }
+
+
+        videosMessage.textContent = "";
+
+        displayVideos(
+            allVideos
+        );
 
     }
 
+    catch (error) {
 
-    message.textContent = "";
+        console.error(
+            "Video loading error:",
+            error
+        );
 
-    displayVideos(allVideos);
+
+        updateVideoCount(0);
+
+
+        videosMessage.textContent =
+            "Unable to load videos right now. Please try again.";
+
+    }
 
 }
+
+
+
+/* ==========================================
+   GET FILTERED VIDEOS
+========================================== */
+
+function getFilteredVideos() {
+
+    const searchTerm =
+        videoSearch.value
+            .trim()
+            .toLowerCase();
+
+
+    return allVideos.filter(video => {
+
+        const matchesCategory =
+            selectedCategory === "all" ||
+            video.category === selectedCategory;
+
+
+        const searchableText = [
+
+            video.title || "",
+
+            video.description || "",
+
+            video.category || ""
+
+        ]
+            .join(" ")
+            .toLowerCase();
+
+
+        const matchesSearch =
+            !searchTerm ||
+            searchableText.includes(
+                searchTerm
+            );
+
+
+        return (
+            matchesCategory &&
+            matchesSearch
+        );
+
+    });
+
+}
+
 
 
 /* ==========================================
@@ -334,27 +802,75 @@ async function loadVideos() {
 
 async function displayVideos(videos) {
 
-    const grid =
-        document.getElementById("videoGrid");
+    videoGrid.innerHTML = "";
 
 
-    grid.innerHTML = "";
+    updateVideoCount(
+        videos.length
+    );
 
 
-    if (videos.length === 0) {
+    if (!videos || videos.length === 0) {
 
-        grid.innerHTML = `
-            <p>
-                No videos found.
-            </p>
+        videosMessage.textContent =
+            "No videos match your search.";
+
+        videoGrid.innerHTML = `
+
+            <div class="video-empty-state">
+
+                <span class="video-empty-number">
+                    00
+                </span>
+
+                <h3>
+                    Nothing here yet.
+                </h3>
+
+                <p>
+                    Try another search or category.
+                </p>
+
+                <button
+                    type="button"
+                    class="video-empty-button"
+                    id="clearVideoFilters"
+                >
+                    CLEAR FILTERS
+                </button>
+
+            </div>
+
         `;
+
+
+        document
+            .getElementById(
+                "clearVideoFilters"
+            )
+            .addEventListener(
+                "click",
+                clearFilters
+            );
+
 
         return;
 
     }
 
 
-    for (const video of videos) {
+    videosMessage.textContent = "";
+
+
+    for (
+        let index = 0;
+        index < videos.length;
+        index++
+    ) {
+
+        const video =
+            videos[index];
+
 
         const {
             data: signedUrlData,
@@ -372,6 +888,7 @@ async function displayVideos(videos) {
         if (signedUrlError) {
 
             console.error(
+                "Signed URL error:",
                 signedUrlError
             );
 
@@ -381,127 +898,540 @@ async function displayVideos(videos) {
 
 
         const card =
-            document.createElement("article");
+            document.createElement(
+                "article"
+            );
 
 
         card.className =
             "video-card";
 
 
+        card.style.setProperty(
+            "--video-index",
+            index
+        );
+
+
+        const safeTitle =
+            escapeHtml(
+                video.title ||
+                "Untitled Video"
+            );
+
+
+        const safeDescription =
+            escapeHtml(
+                video.description ||
+                "Aurex fitness content."
+            );
+
+
+        const safeCategory =
+            escapeHtml(
+                video.category ||
+                "Aurex"
+            );
+
+
+        const formattedDate =
+            formatVideoDate(
+                video.created_at
+            );
+
+
         card.innerHTML = `
 
-            <video
-                class="video-player"
-                controls
-                preload="metadata"
-            >
+            <div class="video-card-media">
 
-                <source
-                    src="${signedUrlData.signedUrl}"
+                <video
+                    class="video-player"
+                    preload="metadata"
+                    muted
+                    playsinline
                 >
 
-                Your browser does not support video playback.
+                    <source
+                        src="${signedUrlData.signedUrl}"
+                    >
 
-            </video>
+                </video>
+
+
+                <div class="video-card-overlay">
+
+                    <button
+                        type="button"
+                        class="video-play-button"
+                        aria-label="Play ${safeTitle}"
+                    >
+                        <span>
+                            ▶
+                        </span>
+                    </button>
+
+                </div>
+
+
+                <span class="video-card-index">
+                    ${String(index + 1).padStart(2, "0")}
+                </span>
+
+            </div>
 
 
             <div class="video-info">
 
-                <span class="video-category">
-                    ${video.category || ""}
-                </span>
+                <div class="video-info-top">
+
+                    <span class="video-category">
+                        ${safeCategory}
+                    </span>
+
+                    ${
+                        formattedDate
+                        ?
+                        `
+                        <span class="video-date">
+                            ${formattedDate}
+                        </span>
+                        `
+                        :
+                        ""
+                    }
+
+                </div>
+
 
                 <h3>
-                    ${video.title}
+                    ${safeTitle}
                 </h3>
 
+
                 <p>
-                    ${video.description || ""}
+                    ${safeDescription}
                 </p>
+
+
+                <button
+                    type="button"
+                    class="video-watch-button"
+                >
+                    WATCH VIDEO
+                    <span>
+                        →
+                    </span>
+                </button>
 
             </div>
 
         `;
 
 
-        grid.appendChild(card);
+        const player =
+            card.querySelector(
+                ".video-player"
+            );
+
+
+        const playButton =
+            card.querySelector(
+                ".video-play-button"
+            );
+
+
+        const watchButton =
+            card.querySelector(
+                ".video-watch-button"
+            );
+
+
+        const openVideo =
+            () => {
+
+                openVideoModal(
+                    signedUrlData.signedUrl,
+                    video
+                );
+
+            };
+
+
+        playButton.addEventListener(
+            "click",
+            openVideo
+        );
+
+
+        watchButton.addEventListener(
+            "click",
+            openVideo
+        );
+
+
+        player.addEventListener(
+            "mouseenter",
+            () => {
+
+                player.play()
+                    .catch(
+                        () => {}
+                    );
+
+            }
+        );
+
+
+        player.addEventListener(
+            "mouseleave",
+            () => {
+
+                player.pause();
+
+                player.currentTime = 0;
+
+            }
+        );
+
+
+        videoGrid.appendChild(
+            card
+        );
 
     }
 
 }
 
 
+
 /* ==========================================
-   VIDEO FILTERS
+   OPEN VIDEO MODAL
 ========================================== */
 
-const filterButtons =
-    document.querySelectorAll(
-        ".video-filter"
+function openVideoModal(
+    videoUrl,
+    video
+) {
+
+    modalPlayer.src =
+        videoUrl;
+
+
+    modalTitle.textContent =
+        video.title ||
+        "Aurex Video";
+
+
+    modalDescription.textContent =
+        video.description ||
+        "";
+
+
+    modalCategory.textContent =
+        video.category ||
+        "Aurex";
+
+
+    videoModal.classList.add(
+        "open"
     );
 
 
-filterButtons.forEach(button => {
+    videoModal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
 
-    button.addEventListener(
-        "click",
-        function () {
 
-            filterButtons.forEach(btn => {
+    document.body.classList.add(
+        "video-modal-open"
+    );
 
-                btn.classList.remove(
+
+    modalPlayer.play()
+        .catch(
+            () => {}
+        );
+
+}
+
+
+
+/* ==========================================
+   CLOSE VIDEO MODAL
+========================================== */
+
+function closeModal() {
+
+    modalPlayer.pause();
+
+    modalPlayer.removeAttribute(
+        "src"
+    );
+
+
+    modalPlayer.load();
+
+
+    videoModal.classList.remove(
+        "open"
+    );
+
+
+    videoModal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+
+    document.body.classList.remove(
+        "video-modal-open"
+    );
+
+}
+
+
+
+/* ==========================================
+   FILTER VIDEOS
+========================================== */
+
+function applyFilters() {
+
+    const filteredVideos =
+        getFilteredVideos();
+
+
+    displayVideos(
+        filteredVideos
+    );
+
+}
+
+
+
+/* ==========================================
+   CLEAR FILTERS
+========================================== */
+
+function clearFilters() {
+
+    selectedCategory =
+        "all";
+
+
+    videoSearch.value =
+        "";
+
+
+    document
+        .querySelectorAll(
+            ".video-filter"
+        )
+        .forEach(button => {
+
+            button.classList.remove(
+                "active"
+            );
+
+        });
+
+
+    const allButton =
+        document.querySelector(
+            '[data-category="all"]'
+        );
+
+
+    if (allButton) {
+
+        allButton.classList.add(
+            "active"
+        );
+
+    }
+
+
+    applyFilters();
+
+}
+
+
+
+/* ==========================================
+   CATEGORY FILTERS
+========================================== */
+
+document
+    .querySelectorAll(
+        ".video-filter"
+    )
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            function () {
+
+                document
+                    .querySelectorAll(
+                        ".video-filter"
+                    )
+                    .forEach(btn => {
+
+                        btn.classList.remove(
+                            "active"
+                        );
+
+                    });
+
+
+                this.classList.add(
                     "active"
                 );
 
-            });
+
+                selectedCategory =
+                    this.dataset.category;
 
 
-            this.classList.add("active");
-
-
-            const category =
-                this.dataset.category;
-
-
-            if (category === "all") {
-
-                displayVideos(allVideos);
-
-                document.getElementById(
-                    "videosMessage"
-                ).textContent = "";
-
-                return;
+                applyFilters();
 
             }
+        );
+
+    });
 
 
-            const filteredVideos =
-                allVideos.filter(video =>
-                    video.category === category
+
+/* ==========================================
+   SEARCH
+========================================== */
+
+videoSearch.addEventListener(
+    "input",
+    applyFilters
+);
+
+
+
+/* ==========================================
+   MODAL EVENTS
+========================================== */
+
+closeVideoModal.addEventListener(
+    "click",
+    closeModal
+);
+
+
+document
+    .querySelector(
+        ".video-modal-overlay"
+    )
+    .addEventListener(
+        "click",
+        closeModal
+    );
+
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Escape" &&
+            videoModal.classList.contains(
+                "open"
+            )
+        ) {
+
+            closeModal();
+
+        }
+
+    }
+);
+
+
+
+/* ==========================================
+   ADMIN NAV
+========================================== */
+
+async function checkAdminAccess() {
+
+    try {
+
+        const {
+            data: {
+                user
+            }
+        } =
+            await supabaseClient.auth.getUser();
+
+
+        if (!user) {
+            return;
+        }
+
+
+        const {
+            data: adminUser,
+            error
+        } =
+            await supabaseClient
+                .from("admin_users")
+                .select("id")
+                .eq(
+                    "user_id",
+                    user.id
+                )
+                .maybeSingle();
+
+
+        if (
+            !error &&
+            adminUser
+        ) {
+
+            const adminLink =
+                document.getElementById(
+                    "adminNavLink"
                 );
 
 
-            document.getElementById(
-                "videosMessage"
-            ).textContent = "";
+            if (adminLink) {
 
+                adminLink.style.display =
+                    "inline-block";
 
-            displayVideos(
-                filteredVideos
-            );
+            }
 
         }
-    );
 
-});
+    }
+
+    catch (error) {
+
+        console.error(
+            "Admin check error:",
+            error
+        );
+
+    }
+
+}
+
 
 
 /* ==========================================
    START
 ========================================== */
 
+checkAdminAccess();
+
 loadVideos();
+
 
 </script>
 

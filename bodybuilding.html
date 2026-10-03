@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,9 +8,10 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Bodybuilding | StrengthHub</title>
+    <title>Bodybuilding | AUREX</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bodybuilding-workouts.css">
 
 </head>
 
@@ -23,25 +25,38 @@
 <header>
 
     <div class="logo">
-        STRENGTH<span>HUB</span>
+        AUREX
     </div>
 
-    <nav>
+    <nav id="main-nav">
 
         <a href="index.html">Home</a>
 
         <a href="workouts.html">Workouts</a>
 
+        <a href="nutrition.html">Nutrition</a>
 
         <a href="map.html">Map</a>
 
-        <a href="Community.html">Community</a>
+        <a href="community.html">Community</a>
+
+        <a href="athletes.html">Athletes</a>
+
+        <a href="videos.html">Videos</a>
 
         <a href="about.html">About</a>
 
         <a href="contact.html">Contact</a>
 
-        <a href="shop.html">Aurex</a>
+        <a href="https://www.teamaurex.com/" target="_blank" rel="noopener">
+            Aurex
+        </a>
+
+        <a href="account.html">Account</a>
+
+        <a href="admin.html" id="adminNavLink" style="display: none;">
+            Admin
+        </a>
 
     </nav>
 
@@ -57,7 +72,7 @@
     <div class="bodybuilding-hero-content">
 
         <span class="section-label">
-            STRENGTHHUB • BODYBUILDING
+            AUREX • BODYBUILDING
         </span>
 
         <h1>
@@ -74,7 +89,7 @@
         <div class="bodybuilding-buttons">
 
             <a
-                href="#bodybuilding-library"
+                href="#aurex-workouts"
                 class="hero-btn">
 
                 Start Training
@@ -110,6 +125,41 @@
             proper recovery and understanding how to
             build your body over time.
         </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     AUREX BODYBUILDING WORKOUTS
+========================================== -->
+
+<section class="aurex-workouts" id="aurex-workouts">
+
+    <div class="aurex-workouts-heading">
+
+        <span class="section-label">
+            AUREX BODYBUILDING
+        </span>
+
+        <h2>
+            Choose Your Workout.
+        </h2>
+
+        <p>
+            Explore structured bodybuilding workouts and
+            add the ones you want to your personal training library.
+        </p>
+
+    </div>
+
+
+    <div id="bodybuildingWorkoutsContainer">
+
+        <div class="workout-loading">
+            Loading bodybuilding workouts...
+        </div>
 
     </div>
 
@@ -543,7 +593,7 @@
     <div class="philosophy-content">
 
         <span class="section-label">
-            THE STRENGTHHUB APPROACH
+            THE AUREX APPROACH
         </span>
 
         <h2>
@@ -554,7 +604,7 @@
         <p>
             Build your physique through consistent training,
             progressive overload, proper technique and recovery.
-            StrengthHub is here to help you understand the process
+            Aurex is here to help you understand the process
             — not just follow it.
         </p>
 
@@ -570,7 +620,7 @@
 <footer>
 
     <h3>
-        StrengthHub
+        AUREX
     </h3>
 
     <p>
@@ -578,17 +628,483 @@
     </p>
 
     <p>
-        © 2026 StrengthHub by Abdulsalam
+        © 2026 Aurex by Abdulsalam
     </p>
 
 </footer>
 
 
 <!-- ==========================================
-     BODYBUILDING JAVASCRIPT
+     SCRIPTS
 ========================================== -->
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="supabase.js"></script>
+
 <script src="bodybuilding.js"></script>
+
+
+<script>
+
+let currentUser = null;
+
+
+/* ==========================================
+   ADMIN NAV
+========================================== */
+
+async function checkAdminAccess() {
+
+    const { data: { user } } =
+        await supabaseClient.auth.getUser();
+
+    if (!user) return;
+
+    const { data } =
+        await supabaseClient
+            .from("admin_users")
+            .select("user_id")
+            .eq("user_id", user.id)
+            .maybeSingle();
+
+    if (data) {
+
+        const adminLink =
+            document.getElementById("adminNavLink");
+
+        if (adminLink) {
+            adminLink.style.display = "inline-block";
+        }
+
+    }
+
+}
+
+
+/* ==========================================
+   LOAD BODYBUILDING WORKOUTS
+========================================== */
+
+async function loadBodybuildingWorkouts() {
+
+    const container =
+        document.getElementById("bodybuildingWorkoutsContainer");
+
+    if (!container) return;
+
+
+    const {
+        data: { user }
+    } = await supabaseClient.auth.getUser();
+
+    currentUser = user;
+
+
+    const {
+        data: workouts,
+        error
+    } = await supabaseClient
+        .from("workouts")
+        .select(`
+            id,
+            title,
+            description,
+            discipline,
+            difficulty,
+            duration_minutes
+        `)
+        .eq("discipline", "Bodybuilding")
+        .eq("is_active", true)
+        .order("created_at", {
+            ascending: true
+        });
+
+
+    if (error) {
+
+        console.error(
+            "Error loading bodybuilding workouts:",
+            error
+        );
+
+        container.innerHTML = `
+            <div class="workout-message error">
+                <h3>Unable to load workouts</h3>
+                <p>Please refresh the page and try again.</p>
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    if (!workouts || workouts.length === 0) {
+
+        container.innerHTML = `
+            <div class="workout-message">
+                <h3>No bodybuilding workouts yet.</h3>
+                <p>
+                    Aurex bodybuilding workouts will appear here
+                    once they are added to the training library.
+                </p>
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML = "";
+
+
+    for (const workout of workouts) {
+
+        const {
+            data: workoutExercises,
+            error: exerciseError
+        } = await supabaseClient
+            .from("workout_exercises")
+            .select(`
+                id,
+                exercise_order,
+                sets,
+                reps,
+                rest,
+                exercises (
+                    id,
+                    name,
+                    difficulty,
+                    muscles,
+                    equipment,
+                    description
+                )
+            `)
+            .eq("workout_id", workout.id)
+            .order("exercise_order", {
+                ascending: true
+            });
+
+
+        if (exerciseError) {
+
+            console.error(
+                "Error loading workout exercises:",
+                exerciseError
+            );
+
+            continue;
+
+        }
+
+
+        const card =
+            document.createElement("article");
+
+        card.className = "aurex-workout-card";
+
+
+        const exercisesHTML =
+            (workoutExercises || [])
+                .map((item, index) => {
+
+                    const exercise =
+                        item.exercises;
+
+                    if (!exercise) return "";
+
+                    return `
+                        <div class="aurex-workout-exercise">
+
+                            <span class="exercise-number">
+                                ${String(index + 1).padStart(2, "0")}
+                            </span>
+
+                            <div class="exercise-main">
+
+                                <strong>
+                                    ${escapeWorkoutHTML(exercise.name)}
+                                </strong>
+
+                                <span>
+                                    ${escapeWorkoutHTML(exercise.muscles || "Full body")}
+                                </span>
+
+                            </div>
+
+                            <div class="exercise-prescription">
+
+                                <strong>
+                                    ${escapeWorkoutHTML(item.sets || "—")} ×
+                                    ${escapeWorkoutHTML(item.reps || "—")}
+                                </strong>
+
+                                <span>
+                                    ${escapeWorkoutHTML(item.rest || "—")}
+                                </span>
+
+                            </div>
+
+                        </div>
+                    `;
+
+                })
+                .join("");
+
+
+        card.innerHTML = `
+
+            <div class="aurex-workout-top">
+
+                <span class="workout-discipline">
+                    BODYBUILDING
+                </span>
+
+                <span class="workout-difficulty">
+                    ${escapeWorkoutHTML(workout.difficulty || "Training")}
+                </span>
+
+            </div>
+
+
+            <h3>
+                ${escapeWorkoutHTML(workout.title)}
+            </h3>
+
+
+            <p class="workout-description">
+                ${escapeWorkoutHTML(
+                    workout.description ||
+                    "Structured bodybuilding training for your progression."
+                )}
+            </p>
+
+
+            <div class="workout-meta">
+
+                <span>
+                    ⏱ ${workout.duration_minutes || "—"} min
+                </span>
+
+                <span>
+                    💪 ${(workoutExercises || []).length} Exercises
+                </span>
+
+            </div>
+
+
+            <div
+                class="aurex-exercise-list"
+                id="exercise-list-${workout.id}">
+
+                ${exercisesHTML}
+
+            </div>
+
+
+            <div class="aurex-workout-actions">
+
+                <button
+                    type="button"
+                    class="workout-btn secondary"
+                    onclick="toggleBodybuildingWorkout('${workout.id}')">
+
+                    View Workout
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="workout-btn primary"
+                    onclick="addBodybuildingWorkout('${workout.id}')">
+
+                    Add To My Workouts
+
+                </button>
+
+            </div>
+
+        `;
+
+
+        container.appendChild(card);
+
+    }
+
+}
+
+
+/* ==========================================
+   TOGGLE WORKOUT DETAILS
+========================================== */
+
+function toggleBodybuildingWorkout(workoutId) {
+
+    const list =
+        document.getElementById(
+            `exercise-list-${workoutId}`
+        );
+
+    if (!list) return;
+
+
+    const button =
+        list.parentElement.querySelector(
+            ".workout-btn.secondary"
+        );
+
+
+    list.classList.toggle("show");
+
+
+    if (list.classList.contains("show")) {
+
+        button.textContent =
+            "Hide Workout";
+
+    } else {
+
+        button.textContent =
+            "View Workout";
+
+    }
+
+}
+
+
+/* ==========================================
+   ADD TO MY WORKOUTS
+========================================== */
+
+async function addBodybuildingWorkout(workoutId) {
+
+    if (!currentUser) {
+
+        window.location.href =
+            "login.html";
+
+        return;
+
+    }
+
+
+    const button =
+        document.querySelector(
+            `.workout-btn.primary[onclick="addBodybuildingWorkout('${workoutId}')"]`
+        );
+
+
+    if (button) {
+
+        button.disabled = true;
+
+        button.textContent =
+            "Adding...";
+
+    }
+
+
+    const {
+        error
+    } = await supabaseClient
+        .from("user_workouts")
+        .insert({
+
+            user_id: currentUser.id,
+
+            workout_id: workoutId,
+
+            status: "assigned"
+
+        });
+
+
+    if (error) {
+
+        if (error.code === "23505") {
+
+            if (button) {
+
+                button.disabled = false;
+
+                button.textContent =
+                    "Already Added";
+
+            }
+
+            return;
+
+        }
+
+
+        console.error(
+            "Error adding bodybuilding workout:",
+            error
+        );
+
+
+        if (button) {
+
+            button.disabled = false;
+
+            button.textContent =
+                "Try Again";
+
+        }
+
+        return;
+
+    }
+
+
+    if (button) {
+
+        button.disabled = false;
+
+        button.textContent =
+            "Added ✓";
+
+    }
+
+}
+
+
+/* ==========================================
+   ESCAPE HTML
+========================================== */
+
+function escapeWorkoutHTML(value) {
+
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* ==========================================
+   INITIALISE
+========================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    async () => {
+
+        await checkAdminAccess();
+
+        await loadBodybuildingWorkouts();
+
+    }
+);
+
+</script>
+
 
 </body>
 

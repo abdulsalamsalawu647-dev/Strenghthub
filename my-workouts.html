@@ -1,0 +1,1186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Workouts | AUREX</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="my-workouts.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        AUREX
+    </div>
+
+
+    <nav id="main-nav">
+
+        <a href="index.html">Home</a>
+
+        <a href="workouts.html">Workouts</a>
+
+        <a href="nutrition.html">Nutrition</a>
+
+        <a href="map.html">Map</a>
+
+        <a href="community.html">Community</a>
+
+        <a href="athletes.html">Athletes</a>
+
+        <a href="videos.html">Videos</a>
+
+        <a href="about.html">About</a>
+
+        <a href="contact.html">Contact</a>
+
+        <a
+            href="https://www.teamaurex.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Aurex
+        </a>
+
+        <a href="account.html">
+            Account
+        </a>
+
+        <a
+            href="admin.html"
+            id="adminNavLink"
+            style="display: none;"
+        >
+            Admin
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<main class="my-workouts-page">
+
+
+    <!-- =========================================
+         HERO
+    ========================================= -->
+
+    <section class="workouts-hero">
+
+        <div class="workouts-hero-content">
+
+            <span class="section-label">
+                AUREX PLATFORM
+            </span>
+
+
+            <h1>
+                MY<br>
+                <span>WORKOUTS.</span>
+            </h1>
+
+
+            <p>
+                Your personal training space. Access your assigned
+                workouts, explore Aurex training and keep building
+                your progress one session at a time.
+            </p>
+
+
+            <div class="workouts-actions">
+
+                <a
+                    href="workouts.html"
+                    class="workout-button primary"
+                >
+                    Explore Workouts
+                </a>
+
+
+                <a
+                    href="dashboard.html"
+                    class="workout-button secondary"
+                >
+                    Dashboard
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="workouts-hero-mark">
+            02
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         PERSONAL WORKOUTS
+    ========================================= -->
+
+    <section class="workout-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    PERSONAL LIBRARY
+                </span>
+
+
+                <h2>
+                    YOUR <span>WORKOUTS.</span>
+                </h2>
+
+            </div>
+
+
+            <p>
+                Workouts assigned or made available to your account
+                will appear here.
+            </p>
+
+        </div>
+
+
+        <div id="workoutsContainer">
+
+            <div class="workouts-loading">
+
+                <span class="loading-dot"></span>
+
+                Loading your workouts...
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         EXPLORE TRAINING
+    ========================================= -->
+
+    <section class="workout-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    AUREX TRAINING
+                </span>
+
+
+                <h2>
+                    EXPLORE <span>TRAINING.</span>
+                </h2>
+
+            </div>
+
+
+            <p>
+                Explore the different training areas available
+                across the Aurex platform.
+            </p>
+
+        </div>
+
+
+
+        <div class="workout-grid">
+
+
+            <!-- GYM -->
+
+            <article class="workout-card">
+
+                <div class="workout-card-top">
+
+                    <span class="workout-number">
+                        01
+                    </span>
+
+
+                    <span class="workout-type">
+                        STRENGTH
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Gym Training
+                </h3>
+
+
+                <p>
+                    Build strength with structured gym-based
+                    training covering the major muscle groups.
+                </p>
+
+
+                <div class="workout-meta">
+
+                    <span>
+                        Strength
+                    </span>
+
+                    <span>
+                        Gym
+                    </span>
+
+                </div>
+
+
+                <a href="gym.html">
+                    Explore Training
+                    <span>→</span>
+                </a>
+
+            </article>
+
+
+
+            <!-- CALISTHENICS -->
+
+            <article class="workout-card">
+
+                <div class="workout-card-top">
+
+                    <span class="workout-number">
+                        02
+                    </span>
+
+
+                    <span class="workout-type">
+                        BODYWEIGHT
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Calisthenics
+                </h3>
+
+
+                <p>
+                    Develop bodyweight strength, movement, control
+                    and foundational calisthenics skills.
+                </p>
+
+
+                <div class="workout-meta">
+
+                    <span>
+                        Bodyweight
+                    </span>
+
+                    <span>
+                        Skills
+                    </span>
+
+                </div>
+
+
+                <a href="calisthenics.html">
+                    Explore Training
+                    <span>→</span>
+                </a>
+
+            </article>
+
+
+
+            <!-- BODYBUILDING -->
+
+            <article class="workout-card">
+
+                <div class="workout-card-top">
+
+                    <span class="workout-number">
+                        03
+                    </span>
+
+
+                    <span class="workout-type">
+                        HYPERTROPHY
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Bodybuilding
+                </h3>
+
+
+                <p>
+                    Train with a focus on muscle development,
+                    exercise selection and structured sessions.
+                </p>
+
+
+                <div class="workout-meta">
+
+                    <span>
+                        Hypertrophy
+                    </span>
+
+                    <span>
+                        Gym
+                    </span>
+
+                </div>
+
+
+                <a href="bodybuilding.html">
+                    Explore Training
+                    <span>→</span>
+                </a>
+
+            </article>
+
+
+
+            <!-- CHALLENGES -->
+
+            <article class="workout-card">
+
+                <div class="workout-card-top">
+
+                    <span class="workout-number">
+                        04
+                    </span>
+
+
+                    <span class="workout-type">
+                        PROGRESS
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Challenges
+                </h3>
+
+
+                <p>
+                    Take on Aurex challenges and give yourself
+                    something measurable to work towards.
+                </p>
+
+
+                <div class="workout-meta">
+
+                    <span>
+                        Challenge
+                    </span>
+
+                    <span>
+                        Progress
+                    </span>
+
+                </div>
+
+
+                <a href="challenges.html">
+                    View Challenges
+                    <span>→</span>
+                </a>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         TRAINING PRINCIPLE
+    ========================================= -->
+
+    <section class="training-principle">
+
+        <div class="principle-number">
+            AUREX / 02
+        </div>
+
+
+        <div class="principle-content">
+
+            <span class="section-label">
+                THE APPROACH
+            </span>
+
+
+            <h2>
+                TRAIN WITH<br>
+                <span>PURPOSE.</span>
+            </h2>
+
+
+            <p>
+                Your workouts are only part of the process.
+                Train consistently, track your progress and
+                keep improving over time.
+            </p>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<footer>
+
+    <div class="logo">
+        AUREX
+    </div>
+
+
+    <p>
+        Fitness Without Barriers.
+    </p>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="supabase.js"></script>
+
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", async () => {
+
+    const workoutsContainer =
+        document.getElementById("workoutsContainer");
+
+    const adminLink =
+        document.getElementById("adminNavLink");
+
+
+    /* =========================================
+       CHECK LOGIN
+    ========================================= */
+
+    const {
+        data: { user },
+        error: authError
+    } = await supabaseClient.auth.getUser();
+
+
+    if (authError || !user) {
+
+        window.location.href = "login.html";
+
+        return;
+
+    }
+
+
+    /* =========================================
+       CHECK ADMIN
+    ========================================= */
+
+    try {
+
+        const {
+            data: adminUser
+        } = await supabaseClient
+            .from("admin_users")
+            .select("id")
+            .eq("user_id", user.id)
+            .maybeSingle();
+
+
+        if (adminUser && adminLink) {
+
+            adminLink.style.display =
+                "inline-block";
+
+        }
+
+    } catch (error) {
+
+        console.log("Admin check skipped.");
+
+    }
+
+
+
+    /* =========================================
+       LOAD PERSONAL WORKOUTS
+    ========================================= */
+
+    try {
+
+        const {
+            data: userWorkouts,
+            error: workoutError
+        } = await supabaseClient
+
+            .from("user_workouts")
+
+            .select(`
+                id,
+                status,
+                assigned_at,
+                completed_at,
+                workout:workouts (
+                    id,
+                    title,
+                    description,
+                    discipline,
+                    difficulty,
+                    duration_minutes,
+                    is_active
+                )
+            `)
+
+            .eq("user_id", user.id)
+
+            .order("assigned_at", {
+                ascending: false
+            });
+
+
+        if (workoutError) {
+
+            console.error(
+                "Workout loading error:",
+                workoutError
+            );
+
+            throw workoutError;
+
+        }
+
+
+        if (
+            !userWorkouts ||
+            userWorkouts.length === 0
+        ) {
+
+            showEmptyState();
+
+            return;
+
+        }
+
+
+        const workoutIds =
+            userWorkouts
+                .map(item => item.workout?.id)
+                .filter(Boolean);
+
+
+        /* =========================================
+           LOAD WORKOUT EXERCISES
+        ========================================= */
+
+        const {
+            data: workoutExercises,
+            error: exerciseError
+        } = await supabaseClient
+
+            .from("workout_exercises")
+
+            .select(`
+                id,
+                workout_id,
+                exercise_order,
+                sets,
+                reps,
+                rest,
+                exercise:exercises (
+                    id,
+                    name,
+                    discipline,
+                    category,
+                    difficulty,
+                    muscles,
+                    equipment,
+                    description,
+                    progression,
+                    regression,
+                    alternative
+                )
+            `)
+
+            .in("workout_id", workoutIds)
+
+            .order("exercise_order", {
+                ascending: true
+            });
+
+
+        if (exerciseError) {
+
+            console.error(
+                "Exercise loading error:",
+                exerciseError
+            );
+
+            throw exerciseError;
+
+        }
+
+
+        renderWorkouts(
+            userWorkouts,
+            workoutExercises || []
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Failed to load workouts:",
+            error
+        );
+
+
+        workoutsContainer.innerHTML = `
+
+            <div class="empty-workouts">
+
+                <div class="empty-icon">
+                    !
+                </div>
+
+                <span class="empty-label">
+                    AUREX PLATFORM
+                </span>
+
+                <h3>
+                    We couldn't load your workouts.
+                </h3>
+
+                <p>
+                    Please refresh the page and try again.
+                    If the problem continues, check your
+                    Aurex account connection.
+                </p>
+
+                <button
+                    class="workout-button primary"
+                    onclick="location.reload()"
+                >
+                    Try Again
+                </button>
+
+            </div>
+
+        `;
+
+    }
+
+
+
+    /* =========================================
+       EMPTY STATE
+    ========================================= */
+
+    function showEmptyState() {
+
+        workoutsContainer.innerHTML = `
+
+            <div class="empty-workouts">
+
+                <div class="empty-icon">
+                    +
+                </div>
+
+
+                <span class="empty-label">
+                    PERSONAL LIBRARY
+                </span>
+
+
+                <h3>
+                    Your workout library is ready.
+                </h3>
+
+
+                <p>
+                    Your personal workouts will appear here
+                    once Aurex assigns a training session
+                    to your account.
+                </p>
+
+
+                <a
+                    href="workouts.html"
+                    class="workout-button primary"
+                >
+                    Explore Aurex Workouts
+                </a>
+
+            </div>
+
+        `;
+
+    }
+
+
+
+    /* =========================================
+       RENDER WORKOUTS
+    ========================================= */
+
+    function renderWorkouts(
+        userWorkouts,
+        workoutExercises
+    ) {
+
+        workoutsContainer.innerHTML = "";
+
+
+        userWorkouts.forEach(
+            userWorkout => {
+
+                const workout =
+                    userWorkout.workout;
+
+
+                if (!workout) {
+                    return;
+                }
+
+
+                const exercises =
+                    workoutExercises
+
+                        .filter(
+                            item =>
+                                item.workout_id ===
+                                workout.id
+                        )
+
+                        .sort(
+                            (a, b) =>
+                                a.exercise_order -
+                                b.exercise_order
+                        );
+
+
+                const workoutCard =
+                    document.createElement("article");
+
+
+                workoutCard.className =
+                    "assigned-workout";
+
+
+                workoutCard.innerHTML = `
+
+                    <div class="assigned-workout-header">
+
+                        <div>
+
+                            <span class="section-label">
+                                ASSIGNED WORKOUT
+                            </span>
+
+                            <h3>
+                                ${escapeHtml(workout.title)}
+                            </h3>
+
+                        </div>
+
+
+                        <span class="workout-status">
+                            ${escapeHtml(
+                                formatStatus(
+                                    userWorkout.status
+                                )
+                            )}
+                        </span>
+
+                    </div>
+
+
+                    <p class="assigned-workout-description">
+                        ${escapeHtml(
+                            workout.description ||
+                            "Your Aurex training session."
+                        )}
+                    </p>
+
+
+                    <div class="assigned-workout-meta">
+
+                        <span>
+                            ${escapeHtml(
+                                workout.discipline ||
+                                "Training"
+                            )}
+                        </span>
+
+                        <span>
+                            ${escapeHtml(
+                                workout.difficulty ||
+                                "All Levels"
+                            )}
+                        </span>
+
+                        <span>
+                            ${workout.duration_minutes || 0}
+                            min
+                        </span>
+
+                        <span>
+                            ${exercises.length}
+                            exercises
+                        </span>
+
+                    </div>
+
+
+                    <div class="assigned-exercises">
+
+                        <div class="assigned-exercises-heading">
+
+                            <span>
+                                SESSION
+                            </span>
+
+                            <span>
+                                ${exercises.length}
+                                EXERCISES
+                            </span>
+
+                        </div>
+
+
+                        ${renderExercises(exercises)}
+
+                    </div>
+
+
+                    <div class="assigned-workout-footer">
+
+                        <span class="assigned-date">
+                            Assigned
+                            ${formatDate(
+                                userWorkout.assigned_at
+                            )}
+                        </span>
+
+
+                        <button
+                            type="button"
+                            class="workout-button primary start-workout-button"
+                            data-workout-id="${workout.id}"
+                        >
+                            Start Workout
+                        </button>
+
+                    </div>
+
+                `;
+
+
+                workoutsContainer.appendChild(
+                    workoutCard
+                );
+
+            }
+        );
+
+
+        attachWorkoutButtons();
+
+    }
+
+
+
+    /* =========================================
+       RENDER EXERCISES
+    ========================================= */
+
+    function renderExercises(exercises) {
+
+        if (!exercises.length) {
+
+            return `
+
+                <div class="no-exercises">
+                    No exercises have been added
+                    to this workout yet.
+                </div>
+
+            `;
+
+        }
+
+
+        return exercises.map(
+            item => {
+
+                const exercise =
+                    item.exercise;
+
+
+                if (!exercise) {
+                    return "";
+                }
+
+
+                return `
+
+                    <div class="assigned-exercise">
+
+                        <div class="exercise-number">
+                            ${String(
+                                item.exercise_order
+                            ).padStart(2, "0")}
+                        </div>
+
+
+                        <div class="exercise-information">
+
+                            <h4>
+                                ${escapeHtml(
+                                    exercise.name
+                                )}
+                            </h4>
+
+
+                            <span>
+                                ${escapeHtml(
+                                    exercise.muscles ||
+                                    exercise.category ||
+                                    "Training"
+                                )}
+                            </span>
+
+                        </div>
+
+
+                        <div class="exercise-details">
+
+                            <div>
+
+                                <strong>
+                                    ${escapeHtml(
+                                        item.sets || "—"
+                                    )}
+                                </strong>
+
+                                <span>
+                                    SETS
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <strong>
+                                    ${escapeHtml(
+                                        item.reps || "—"
+                                    )}
+                                </strong>
+
+                                <span>
+                                    REPS
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <strong>
+                                    ${escapeHtml(
+                                        item.rest || "—"
+                                    )}
+                                </strong>
+
+                                <span>
+                                    REST
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            }
+        ).join("");
+
+    }
+
+
+
+    /* =========================================
+       START WORKOUT
+    ========================================= */
+
+    function attachWorkoutButtons() {
+
+        const buttons =
+            document.querySelectorAll(
+                ".start-workout-button"
+            );
+
+
+        buttons.forEach(
+            button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        const workoutId =
+                            button.dataset.workoutId;
+
+
+                        if (!workoutId) {
+                            return;
+                        }
+
+
+                        window.location.href =
+                            "workout-session.html?id=" +
+                            encodeURIComponent(
+                                workoutId
+                            );
+
+                    }
+                );
+
+            }
+        );
+
+    }
+
+
+
+    /* =========================================
+       HELPERS
+    ========================================= */
+
+    function formatStatus(status) {
+
+        if (!status) {
+            return "Assigned";
+        }
+
+
+        return status
+            .charAt(0)
+            .toUpperCase() +
+            status.slice(1);
+
+    }
+
+
+
+    function formatDate(date) {
+
+        if (!date) {
+            return "recently";
+        }
+
+
+        const parsedDate =
+            new Date(date);
+
+
+        if (Number.isNaN(
+            parsedDate.getTime()
+        )) {
+
+            return "recently";
+
+        }
+
+
+        return parsedDate.toLocaleDateString(
+            "en-GB",
+            {
+                day: "numeric",
+                month: "short",
+                year: "numeric"
+            }
+        );
+
+    }
+
+
+
+    function escapeHtml(value) {
+
+        if (value === null ||
+            value === undefined) {
+
+            return "";
+
+        }
+
+
+        return String(value)
+
+            .replaceAll("&", "&amp;")
+
+            .replaceAll("<", "&lt;")
+
+            .replaceAll(">", "&gt;")
+
+            .replaceAll('"', "&quot;")
+
+            .replaceAll("'", "&#039;");
+
+    }
+
+});
+
+</script>
+
+
+</body>
+
+</html>

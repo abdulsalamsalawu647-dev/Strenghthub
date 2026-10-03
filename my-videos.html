@@ -1,0 +1,1280 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Videos | AUREX</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="my-videos.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        AUREX
+    </div>
+
+
+    <nav id="main-nav">
+
+        <a href="index.html">Home</a>
+
+        <a href="workouts.html">Workouts</a>
+
+        <a href="nutrition.html">Nutrition</a>
+
+        <a href="map.html">Map</a>
+
+        <a href="community.html">Community</a>
+
+        <a href="athletes.html">Athletes</a>
+
+        <a href="videos.html">Videos</a>
+
+        <a href="about.html">About</a>
+
+        <a href="contact.html">Contact</a>
+
+        <a
+            href="https://www.teamaurex.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Aurex
+        </a>
+
+        <a href="account.html">
+            Account
+        </a>
+
+        <a
+            href="admin.html"
+            id="adminNavLink"
+            style="display: none;"
+        >
+            Admin
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<main class="my-videos-page">
+
+
+    <!-- HERO -->
+
+    <section class="my-videos-hero">
+
+        <div class="my-videos-hero-content">
+
+            <span class="my-videos-label">
+                AUREX PLATFORM
+            </span>
+
+
+            <h1>
+                MY<br>
+                <span>VIDEOS.</span>
+            </h1>
+
+
+            <p>
+                Your personal Aurex video library. Training content,
+                course videos and selected athlete content can appear
+                here when access is available to your account.
+            </p>
+
+
+            <div class="my-videos-actions">
+
+                <a
+                    href="dashboard.html"
+                    class="my-videos-button secondary"
+                >
+                    Dashboard
+                </a>
+
+
+                <a
+                    href="videos.html"
+                    class="my-videos-button primary"
+                >
+                    Explore Videos
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="my-videos-hero-mark">
+            PLAY
+        </div>
+
+    </section>
+
+
+
+    <!-- OVERVIEW -->
+
+    <section class="video-overview">
+
+        <div class="video-overview-item">
+
+            <span>01</span>
+
+            <strong>TRAINING</strong>
+
+            <p>
+                Exercise demonstrations and training guidance.
+            </p>
+
+        </div>
+
+
+        <div class="video-overview-item">
+
+            <span>02</span>
+
+            <strong>COURSES</strong>
+
+            <p>
+                Video content connected to your courses.
+            </p>
+
+        </div>
+
+
+        <div class="video-overview-item">
+
+            <span>03</span>
+
+            <strong>ATHLETES</strong>
+
+            <p>
+                Selected content from Aurex athletes.
+            </p>
+
+        </div>
+
+
+        <div class="video-overview-item">
+
+            <span>04</span>
+
+            <strong>YOUR ACCESS</strong>
+
+            <p>
+                Content available to your account.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- VIDEO LIBRARY -->
+
+    <section class="my-videos-library">
+
+
+        <div class="library-heading">
+
+            <div>
+
+                <span class="section-label">
+                    PERSONAL LIBRARY
+                </span>
+
+                <h2>
+                    YOUR<br>
+                    <span>VIDEOS.</span>
+                </h2>
+
+            </div>
+
+
+            <p>
+                Videos made available to your Aurex account
+                will appear here.
+            </p>
+
+        </div>
+
+
+
+        <!-- SEARCH / FILTERS -->
+
+        <div class="video-library-controls">
+
+            <div class="video-search">
+
+                <input
+                    type="text"
+                    id="videoSearch"
+                    placeholder="Search your videos..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <div class="video-filters">
+
+                <button
+                    type="button"
+                    class="video-filter active"
+                    data-filter="all"
+                >
+                    All
+                </button>
+
+                <button
+                    type="button"
+                    class="video-filter"
+                    data-filter="training"
+                >
+                    Training
+                </button>
+
+                <button
+                    type="button"
+                    class="video-filter"
+                    data-filter="courses"
+                >
+                    Courses
+                </button>
+
+                <button
+                    type="button"
+                    class="video-filter"
+                    data-filter="athletes"
+                >
+                    Athletes
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- STATUS -->
+
+        <div class="video-library-status">
+
+            <span id="videoCount">
+                0 VIDEOS
+            </span>
+
+            <span>
+                PERSONAL ACCESS
+            </span>
+
+        </div>
+
+
+
+        <!-- VIDEOS -->
+
+        <div id="videosContainer"></div>
+
+    </section>
+
+
+
+    <!-- HOW IT WORKS -->
+
+    <section class="video-access-section">
+
+        <div class="video-access-heading">
+
+            <span class="section-label">
+                HOW IT WORKS
+            </span>
+
+
+            <h2>
+                YOUR ACCESS.<br>
+                <span>YOUR LIBRARY.</span>
+            </h2>
+
+        </div>
+
+
+
+        <div class="video-access-grid">
+
+
+            <article class="video-access-card">
+
+                <span class="access-number">
+                    01
+                </span>
+
+
+                <h3>
+                    ACCESS
+                </h3>
+
+
+                <p>
+                    Videos can become available to your account
+                    when they are assigned or unlocked.
+                </p>
+
+            </article>
+
+
+
+            <article class="video-access-card">
+
+                <span class="access-number">
+                    02
+                </span>
+
+
+                <h3>
+                    LEARN
+                </h3>
+
+
+                <p>
+                    Use your available videos alongside your
+                    training and learning.
+                </p>
+
+            </article>
+
+
+
+            <article class="video-access-card">
+
+                <span class="access-number">
+                    03
+                </span>
+
+
+                <h3>
+                    PROGRESS
+                </h3>
+
+
+                <p>
+                    Keep building your knowledge and training
+                    through the Aurex platform.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- PUBLIC VIDEOS -->
+
+    <section class="public-video-section">
+
+        <div class="public-video-content">
+
+            <span class="section-label">
+                AUREX MEDIA
+            </span>
+
+
+            <h2>
+                LOOKING FOR<br>
+                <span>MORE?</span>
+            </h2>
+
+
+            <p>
+                Explore the public Aurex video library for
+                training, athlete content, nutrition and more.
+            </p>
+
+
+            <a
+                href="videos.html"
+                class="my-videos-button primary"
+            >
+                Explore Aurex Videos
+            </a>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<footer>
+
+    <div class="logo">
+        AUREX
+    </div>
+
+
+    <p>
+        Train. Progress. Become stronger.
+    </p>
+
+</footer>
+
+
+
+<!-- SUPABASE -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="supabase.js"></script>
+
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", async () => {
+
+
+    const videosContainer =
+        document.getElementById("videosContainer");
+
+    const videoCount =
+        document.getElementById("videoCount");
+
+    const searchInput =
+        document.getElementById("videoSearch");
+
+    const filterButtons =
+        document.querySelectorAll(".video-filter");
+
+
+    let allVideos = [];
+
+    let currentFilter = "all";
+
+
+
+    /* =========================================
+       ESCAPE HTML
+    ========================================= */
+
+    function escapeHtml(value) {
+
+        if (
+            value === null ||
+            value === undefined
+        ) {
+
+            return "";
+
+        }
+
+        return String(value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+
+    }
+
+
+
+    /* =========================================
+       EMPTY STATE
+    ========================================= */
+
+    function showEmptyState(message) {
+
+        videosContainer.innerHTML = `
+
+            <div class="my-videos-empty">
+
+                <div class="empty-number">
+                    00
+                </div>
+
+
+                <div class="empty-content">
+
+                    <span>
+                        YOUR LIBRARY IS EMPTY
+                    </span>
+
+
+                    <h3>
+                        Your Aurex videos<br>
+                        will appear here.
+                    </h3>
+
+
+                    <p>
+                        ${escapeHtml(message)}
+                    </p>
+
+
+                    <a
+                        href="videos.html"
+                        class="my-videos-button primary"
+                    >
+                        Browse Public Videos
+                    </a>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        videoCount.textContent =
+            "0 VIDEOS";
+
+    }
+
+
+
+    /* =========================================
+       CATEGORY
+    ========================================= */
+
+    function getVideoType(video) {
+
+        const category =
+            (video.category || "")
+                .toLowerCase();
+
+
+        const title =
+            (video.title || "")
+                .toLowerCase();
+
+
+        const combined =
+            category + " " + title;
+
+
+        if (
+            combined.includes("course") ||
+            combined.includes("lesson")
+        ) {
+
+            return "courses";
+
+        }
+
+
+        if (
+            combined.includes("athlete") ||
+            combined.includes("aureus")
+        ) {
+
+            return "athletes";
+
+        }
+
+
+        return "training";
+
+    }
+
+
+
+    /* =========================================
+       AUTH
+    ========================================= */
+
+    const {
+        data: { user },
+        error: authError
+    } = await supabaseClient.auth.getUser();
+
+
+    if (
+        authError ||
+        !user
+    ) {
+
+        window.location.href =
+            "login.html";
+
+        return;
+
+    }
+
+
+
+    /* =========================================
+       ADMIN CHECK
+    ========================================= */
+
+    try {
+
+        const {
+            data: adminUser
+        } = await supabaseClient
+
+            .from("admin_users")
+
+            .select("id")
+
+            .eq("user_id", user.id)
+
+            .maybeSingle();
+
+
+        if (adminUser) {
+
+            const adminLink =
+                document.getElementById(
+                    "adminNavLink"
+                );
+
+
+            if (adminLink) {
+
+                adminLink.style.display =
+                    "inline-block";
+
+            }
+
+        }
+
+    } catch (error) {
+
+        console.log(
+            "Admin check skipped."
+        );
+
+    }
+
+
+
+    /* =========================================
+       LOAD PERSONAL VIDEOS
+    ========================================= */
+
+    async function loadMyVideos() {
+
+
+        videosContainer.innerHTML = `
+
+            <div class="my-videos-empty">
+
+                <div class="empty-number">
+                    ...
+                </div>
+
+
+                <div class="empty-content">
+
+                    <span>
+                        LOADING LIBRARY
+                    </span>
+
+
+                    <h3>
+                        Loading your<br>
+                        Aurex videos.
+                    </h3>
+
+
+                    <p>
+                        Checking the video access connected
+                        to your account.
+                    </p>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+
+        /* GET ACCESS */
+
+        const {
+            data: accessRows,
+            error: accessError
+        } = await supabaseClient
+
+            .from("video_access")
+
+            .select(
+                "video_id, access_type, created_at"
+            )
+
+            .eq(
+                "user_id",
+                user.id
+            );
+
+
+        if (accessError) {
+
+            console.error(
+                "VIDEO ACCESS ERROR:",
+                accessError
+            );
+
+
+            showEmptyState(
+                "We couldn't load your video access. Please try again."
+            );
+
+
+            return;
+
+        }
+
+
+
+        console.log(
+            "AUREX VIDEO ACCESS:",
+            accessRows
+        );
+
+
+
+        if (
+            !accessRows ||
+            accessRows.length === 0
+        ) {
+
+            showEmptyState(
+                "No videos have been assigned to your account yet."
+            );
+
+
+            return;
+
+        }
+
+
+
+        /* GET VIDEO IDS */
+
+        const videoIds =
+            accessRows.map(
+                row => row.video_id
+            );
+
+
+
+        /* GET VIDEOS */
+
+        const {
+            data: videos,
+            error: videosError
+        } = await supabaseClient
+
+            .from("videos")
+
+            .select(`
+                id,
+                title,
+                description,
+                category,
+                file_path,
+                thumbnail_path,
+                created_at
+            `)
+
+            .in(
+                "id",
+                videoIds
+            );
+
+
+        if (videosError) {
+
+            console.error(
+                "VIDEOS ERROR:",
+                videosError
+            );
+
+
+            showEmptyState(
+                "We couldn't load your available videos."
+            );
+
+
+            return;
+
+        }
+
+
+
+        if (
+            !videos ||
+            videos.length === 0
+        ) {
+
+            showEmptyState(
+                "The videos assigned to your account could not be found."
+            );
+
+
+            return;
+
+        }
+
+
+
+        /* SIGNED URLS */
+
+        const videosWithUrls = [];
+
+
+        for (
+            const video of videos
+        ) {
+
+
+            if (!video.file_path) {
+
+                continue;
+
+            }
+
+
+            const {
+                data: signedUrlData,
+                error: signedUrlError
+            } = await supabaseClient.storage
+
+                .from("aurex-video")
+
+                .createSignedUrl(
+                    video.file_path,
+                    3600
+                );
+
+
+            if (signedUrlError) {
+
+                console.error(
+                    "SIGNED URL ERROR:",
+                    signedUrlError
+                );
+
+                continue;
+
+            }
+
+
+            videosWithUrls.push({
+
+                ...video,
+
+                signedUrl:
+                    signedUrlData.signedUrl
+
+            });
+
+        }
+
+
+
+        allVideos =
+            videosWithUrls;
+
+
+        renderVideos();
+
+    }
+
+
+
+    /* =========================================
+       RENDER
+    ========================================= */
+
+    function renderVideos() {
+
+
+        const searchTerm =
+            searchInput.value
+                .trim()
+                .toLowerCase();
+
+
+        const filteredVideos =
+            allVideos.filter(
+                video => {
+
+
+                    const videoType =
+                        getVideoType(
+                            video
+                        );
+
+
+                    const matchesFilter =
+                        currentFilter ===
+                        "all" ||
+                        videoType ===
+                        currentFilter;
+
+
+                    const matchesSearch =
+                        !searchTerm ||
+                        (video.title || "")
+                            .toLowerCase()
+                            .includes(
+                                searchTerm
+                            ) ||
+                        (video.description || "")
+                            .toLowerCase()
+                            .includes(
+                                searchTerm
+                            ) ||
+                        (video.category || "")
+                            .toLowerCase()
+                            .includes(
+                                searchTerm
+                            );
+
+
+                    return (
+                        matchesFilter &&
+                        matchesSearch
+                    );
+
+                }
+            );
+
+
+        videoCount.textContent =
+            `${filteredVideos.length} ${
+                filteredVideos.length === 1
+                    ? "VIDEO"
+                    : "VIDEOS"
+            }`;
+
+
+
+        if (
+            filteredVideos.length === 0
+        ) {
+
+            videosContainer.innerHTML = `
+
+                <div class="my-videos-empty">
+
+                    <div class="empty-number">
+                        00
+                    </div>
+
+
+                    <div class="empty-content">
+
+                        <span>
+                            NO MATCHES
+                        </span>
+
+
+                        <h3>
+                            No videos found.
+                        </h3>
+
+
+                        <p>
+                            Try another search or
+                            select a different category.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            return;
+
+        }
+
+
+
+        videosContainer.innerHTML =
+            filteredVideos
+                .map(
+                    video =>
+                        createVideoCard(
+                            video
+                        )
+                )
+                .join("");
+
+
+        attachVideoEvents();
+
+    }
+
+
+
+    /* =========================================
+       VIDEO CARD
+    ========================================= */
+
+    function createVideoCard(video) {
+
+
+        const category =
+            escapeHtml(
+                video.category ||
+                "Training"
+            );
+
+
+        const title =
+            escapeHtml(
+                video.title ||
+                "Aurex Video"
+            );
+
+
+        const description =
+            escapeHtml(
+                video.description ||
+                "Aurex training content."
+            );
+
+
+        const date =
+            video.created_at
+                ? new Date(
+                    video.created_at
+                ).toLocaleDateString(
+                    "en-GB",
+                    {
+                        day: "numeric",
+                        month: "short",
+                        year: "numeric"
+                    }
+                )
+                : "";
+
+
+        const videoType =
+            getVideoType(video);
+
+
+        return `
+
+            <article
+                class="my-video-card"
+                data-video-id="${escapeHtml(video.id)}"
+                data-type="${videoType}"
+            >
+
+                <div class="my-video-player">
+
+                    <video
+                        class="my-video-element"
+                        controls
+                        preload="metadata"
+                        playsinline
+                    >
+
+                        <source
+                            src="${escapeHtml(video.signedUrl)}"
+                            type="video/mp4"
+                        >
+
+                        Your browser does not support
+                        HTML5 video.
+
+                    </video>
+
+                </div>
+
+
+                <div class="my-video-card-content">
+
+                    <div class="my-video-card-meta">
+
+                        <span>
+                            ${category}
+                        </span>
+
+
+                        <span>
+                            ${date}
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        ${title}
+                    </h3>
+
+
+                    <p>
+                        ${description}
+                    </p>
+
+
+                    <div class="my-video-library-status-label">
+
+                        <span class="status-dot"></span>
+
+                        <span>
+                            Available in your Aurex library
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        `;
+
+    }
+
+
+
+    /* =========================================
+       VIDEO PLAYBACK
+    ========================================= */
+
+    function attachVideoEvents() {
+
+
+        const videos =
+            document.querySelectorAll(
+                ".my-video-element"
+            );
+
+
+        videos.forEach(video => {
+
+
+            video.addEventListener(
+                "play",
+                () => {
+
+
+                    videos.forEach(
+                        otherVideo => {
+
+
+                            if (
+                                otherVideo !==
+                                video &&
+                                !otherVideo.paused
+                            ) {
+
+                                otherVideo.pause();
+
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
+        });
+
+    }
+
+
+
+    /* =========================================
+       FILTERS
+    ========================================= */
+
+    filterButtons.forEach(
+        button => {
+
+
+            button.addEventListener(
+                "click",
+                () => {
+
+
+                    filterButtons.forEach(
+                        item => {
+
+                            item.classList.remove(
+                                "active"
+                            );
+
+                        }
+                    );
+
+
+                    button.classList.add(
+                        "active"
+                    );
+
+
+                    currentFilter =
+                        button.dataset.filter;
+
+
+                    renderVideos();
+
+                }
+            );
+
+        }
+    );
+
+
+
+    /* =========================================
+       SEARCH
+    ========================================= */
+
+    if (searchInput) {
+
+        searchInput.addEventListener(
+            "input",
+            renderVideos
+        );
+
+    }
+
+
+
+    /* =========================================
+       START
+    ========================================= */
+
+    await loadMyVideos();
+
+});
+
+</script>
+
+
+</body>
+
+</html>

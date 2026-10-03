@@ -8,9 +8,15 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Gym Training | StrengthHub</title>
+    <title>Gym Training | AUREX</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <!-- Existing gym page styling -->
+    <link rel="stylesheet" href="gym.css">
+
+    <!-- New workout-library styling -->
+    <link rel="stylesheet" href="gym-workouts.css">
 
 </head>
 
@@ -24,24 +30,48 @@
 <header>
 
     <div class="logo">
-        STRENGTH<span>HUB</span>
+        AUREX
     </div>
 
-    <nav>
+    <nav id="main-nav">
 
         <a href="index.html">Home</a>
 
         <a href="workouts.html">Workouts</a>
 
+        <a href="nutrition.html">Nutrition</a>
+
         <a href="map.html">Map</a>
 
-        <a href="Community.html">Community</a>
+        <a href="community.html">Community</a>
+
+        <a href="athletes.html">Athletes</a>
+
+        <a href="videos.html">Videos</a>
 
         <a href="about.html">About</a>
 
         <a href="contact.html">Contact</a>
 
-        <a href="shop.html">Aurex</a>
+        <a
+            href="https://www.teamaurex.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Aurex
+        </a>
+
+        <a href="account.html">
+            Account
+        </a>
+
+        <a
+            href="admin.html"
+            id="adminNavLink"
+            style="display: none;"
+        >
+            Admin
+        </a>
 
     </nav>
 
@@ -58,7 +88,7 @@
     <div class="gym-training-hero-content">
 
         <span class="section-label">
-            STRENGTHHUB • GYM TRAINING
+            AUREX • GYM TRAINING
         </span>
 
         <h1>
@@ -67,19 +97,18 @@
         </h1>
 
         <p>
-            Explore a complete gym exercise library designed
-            to help you build strength, improve technique and
-            train every major muscle group.
+            Explore structured gym workouts and a complete
+            exercise library designed to help you build strength,
+            improve technique and train every major muscle group.
         </p>
 
         <div class="gym-training-buttons">
 
             <a
-                href="#gym-library"
-                class="hero-btn">
-
-                Start Training
-
+                href="#aurex-workouts"
+                class="hero-btn"
+            >
+                Explore Workouts
             </a>
 
         </div>
@@ -108,10 +137,53 @@
 
         <p>
             Gym training is more than moving weights.
-            Learn the exercises, understand the muscles
-            you're training and build your strength through
-            consistent progression.
+            Choose a structured workout, learn the exercises,
+            understand the muscles you're training and build
+            your strength through consistent progression.
         </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     AUREX WORKOUT LIBRARY
+========================================== -->
+
+<section
+    class="gym-workout-library"
+    id="aurex-workouts"
+>
+
+    <div class="gym-heading">
+
+        <span class="section-label">
+            AUREX WORKOUT LIBRARY
+        </span>
+
+        <h2>
+            Choose Your Workout
+        </h2>
+
+        <p>
+            Choose a structured Aurex workout and add it to
+            your personal workout library.
+        </p>
+
+    </div>
+
+
+    <div
+        id="gymWorkoutsContainer"
+        class="gym-workouts-container"
+    >
+
+        <div class="gym-workouts-loading">
+            <span></span>
+            Loading Aurex workouts...
+        </div>
 
     </div>
 
@@ -125,8 +197,8 @@
 
 <section
     class="gym-library"
-    id="gym-library">
-
+    id="gym-library"
+>
 
     <div class="gym-heading">
 
@@ -157,7 +229,8 @@
             type="text"
             id="gymSearch"
             placeholder="Search exercises..."
-            onkeyup="searchGymExercises()">
+            onkeyup="searchGymExercises()"
+        >
 
     </div>
 
@@ -171,64 +244,57 @@
 
         <button
             class="filter-btn active"
-            onclick="filterGymExercises('all')">
-
+            onclick="filterGymExercises('all')"
+        >
             All
-
         </button>
 
 
         <button
             class="filter-btn"
-            onclick="filterGymExercises('chest')">
-
+            onclick="filterGymExercises('chest')"
+        >
             Chest
-
         </button>
 
 
         <button
             class="filter-btn"
-            onclick="filterGymExercises('back')">
-
+            onclick="filterGymExercises('back')"
+        >
             Back
-
         </button>
 
 
         <button
             class="filter-btn"
-            onclick="filterGymExercises('legs')">
-
+            onclick="filterGymExercises('legs')"
+        >
             Legs
-
         </button>
 
 
         <button
             class="filter-btn"
-            onclick="filterGymExercises('shoulders')">
-
+            onclick="filterGymExercises('shoulders')"
+        >
             Shoulders
-
         </button>
 
 
         <button
             class="filter-btn"
-            onclick="filterGymExercises('arms')">
-
+            onclick="filterGymExercises('arms')"
+        >
             Arms
-
         </button>
 
 
         <button
             class="filter-btn"
-            onclick="filterGymExercises('core')">
-
+            onclick="filterGymExercises('core')"
+        >
             Core
-
         </button>
 
     </div>
@@ -241,7 +307,8 @@
 
     <div
         class="exercise-grid"
-        id="gymExerciseGrid">
+        id="gymExerciseGrid"
+    >
 
         <!-- JavaScript inserts exercises here -->
 
@@ -257,27 +324,24 @@
 
 <div
     class="exercise-modal"
-    id="gymExerciseModal">
-
+    id="gymExerciseModal"
+>
 
     <div class="exercise-modal-content">
 
-
         <button
             class="close-modal"
-            onclick="closeGymExercise()">
-
+            onclick="closeGymExercise()"
+        >
             ×
-
         </button>
-
 
 
         <span
             class="exercise-modal-category"
-            id="gymModalCategory">
+            id="gymModalCategory"
+        >
         </span>
-
 
 
         <h2 id="gymModalTitle">
@@ -285,11 +349,9 @@
         </h2>
 
 
-
         <!-- EXERCISE INFORMATION -->
 
         <div class="exercise-modal-info">
-
 
             <div>
 
@@ -326,7 +388,6 @@
 
             </div>
 
-
         </div>
 
 
@@ -334,7 +395,6 @@
         <!-- WORKOUT DETAILS -->
 
         <div class="exercise-workout-details">
-
 
             <div>
 
@@ -371,7 +431,6 @@
 
             </div>
 
-
         </div>
 
 
@@ -394,7 +453,6 @@
         <!-- PROGRESSION -->
 
         <div class="exercise-progression">
-
 
             <div>
 
@@ -419,9 +477,7 @@
 
             </div>
 
-
         </div>
-
 
     </div>
 
@@ -460,7 +516,8 @@
 
         <button
             class="level-card"
-            onclick="filterGymDifficulty('Beginner')">
+            onclick="filterGymDifficulty('Beginner')"
+        >
 
             <span class="level-number">
                 01
@@ -487,7 +544,8 @@
 
         <button
             class="level-card"
-            onclick="filterGymDifficulty('Intermediate')">
+            onclick="filterGymDifficulty('Intermediate')"
+        >
 
             <span class="level-number">
                 02
@@ -514,7 +572,8 @@
 
         <button
             class="level-card"
-            onclick="filterGymDifficulty('Advanced')">
+            onclick="filterGymDifficulty('Advanced')"
+        >
 
             <span class="level-number">
                 03
@@ -535,7 +594,6 @@
 
         </button>
 
-
     </div>
 
 </section>
@@ -551,7 +609,7 @@
     <div class="philosophy-content">
 
         <span class="section-label">
-            THE STRENGTHHUB APPROACH
+            THE AUREX APPROACH
         </span>
 
         <h2>
@@ -579,7 +637,7 @@
 <footer>
 
     <h3>
-        StrengthHub
+        AUREX
     </h3>
 
     <p>
@@ -587,7 +645,7 @@
     </p>
 
     <p>
-        © 2026 StrengthHub by Abdulsalam
+        © 2026 Aurex by Abdulsalam
     </p>
 
 </footer>
@@ -595,12 +653,610 @@
 
 
 <!-- ==========================================
-     GYM TRAINING JAVASCRIPT
+     SCRIPTS
 ========================================== -->
 
+<script src="script.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="supabase.js"></script>
+
 <script src="gym.js"></script>
+
+
+
+<!-- ==========================================
+     AUREX WORKOUT DATABASE
+========================================== -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", async () => {
+
+    const container =
+        document.getElementById(
+            "gymWorkoutsContainer"
+        );
+
+    const adminLink =
+        document.getElementById(
+            "adminNavLink"
+        );
+
+
+    /* =========================================
+       CHECK LOGIN
+    ========================================= */
+
+    const {
+        data: { user }
+    } = await supabaseClient.auth.getUser();
+
+
+    /* =========================================
+       CHECK ADMIN
+    ========================================= */
+
+    if (user && adminLink) {
+
+        try {
+
+            const {
+                data: adminUser
+            } = await supabaseClient
+                .from("admin_users")
+                .select("id")
+                .eq("user_id", user.id)
+                .maybeSingle();
+
+
+            if (adminUser) {
+
+                adminLink.style.display =
+                    "inline-block";
+
+            }
+
+        } catch (error) {
+
+            console.log(
+                "Admin check skipped."
+            );
+
+        }
+
+    }
+
+
+    /* =========================================
+       LOAD GYM WORKOUTS
+    ========================================= */
+
+    try {
+
+        const {
+            data: workouts,
+            error
+        } = await supabaseClient
+
+            .from("workouts")
+
+            .select(`
+                id,
+                title,
+                description,
+                discipline,
+                difficulty,
+                duration_minutes,
+                is_active,
+                workout_exercises (
+                    id,
+                    exercise_order,
+                    sets,
+                    reps,
+                    rest,
+                    exercises (
+                        id,
+                        name,
+                        category,
+                        difficulty,
+                        muscles,
+                        equipment
+                    )
+                )
+            `)
+
+            .eq("discipline", "Gym")
+
+            .eq("is_active", true)
+
+            .order("created_at", {
+                ascending: false
+            });
+
+
+        if (error) {
+            throw error;
+        }
+
+
+        if (!workouts || workouts.length === 0) {
+
+            container.innerHTML = `
+
+                <div class="gym-workouts-empty">
+
+                    <span class="section-label">
+                        AUREX WORKOUTS
+                    </span>
+
+                    <h3>
+                        No gym workouts available yet.
+                    </h3>
+
+                    <p>
+                        New Aurex gym workouts will appear here
+                        as they are added to the platform.
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        renderWorkouts(workouts);
+
+
+    } catch (error) {
+
+        console.error(
+            "Workout loading error:",
+            error
+        );
+
+
+        container.innerHTML = `
+
+            <div class="gym-workouts-empty">
+
+                <span class="section-label">
+                    AUREX PLATFORM
+                </span>
+
+                <h3>
+                    We couldn't load the workouts.
+                </h3>
+
+                <p>
+                    Please refresh the page and try again.
+                </p>
+
+                <button
+                    class="gym-workout-action"
+                    onclick="location.reload()"
+                >
+                    Try Again
+                </button>
+
+            </div>
+
+        `;
+
+    }
+
+
+
+    /* =========================================
+       RENDER WORKOUTS
+    ========================================= */
+
+    function renderWorkouts(workouts) {
+
+        container.innerHTML = "";
+
+
+        workouts.forEach(workout => {
+
+            const exercises =
+                (workout.workout_exercises || [])
+                    .sort(
+                        (a, b) =>
+                            a.exercise_order -
+                            b.exercise_order
+                    );
+
+
+            const card =
+                document.createElement("article");
+
+
+            card.className =
+                "gym-workout-card";
+
+
+            card.innerHTML = `
+
+                <div class="gym-workout-card-top">
+
+                    <span>
+                        AUREX WORKOUT
+                    </span>
+
+                    <span>
+                        ${escapeHtml(
+                            workout.difficulty ||
+                            "All Levels"
+                        )}
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    ${escapeHtml(
+                        workout.title
+                    )}
+                </h3>
+
+
+                <p class="gym-workout-description">
+                    ${escapeHtml(
+                        workout.description ||
+                        "Structured Aurex gym training."
+                    )}
+                </p>
+
+
+                <div class="gym-workout-meta">
+
+                    <span>
+                        ${escapeHtml(
+                            workout.discipline ||
+                            "Gym"
+                        )}
+                    </span>
+
+                    <span>
+                        ${workout.duration_minutes || 0}
+                        min
+                    </span>
+
+                    <span>
+                        ${exercises.length}
+                        exercises
+                    </span>
+
+                </div>
+
+
+                <div class="gym-workout-exercises">
+
+                    ${
+                        exercises
+                            .slice(0, 6)
+                            .map(
+                                (item, index) => `
+
+                                    <div class="gym-workout-exercise">
+
+                                        <span>
+                                            ${String(
+                                                index + 1
+                                            ).padStart(2, "0")}
+                                        </span>
+
+                                        <strong>
+                                            ${escapeHtml(
+                                                item.exercises?.name ||
+                                                "Exercise"
+                                            )}
+                                        </strong>
+
+                                    </div>
+
+                                `
+                            )
+                            .join("")
+                    }
+
+                </div>
+
+
+                ${
+                    exercises.length > 6
+                        ? `
+                            <div class="gym-workout-more">
+                                + ${exercises.length - 6}
+                                more exercises
+                            </div>
+                        `
+                        : ""
+                }
+
+
+                <div class="gym-workout-card-footer">
+
+                    <button
+                        type="button"
+                        class="gym-workout-action secondary"
+                        data-workout-id="${workout.id}"
+                        data-action="view"
+                    >
+                        View Workout
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="gym-workout-action primary"
+                        data-workout-id="${workout.id}"
+                        data-action="add"
+                    >
+                        Add To My Workouts
+                    </button>
+
+                </div>
+
+            `;
+
+
+            container.appendChild(card);
+
+        });
+
+
+        attachWorkoutActions();
+
+    }
+
+
+
+    /* =========================================
+       BUTTON ACTIONS
+    ========================================= */
+
+    function attachWorkoutActions() {
+
+        const buttons =
+            container.querySelectorAll(
+                ".gym-workout-action"
+            );
+
+
+        buttons.forEach(button => {
+
+            button.addEventListener(
+                "click",
+                async () => {
+
+                    const workoutId =
+                        button.dataset.workoutId;
+
+                    const action =
+                        button.dataset.action;
+
+
+                    if (!workoutId) {
+                        return;
+                    }
+
+
+                    /* =========================
+                       LOGIN CHECK
+                    ========================= */
+
+                    const {
+                        data: {
+                            user: currentUser
+                        }
+                    } =
+                        await supabaseClient.auth.getUser();
+
+
+                    if (!currentUser) {
+
+                        window.location.href =
+                            "login.html";
+
+                        return;
+
+                    }
+
+
+                    /* =========================
+                       VIEW
+                    ========================= */
+
+                    if (action === "view") {
+
+                        const card =
+                            button.closest(
+                                ".gym-workout-card"
+                            );
+
+
+                        const exerciseList =
+                            card.querySelector(
+                                ".gym-workout-exercises"
+                            );
+
+
+                        if (
+                            exerciseList.classList.contains(
+                                "expanded"
+                            )
+                        ) {
+
+                            exerciseList.classList.remove(
+                                "expanded"
+                            );
+
+                            button.textContent =
+                                "View Workout";
+
+                        } else {
+
+                            exerciseList.classList.add(
+                                "expanded"
+                            );
+
+                            button.textContent =
+                                "Hide Workout";
+
+                        }
+
+                        return;
+
+                    }
+
+
+                    /* =========================
+                       ADD TO MY WORKOUTS
+                    ========================= */
+
+                    if (action === "add") {
+
+                        button.disabled = true;
+
+                        button.textContent =
+                            "Adding...";
+
+
+                        try {
+
+                            const {
+                                error
+                            } =
+                                await supabaseClient
+                                    .from(
+                                        "user_workouts"
+                                    )
+                                    .insert({
+                                        user_id:
+                                            currentUser.id,
+
+                                        workout_id:
+                                            workoutId,
+
+                                        status:
+                                            "assigned"
+                                    });
+
+
+                            if (error) {
+
+                                /*
+                                 * If the workout has
+                                 * already been added,
+                                 * PostgreSQL will reject
+                                 * the unique pair.
+                                 */
+
+                                if (
+                                    error.code ===
+                                    "23505"
+                                ) {
+
+                                    button.textContent =
+                                        "Already Added";
+
+                                    return;
+
+                                }
+
+                                throw error;
+
+                            }
+
+
+                            button.textContent =
+                                "Added ✓";
+
+
+                            button.classList.add(
+                                "added"
+                            );
+
+
+                        } catch (error) {
+
+                            console.error(
+                                "Add workout error:",
+                                error
+                            );
+
+
+                            button.disabled = false;
+
+                            button.textContent =
+                                "Try Again";
+
+                        }
+
+                    }
+
+                }
+            );
+
+        });
+
+    }
+
+
+
+    /* =========================================
+       ESCAPE HTML
+    ========================================= */
+
+    function escapeHtml(value) {
+
+        if (
+            value === null ||
+            value === undefined
+        ) {
+            return "";
+        }
+
+
+        return String(value)
+
+            .replaceAll(
+                "&",
+                "&amp;"
+            )
+
+            .replaceAll(
+                "<",
+                "&lt;"
+            )
+
+            .replaceAll(
+                ">",
+                "&gt;"
+            )
+
+            .replaceAll(
+                '"',
+                "&quot;"
+            )
+
+            .replaceAll(
+                "'",
+                "&#039;"
+            );
+
+    }
+
+});
+
+</script>
+
 
 </body>
 
 </html>
-```

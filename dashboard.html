@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Aurex | Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="dashboard.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header>
+
+    <div class="logo">
+        AUREX
+    </div>
+
+
+    <nav id="main-nav">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="workouts.html">
+            Workouts
+        </a>
+
+        <a href="nutrition.html">
+            Nutrition
+        </a>
+
+        <a href="map.html">
+            Map
+        </a>
+
+        <a href="community.html">
+            Community
+        </a>
+
+        <a href="athletes.html">
+            Athletes
+        </a>
+
+        <a href="videos.html">
+            Videos
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+        <a href="account.html">
+            Account
+        </a>
+
+        <a
+            href="admin.html"
+            id="adminNavLink"
+            style="display: none;"
+        >
+            Admin
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ==========================================
+     DASHBOARD
+========================================== -->
+
+<main class="dashboard-page">
+
+
+    <!-- ======================================
+         WELCOME
+    ======================================= -->
+
+    <section class="dashboard-welcome">
+
+        <div>
+
+            <span class="dashboard-label">
+                AUREX PLATFORM
+            </span>
+
+            <h1>
+                Welcome back,
+                <span id="dashboardUsername">
+                    Athlete
+                </span>.
+            </h1>
+
+            <p>
+                Train. Progress. Become stronger.
+            </p>
+
+        </div>
+
+
+        <div class="dashboard-welcome-number">
+            AUREX
+        </div>
+
+    </section>
+
+
+
+    <!-- ======================================
+         ATHLETE PROFILE SUMMARY
+    ======================================= -->
+
+    <section class="dashboard-profile">
+
+        <div class="dashboard-profile-main">
+
+            <div class="dashboard-profile-avatar">
+
+                <span id="dashboardProfileInitial">
+                    A
+                </span>
+
+                <img
+                    id="dashboardProfileImage"
+                    src=""
+                    alt="Aurex athlete profile"
+                >
+
+            </div>
+
+
+            <div class="dashboard-profile-info">
+
+                <span class="dashboard-label">
+                    AUREX ATHLETE
+                </span>
+
+                <h2 id="dashboardProfileName">
+                    Athlete
+                </h2>
+
+                <p id="dashboardProfileUsername">
+                    @athlete
+                </p>
+
+                <p
+                    id="dashboardProfileBio"
+                    class="dashboard-profile-bio"
+                >
+                    Your Aurex athlete profile.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-profile-actions">
+
+            <a
+                href="profile.html"
+                class="dashboard-profile-button"
+            >
+                VIEW PROFILE →
+            </a>
+
+            <a
+                href="profile.html"
+                class="dashboard-profile-button dashboard-profile-button-outline"
+            >
+                EDIT PROFILE
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ======================================
+         YOUR PLATFORM
+    ======================================= -->
+
+    <section class="dashboard-section">
+
+        <div class="dashboard-section-heading">
+
+            <span class="dashboard-label">
+                YOUR PLATFORM
+            </span>
+
+            <h2>
+                Keep Moving
+                <span>Forward.</span>
+            </h2>
+
+        </div>
+
+
+
+        <div class="dashboard-grid">
+
+
+            <!-- MY WORKOUTS -->
+
+            <a
+                href="my-workouts.html"
+                class="dashboard-card"
+            >
+
+                <span class="dashboard-card-number">
+                    01
+                </span>
+
+                <div class="dashboard-card-icon">
+                    +
+                </div>
+
+                <h3>
+                    My Workouts
+                </h3>
+
+                <p>
+                    Access your saved workouts
+                    and training plans.
+                </p>
+
+                <span class="dashboard-card-link">
+                    OPEN →
+                </span>
+
+            </a>
+
+
+
+            <!-- PROGRESS -->
+
+            <a
+                href="progress.html"
+                class="dashboard-card"
+            >
+
+                <span class="dashboard-card-number">
+                    02
+                </span>
+
+                <div class="dashboard-card-icon">
+                    ↗
+                </div>
+
+                <h3>
+                    Progress
+                </h3>
+
+                <p>
+                    Track your training progress
+                    and achievements.
+                </p>
+
+                <span class="dashboard-card-link">
+                    OPEN →
+                </span>
+
+            </a>
+
+
+
+            <!-- COURSES -->
+
+            <a
+                href="courses.html"
+                class="dashboard-card"
+            >
+
+                <span class="dashboard-card-number">
+                    03
+                </span>
+
+                <div class="dashboard-card-icon">
+                    □
+                </div>
+
+                <h3>
+                    Courses
+                </h3>
+
+                <p>
+                    Explore Aurex courses and
+                    your enrolled training content.
+                </p>
+
+                <span class="dashboard-card-link">
+                    EXPLORE →
+                </span>
+
+            </a>
+
+
+
+            <!-- MY VIDEOS -->
+
+            <a
+                href="my-videos.html"
+                class="dashboard-card"
+            >
+
+                <span class="dashboard-card-number">
+                    04
+                </span>
+
+                <div class="dashboard-card-icon">
+                    ▶
+                </div>
+
+                <h3>
+                    My Videos
+                </h3>
+
+                <p>
+                    Access your uploaded and
+                    saved training videos.
+                </p>
+
+                <span class="dashboard-card-link">
+                    OPEN →
+                </span>
+
+            </a>
+
+
+
+            <!-- REWARDS -->
+
+            <a
+                href="rewards.html"
+                class="dashboard-card"
+            >
+
+                <span class="dashboard-card-number">
+                    05
+                </span>
+
+                <div class="dashboard-card-icon">
+                    ◇
+                </div>
+
+                <h3>
+                    Rewards & Coupons
+                </h3>
+
+                <p>
+                    View available rewards,
+                    coupons and discounts.
+                </p>
+
+                <span class="dashboard-card-link">
+                    VIEW →
+                </span>
+
+            </a>
+
+
+
+            <!-- PUBLIC WORKOUTS -->
+
+            <a
+                href="workouts.html"
+                class="dashboard-card dashboard-card-highlight"
+            >
+
+                <span class="dashboard-card-number">
+                    06
+                </span>
+
+                <div class="dashboard-card-icon">
+                    →
+                </div>
+
+                <h3>
+                    Start Training
+                </h3>
+
+                <p>
+                    Explore the Aurex workout
+                    library and start training.
+                </p>
+
+                <span class="dashboard-card-link">
+                    TRAIN →
+                </span>
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ======================================
+         ACCOUNT ACTIONS
+    ======================================= -->
+
+    <section class="dashboard-bottom">
+
+        <div>
+
+            <span class="dashboard-label">
+                AUREX
+            </span>
+
+            <h2>
+                Your training.
+                <span>Your progress.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="dashboard-actions">
+
+            <a
+                href="dashboard.html"
+                class="dashboard-button"
+            >
+                DASHBOARD
+            </a>
+
+
+            <button
+                id="dashboardLogout"
+                class="dashboard-logout"
+            >
+                LOG OUT
+            </button>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ==========================================
+     SCRIPTS
+========================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="supabase.js"></script>
+
+
+<script>
+
+    /*
+    ==========================================
+    DASHBOARD ELEMENTS
+    ==========================================
+    */
+
+    const dashboardUsername =
+        document.getElementById("dashboardUsername");
+
+    const dashboardProfileName =
+        document.getElementById("dashboardProfileName");
+
+    const dashboardProfileUsername =
+        document.getElementById("dashboardProfileUsername");
+
+    const dashboardProfileBio =
+        document.getElementById("dashboardProfileBio");
+
+    const dashboardProfileInitial =
+        document.getElementById("dashboardProfileInitial");
+
+    const dashboardProfileImage =
+        document.getElementById("dashboardProfileImage");
+
+    const dashboardLogout =
+        document.getElementById("dashboardLogout");
+
+
+
+    /*
+    ==========================================
+    LOAD DASHBOARD
+    ==========================================
+    */
+
+    async function loadDashboard() {
+
+        try {
+
+            const {
+                data: {
+                    user
+                }
+            } = await supabase.auth.getUser();
+
+
+            /*
+            ------------------------------------------
+            NO USER
+            ------------------------------------------
+            */
+
+            if (!user) {
+
+                window.location.href =
+                    "login.html";
+
+                return;
+
+            }
+
+
+            /*
+            ------------------------------------------
+            GET PROFILE
+            ------------------------------------------
+            */
+
+            const {
+                data: profile,
+                error
+            } = await supabase
+                .from("profiles")
+                .select(`
+                    username,
+                    full_name,
+                    bio,
+                    profile_image
+                `)
+                .eq("id", user.id)
+                .single();
+
+
+            /*
+            ------------------------------------------
+            FALLBACK USERNAME
+            ------------------------------------------
+            */
+
+            let username =
+                user.email
+                    ? user.email.split("@")[0]
+                    : "Athlete";
+
+
+            /*
+            ------------------------------------------
+            PROFILE DATA
+            ------------------------------------------
+            */
+
+            if (
+                !error &&
+                profile
+            ) {
+
+                if (profile.username) {
+
+                    username =
+                        profile.username;
+
+                }
+
+
+                dashboardProfileName.textContent =
+                    profile.full_name ||
+                    profile.username ||
+                    username;
+
+
+                dashboardProfileUsername.textContent =
+                    profile.username
+                        ? "@" + profile.username
+                        : "@" + username;
+
+
+                dashboardProfileBio.textContent =
+                    profile.bio ||
+                    "Your Aurex athlete profile.";
+
+
+                /*
+                ------------------------------------------
+                PROFILE IMAGE
+                ------------------------------------------
+                */
+
+                if (profile.profile_image) {
+
+                    dashboardProfileImage.src =
+                        profile.profile_image;
+
+                    dashboardProfileImage.style.display =
+                        "block";
+
+                    dashboardProfileInitial.style.display =
+                        "none";
+
+                }
+                else {
+
+                    dashboardProfileImage.style.display =
+                        "none";
+
+                    dashboardProfileInitial.style.display =
+                        "flex";
+
+                    dashboardProfileInitial.textContent =
+                        (
+                            profile.full_name ||
+                            profile.username ||
+                            username
+                        )
+                        .charAt(0)
+                        .toUpperCase();
+
+                }
+
+            }
+            else {
+
+                dashboardProfileName.textContent =
+                    username;
+
+                dashboardProfileUsername.textContent =
+                    "@" + username;
+
+                dashboardProfileBio.textContent =
+                    "Your Aurex athlete profile.";
+
+                dashboardProfileImage.style.display =
+                    "none";
+
+                dashboardProfileInitial.style.display =
+                    "flex";
+
+                dashboardProfileInitial.textContent =
+                    username
+                        .charAt(0)
+                        .toUpperCase();
+
+            }
+
+
+            /*
+            ------------------------------------------
+            WELCOME USERNAME
+            ------------------------------------------
+            */
+
+            dashboardUsername.textContent =
+                username;
+
+
+        }
+        catch (error) {
+
+            console.error(
+                "Dashboard error:",
+                error
+            );
+
+        }
+
+    }
+
+
+
+    /*
+    ==========================================
+    LOGOUT
+    ==========================================
+    */
+
+    dashboardLogout.addEventListener(
+        "click",
+        async function () {
+
+            const {
+                error
+            } = await supabase.auth.signOut();
+
+
+            if (error) {
+
+                console.error(
+                    "Logout error:",
+                    error
+                );
+
+                return;
+
+            }
+
+
+            window.location.href =
+                "account.html";
+
+        }
+    );
+
+
+
+    /*
+    ==========================================
+    START
+    ==========================================
+    */
+
+    loadDashboard();
+
+</script>
+
+
+</body>
+
+</html>

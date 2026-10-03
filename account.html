@@ -4,15 +4,24 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title> AUREXHUB | My Account</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="stylesheet" href="style.css">
+    <title>Aurex | My Account</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
 </head>
 
+
 <body>
+
 
 <!-- ==========================================
      HEADER
@@ -21,32 +30,67 @@
 <header>
 
     <div class="logo">
-        AUREX<span>HUB</span>
+        AUREX
     </div>
+
 
     <nav id="main-nav">
 
-        <a href="index.html">Home</a>
+        <a href="index.html">
+            Home
+        </a>
 
-        <a href="workouts.html">Workouts</a>
+        <a href="workouts.html">
+            Workouts
+        </a>
 
-        <a href="map.html">Map</a>
+        <a href="nutrition.html">
+            Nutrition
+        </a>
 
-        <a href="Community.html">Community</a>
+        <a href="map.html">
+            Map
+        </a>
 
-        <a href="about.html">About</a>
+        <a href="community.html">
+            Community
+        </a>
 
-        <a href="contact.html">Contact</a>
-         <a href="shop.html">Aurex</a>
+        <a href="athletes.html">
+            Athletes
+        </a>
 
-         <a href="account.html">My Account</a>
+        <a href="videos.html">
+            Videos
+        </a>
 
-<a href="admin.html" id="adminNavLink" style="display: none;">
-    Admin
-</a>
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+        <a
+            href="account.html"
+            class="active"
+        >
+            Account
+        </a>
+
+        <a
+            href="admin.html"
+            id="adminNavLink"
+            style="display: none;"
+        >
+            Admin
+        </a>
+
     </nav>
 
 </header>
+
 
 
 <!-- ==========================================
@@ -57,7 +101,10 @@
 
     <div class="account-container">
 
-        <!-- LOGGED OUT -->
+
+        <!-- ======================================
+             LOGGED OUT
+        ======================================= -->
 
         <div id="loggedOutSection">
 
@@ -65,23 +112,33 @@
                 MY ACCOUNT
             </span>
 
+
             <h1>
                 Welcome to<br>
-                AurexHub!
+                AUREX.
             </h1>
 
+
             <p class="account-subtitle">
-                Log in to access your account and continue your training journey.
+                Log in to access your account and continue
+                your training journey.
             </p>
+
 
             <div class="account-actions">
 
-                <a href="login.html" class="account-button">
+                <a
+                    href="login.html"
+                    class="account-button"
+                >
                     Log In
                 </a>
 
-                <a href="signup.html"
-                   class="account-button account-button-outline">
+
+                <a
+                    href="signup.html"
+                    class="account-button account-button-outline"
+                >
                     Create Account
                 </a>
 
@@ -90,49 +147,91 @@
         </div>
 
 
-        <!-- LOGGED IN -->
 
-        <div id="loggedInSection" style="display: none;">
+        <!-- ======================================
+             LOGGED IN
+        ======================================= -->
+
+        <div
+            id="loggedInSection"
+            style="display: none;"
+        >
 
             <span class="account-label">
                 MY ACCOUNT
             </span>
 
+
             <h1>
                 Welcome back,<br>
+
                 <strong id="accountUsername"></strong> 👋
             </h1>
+
 
             <p class="account-subtitle">
                 Keep training. Keep progressing.
             </p>
 
+
             <div class="account-actions">
 
-                <a href="profile.html" class="account-button">
+                <!-- DASHBOARD -->
+
+                <a
+                    href="dashboard.html"
+                    class="account-button"
+                >
+                    Dashboard
+                </a>
+
+
+                <!-- PROFILE -->
+
+                <a
+                    href="profile.html"
+                    class="account-button account-button-outline"
+                >
                     My Profile
                 </a>
 
-                <button id="accountLogout"
-                        class="account-button account-logout">
+
+                <!-- LOG OUT -->
+
+                <button
+                    id="accountLogout"
+                    class="account-button account-logout"
+                >
                     Log Out
                 </button>
 
             </div>
 
-            <p id="accountMessage"
-               class="account-message"></p>
+
+            <p
+                id="accountMessage"
+                class="account-message"
+            ></p>
 
         </div>
+
 
     </div>
 
 </main>
 
 
+
+<!-- ==========================================
+     SCRIPTS
+========================================== -->
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script src="supabase.js"></script>
+
 <script src="account.js"></script>
+
 
 </body>
 

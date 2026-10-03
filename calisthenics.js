@@ -1,5 +1,5 @@
 /* ==========================================
-   STRENGTHHUB CALISTHENICS
+   AurexHUB CALISTHENICS
    EXERCISE DATABASE
 ========================================== */
 

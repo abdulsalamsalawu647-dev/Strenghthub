@@ -1,0 +1,1752 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Admin Workouts | AUREX</title>
+
+    <link
+        rel="stylesheet"
+        href="admin.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="admin-workouts.css"
+    >
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="supabase.js"></script>
+
+</head>
+
+
+<body>
+
+
+<header class="admin-header">
+
+    <div class="admin-logo">
+        AUREX
+    </div>
+
+    <div class="admin-label">
+        ADMIN PANEL
+    </div>
+
+    <nav id="main-nav">
+
+        <a href="admin.html">
+            Dashboard
+        </a>
+
+        <a href="index.html">
+            Home
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<main class="admin-workouts-page">
+
+
+    <!-- ==========================================
+         INTRO
+    =========================================== -->
+
+    <section class="admin-workout-hero">
+
+        <div>
+
+            <span class="admin-section-label">
+                AUREX TRAINING
+            </span>
+
+            <h1>
+                Workout Library
+            </h1>
+
+            <p>
+                Create and manage the workouts available
+                throughout the Aurex training platform.
+            </p>
+
+        </div>
+
+
+        <div class="workout-status">
+
+            <span></span>
+
+            ADMIN WORKOUT MANAGEMENT
+
+        </div>
+
+    </section>
+
+
+
+    <p
+        id="adminMessage"
+        class="admin-workout-message"
+    >
+        Checking admin access...
+    </p>
+
+
+
+    <section
+        id="adminWorkoutPanel"
+        style="display: none;"
+    >
+
+
+        <!-- ======================================
+             CREATE WORKOUT
+        ======================================= -->
+
+        <div class="admin-workout-card">
+
+            <div class="admin-workout-card-header">
+
+                <div>
+
+                    <span class="admin-section-label">
+                        WORKOUT BUILDER
+                    </span>
+
+                    <h2>
+                        Create Workout
+                    </h2>
+
+                    <p>
+                        Build a workout and choose the exercises
+                        that belong to it.
+                    </p>
+
+                </div>
+
+                <span class="workout-number">
+                    01
+                </span>
+
+            </div>
+
+
+
+            <form id="workoutForm">
+
+
+                <div class="workout-form-grid">
+
+
+                    <!-- TITLE -->
+
+                    <div class="workout-field">
+
+                        <label for="workoutTitle">
+                            Workout Title
+                        </label>
+
+                        <input
+                            type="text"
+                            id="workoutTitle"
+                            placeholder="e.g. Aurex Upper Body Strength"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- DISCIPLINE -->
+
+                    <div class="workout-field">
+
+                        <label for="workoutDiscipline">
+                            Discipline
+                        </label>
+
+                        <select
+                            id="workoutDiscipline"
+                            required
+                        >
+
+                            <option value="">
+                                Select discipline
+                            </option>
+
+                            <option value="Gym">
+                                Gym
+                            </option>
+
+                            <option value="Calisthenics">
+                                Calisthenics
+                            </option>
+
+                            <option value="Bodybuilding">
+                                Bodybuilding
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- DIFFICULTY -->
+
+                    <div class="workout-field">
+
+                        <label for="workoutDifficulty">
+                            Difficulty
+                        </label>
+
+                        <select
+                            id="workoutDifficulty"
+                            required
+                        >
+
+                            <option value="">
+                                Select difficulty
+                            </option>
+
+                            <option value="Beginner">
+                                Beginner
+                            </option>
+
+                            <option value="Intermediate">
+                                Intermediate
+                            </option>
+
+                            <option value="Advanced">
+                                Advanced
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- DURATION -->
+
+                    <div class="workout-field">
+
+                        <label for="workoutDuration">
+                            Duration
+                        </label>
+
+                        <input
+                            type="number"
+                            id="workoutDuration"
+                            min="1"
+                            placeholder="45"
+                            required
+                        >
+
+                        <small>
+                            Minutes
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="workout-field">
+
+                    <label for="workoutDescription">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="workoutDescription"
+                        rows="4"
+                        placeholder="Describe the purpose of this workout..."
+                    ></textarea>
+
+                </div>
+
+
+
+                <!-- ==================================
+                     EXERCISE SELECTOR
+                =================================== -->
+
+                <div class="exercise-builder">
+
+
+                    <div class="exercise-builder-header">
+
+                        <div>
+
+                            <span class="admin-section-label">
+                                EXERCISES
+                            </span>
+
+                            <h3>
+                                Build Your Workout
+                            </h3>
+
+                            <p>
+                                Select exercises and set their
+                                order, sets, reps and rest.
+                            </p>
+
+                        </div>
+
+
+                        <span
+                            id="selectedExerciseCount"
+                            class="selected-count"
+                        >
+                            0 SELECTED
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- SEARCH -->
+
+                    <div class="exercise-search">
+
+                        <input
+                            type="search"
+                            id="exerciseSearch"
+                            placeholder="Search exercises..."
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+
+
+                    <!-- EXERCISES -->
+
+                    <div
+                        id="exerciseList"
+                        class="exercise-list"
+                    >
+
+                        <div class="exercise-loading">
+                            Select a discipline to load exercises.
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- MESSAGE -->
+
+                <div
+                    id="workoutMessage"
+                    class="workout-message"
+                ></div>
+
+
+
+                <!-- ACTION -->
+
+                <div class="workout-form-actions">
+
+                    <button
+                        type="submit"
+                        id="createWorkoutButton"
+                        class="admin-workout-button"
+                    >
+                        CREATE WORKOUT
+                    </button>
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+
+
+        <!-- ======================================
+             WORKOUT LIBRARY
+        ======================================= -->
+
+        <div class="admin-workout-card">
+
+
+            <div class="admin-workout-card-header">
+
+                <div>
+
+                    <span class="admin-section-label">
+                        WORKOUT LIBRARY
+                    </span>
+
+                    <h2>
+                        Existing Workouts
+                    </h2>
+
+                    <p>
+                        Manage workouts currently available
+                        on the Aurex platform.
+                    </p>
+
+                </div>
+
+
+                <span class="workout-number">
+                    02
+                </span>
+
+            </div>
+
+
+
+            <div
+                id="workoutLibrary"
+                class="admin-workout-library"
+            >
+
+                <div class="exercise-loading">
+                    Loading workouts...
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<script>
+
+let allExercises = [];
+let selectedExercises = new Map();
+let currentDiscipline = "";
+
+
+/* =========================================
+   ELEMENTS
+========================================= */
+
+const adminMessage =
+    document.getElementById("adminMessage");
+
+const adminWorkoutPanel =
+    document.getElementById("adminWorkoutPanel");
+
+const workoutForm =
+    document.getElementById("workoutForm");
+
+const exerciseList =
+    document.getElementById("exerciseList");
+
+const exerciseSearch =
+    document.getElementById("exerciseSearch");
+
+const selectedExerciseCount =
+    document.getElementById("selectedExerciseCount");
+
+const workoutMessage =
+    document.getElementById("workoutMessage");
+
+const createWorkoutButton =
+    document.getElementById("createWorkoutButton");
+
+const workoutLibrary =
+    document.getElementById("workoutLibrary");
+
+
+/* =========================================
+   ESCAPE HTML
+========================================= */
+
+function escapeHtml(value) {
+
+    if (
+        value === null ||
+        value === undefined
+    ) {
+        return "";
+    }
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================================
+   CHECK ADMIN
+========================================= */
+
+async function checkAdmin() {
+
+    const {
+        data: { user },
+        error: userError
+    } =
+        await supabaseClient.auth.getUser();
+
+
+    if (
+        userError ||
+        !user
+    ) {
+
+        adminMessage.textContent =
+            "You must be logged in to access this page.";
+
+        return false;
+
+    }
+
+
+    const {
+        data,
+        error
+    } =
+        await supabaseClient
+            .from("admin_users")
+            .select("user_id")
+            .eq("user_id", user.id)
+            .maybeSingle();
+
+
+    if (error) {
+
+        console.error(error);
+
+        adminMessage.textContent =
+            "Unable to verify admin access.";
+
+        return false;
+
+    }
+
+
+    if (!data) {
+
+        adminMessage.textContent =
+            "Access denied.";
+
+        return false;
+
+    }
+
+
+    adminMessage.textContent =
+        "Admin access confirmed.";
+
+    adminWorkoutPanel.style.display =
+        "block";
+
+
+    await loadWorkoutLibrary();
+
+    return true;
+
+}
+
+
+/* =========================================
+   LOAD EXERCISES
+========================================= */
+
+async function loadExercises() {
+
+    if (!currentDiscipline) {
+
+        exerciseList.innerHTML = `
+            <div class="exercise-loading">
+                Select a discipline to load exercises.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    exerciseList.innerHTML = `
+        <div class="exercise-loading">
+            Loading ${escapeHtml(currentDiscipline)} exercises...
+        </div>
+    `;
+
+
+    const {
+        data,
+        error
+    } =
+        await supabaseClient
+            .from("exercises")
+            .select("*")
+            .eq(
+                "discipline",
+                currentDiscipline
+            )
+            .order("name", {
+                ascending: true
+            });
+
+
+    if (error) {
+
+        console.error(error);
+
+        exerciseList.innerHTML = `
+            <div class="exercise-loading error">
+                Unable to load exercises.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    allExercises =
+        Array.isArray(data)
+            ? data
+            : [];
+
+
+    renderExercises();
+
+}
+
+
+/* =========================================
+   RENDER EXERCISES
+========================================= */
+
+function renderExercises() {
+
+    const searchTerm =
+        exerciseSearch.value
+            .trim()
+            .toLowerCase();
+
+
+    const filtered =
+        allExercises.filter(exercise => {
+
+            const name =
+                (exercise.name || "")
+                    .toLowerCase();
+
+            const category =
+                (exercise.category || "")
+                    .toLowerCase();
+
+            const muscles =
+                (exercise.muscles || "")
+                    .toLowerCase();
+
+
+            return (
+                !searchTerm ||
+                name.includes(searchTerm) ||
+                category.includes(searchTerm) ||
+                muscles.includes(searchTerm)
+            );
+
+        });
+
+
+    if (filtered.length === 0) {
+
+        exerciseList.innerHTML = `
+            <div class="exercise-loading">
+                No exercises found.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    exerciseList.innerHTML = "";
+
+
+    filtered.forEach(exercise => {
+
+        const selected =
+            selectedExercises.has(
+                exercise.id
+            );
+
+
+        const item =
+            document.createElement("div");
+
+        item.className =
+            "exercise-option";
+
+
+        if (selected) {
+
+            item.classList.add(
+                "selected"
+            );
+
+        }
+
+
+        item.innerHTML = `
+
+            <button
+                type="button"
+                class="exercise-select-button"
+                data-id="${escapeHtml(exercise.id)}"
+            >
+
+                <span class="exercise-check">
+                    ${selected ? "✓" : "+"}
+                </span>
+
+            </button>
+
+
+            <div class="exercise-option-info">
+
+                <strong>
+                    ${escapeHtml(exercise.name)}
+                </strong>
+
+                <span>
+                    ${escapeHtml(exercise.category || "Exercise")}
+                    ${exercise.muscles ? " • " + escapeHtml(exercise.muscles) : ""}
+                </span>
+
+            </div>
+
+
+            <div class="exercise-option-level">
+
+                ${escapeHtml(exercise.difficulty || "—")}
+
+            </div>
+
+        `;
+
+
+        exerciseList.appendChild(item);
+
+    });
+
+
+    attachExerciseButtons();
+
+}
+
+
+/* =========================================
+   EXERCISE SELECTION
+========================================= */
+
+function attachExerciseButtons() {
+
+    document
+        .querySelectorAll(
+            ".exercise-select-button"
+        )
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    const id =
+                        this.dataset.id;
+
+
+                    const exercise =
+                        allExercises.find(
+                            item =>
+                                String(item.id) ===
+                                String(id)
+                        );
+
+
+                    if (!exercise) {
+                        return;
+                    }
+
+
+                    if (
+                        selectedExercises.has(id)
+                    ) {
+
+                        selectedExercises.delete(id);
+
+                    } else {
+
+                        selectedExercises.set(
+                            id,
+                            {
+                                exercise: exercise,
+                                sets: exercise.sets || "3",
+                                reps: exercise.reps || "8–12",
+                                rest: exercise.rest || "90 sec"
+                            }
+                        );
+
+                    }
+
+
+                    updateSelectedCount();
+
+                    renderExercises();
+
+                }
+            );
+
+        });
+
+}
+
+
+/* =========================================
+   SELECTED COUNT
+========================================= */
+
+function updateSelectedCount() {
+
+    const count =
+        selectedExercises.size;
+
+
+    selectedExerciseCount.textContent =
+        `${count} ${
+            count === 1
+                ? "EXERCISE"
+                : "EXERCISES"
+        } SELECTED`;
+
+}
+
+
+/* =========================================
+   RENDER SELECTED EXERCISES
+========================================= */
+
+function renderSelectedExercises() {
+
+    if (
+        selectedExercises.size === 0
+    ) {
+
+        return "";
+
+    }
+
+
+    let html = "";
+
+
+    let order = 1;
+
+
+    selectedExercises.forEach(item => {
+
+        html += `
+
+            <div class="selected-exercise-row">
+
+                <span class="selected-order">
+                    ${order}
+                </span>
+
+                <strong>
+                    ${escapeHtml(item.exercise.name)}
+                </strong>
+
+                <input
+                    type="text"
+                    class="selected-sets"
+                    data-id="${escapeHtml(item.exercise.id)}"
+                    value="${escapeHtml(item.sets)}"
+                    placeholder="Sets"
+                >
+
+                <input
+                    type="text"
+                    class="selected-reps"
+                    data-id="${escapeHtml(item.exercise.id)}"
+                    value="${escapeHtml(item.reps)}"
+                    placeholder="Reps"
+                >
+
+                <input
+                    type="text"
+                    class="selected-rest"
+                    data-id="${escapeHtml(item.exercise.id)}"
+                    value="${escapeHtml(item.rest)}"
+                    placeholder="Rest"
+                >
+
+            </div>
+
+        `;
+
+
+        order++;
+
+    });
+
+
+    return html;
+
+}
+
+
+/* =========================================
+   SHOW SELECTED DETAILS
+========================================= */
+
+function updateSelectedExerciseDetails() {
+
+    let existing =
+        document.getElementById(
+            "selectedExerciseDetails"
+        );
+
+
+    if (!existing) {
+
+        existing =
+            document.createElement("div");
+
+        existing.id =
+            "selectedExerciseDetails";
+
+        existing.className =
+            "selected-exercise-details";
+
+
+        document
+            .querySelector(".exercise-builder")
+            .appendChild(existing);
+
+    }
+
+
+    if (
+        selectedExercises.size === 0
+    ) {
+
+        existing.innerHTML = "";
+
+        return;
+
+    }
+
+
+    existing.innerHTML = `
+
+        <div class="selected-details-header">
+
+            <span class="admin-section-label">
+                WORKOUT STRUCTURE
+            </span>
+
+            <p>
+                Set the training details for each exercise.
+            </p>
+
+        </div>
+
+        ${renderSelectedExercises()}
+
+    `;
+
+
+    attachSelectedInputs();
+
+}
+
+
+/* =========================================
+   SELECTED INPUTS
+========================================= */
+
+function attachSelectedInputs() {
+
+    document
+        .querySelectorAll(
+            ".selected-sets"
+        )
+        .forEach(input => {
+
+            input.addEventListener(
+                "input",
+                function () {
+
+                    const item =
+                        selectedExercises.get(
+                            this.dataset.id
+                        );
+
+                    if (item) {
+
+                        item.sets =
+                            this.value;
+
+                    }
+
+                }
+            );
+
+        });
+
+
+    document
+        .querySelectorAll(
+            ".selected-reps"
+        )
+        .forEach(input => {
+
+            input.addEventListener(
+                "input",
+                function () {
+
+                    const item =
+                        selectedExercises.get(
+                            this.dataset.id
+                        );
+
+                    if (item) {
+
+                        item.reps =
+                            this.value;
+
+                    }
+
+                }
+            );
+
+        });
+
+
+    document
+        .querySelectorAll(
+            ".selected-rest"
+        )
+        .forEach(input => {
+
+            input.addEventListener(
+                "input",
+                function () {
+
+                    const item =
+                        selectedExercises.get(
+                            this.dataset.id
+                        );
+
+                    if (item) {
+
+                        item.rest =
+                            this.value;
+
+                    }
+
+                }
+            );
+
+        });
+
+}
+
+
+/* =========================================
+   DISCIPLINE CHANGE
+========================================= */
+
+document
+    .getElementById(
+        "workoutDiscipline"
+    )
+    .addEventListener(
+        "change",
+        async function () {
+
+            currentDiscipline =
+                this.value;
+
+
+            selectedExercises.clear();
+
+            updateSelectedCount();
+
+
+            const details =
+                document.getElementById(
+                    "selectedExerciseDetails"
+                );
+
+            if (details) {
+                details.innerHTML = "";
+            }
+
+
+            await loadExercises();
+
+        }
+    );
+
+
+/* =========================================
+   EXERCISE SEARCH
+========================================= */
+
+exerciseSearch.addEventListener(
+    "input",
+    function () {
+
+        renderExercises();
+
+    }
+);
+
+
+/* =========================================
+   CREATE WORKOUT
+========================================= */
+
+workoutForm.addEventListener(
+    "submit",
+    async function (event) {
+
+        event.preventDefault();
+
+
+        if (
+            selectedExercises.size === 0
+        ) {
+
+            workoutMessage.textContent =
+                "Select at least one exercise.";
+
+            workoutMessage.className =
+                "workout-message error";
+
+            return;
+
+        }
+
+
+        const title =
+            document
+                .getElementById(
+                    "workoutTitle"
+                )
+                .value
+                .trim();
+
+
+        const description =
+            document
+                .getElementById(
+                    "workoutDescription"
+                )
+                .value
+                .trim();
+
+
+        const discipline =
+            document
+                .getElementById(
+                    "workoutDiscipline"
+                )
+                .value;
+
+
+        const difficulty =
+            document
+                .getElementById(
+                    "workoutDifficulty"
+                )
+                .value;
+
+
+        const duration =
+            Number(
+                document
+                    .getElementById(
+                        "workoutDuration"
+                    )
+                    .value
+            );
+
+
+        if (
+            !title ||
+            !discipline ||
+            !difficulty ||
+            !duration
+        ) {
+
+            workoutMessage.textContent =
+                "Please complete all required workout fields.";
+
+            workoutMessage.className =
+                "workout-message error";
+
+            return;
+
+        }
+
+
+        createWorkoutButton.disabled =
+            true;
+
+        createWorkoutButton.textContent =
+            "CREATING WORKOUT...";
+
+
+        workoutMessage.textContent =
+            "Creating workout...";
+
+        workoutMessage.className =
+            "workout-message loading";
+
+
+        try {
+
+
+            /* =================================
+               CREATE WORKOUT
+            ================================= */
+
+            const {
+                data: workout,
+                error: workoutError
+            } =
+                await supabaseClient
+                    .from("workouts")
+                    .insert({
+
+                        title:
+                            title,
+
+                        description:
+                            description,
+
+                        discipline:
+                            discipline,
+
+                        difficulty:
+                            difficulty,
+
+                        duration_minutes:
+                            duration,
+
+                        is_active:
+                            true
+
+                    })
+                    .select()
+                    .single();
+
+
+            if (workoutError) {
+
+                throw workoutError;
+
+            }
+
+
+            /* =================================
+               CREATE EXERCISE LINKS
+            ================================= */
+
+            const workoutExercises = [];
+
+
+            let exerciseOrder = 1;
+
+
+            selectedExercises.forEach(item => {
+
+                workoutExercises.push({
+
+                    workout_id:
+                        workout.id,
+
+                    exercise_id:
+                        item.exercise.id,
+
+                    exercise_order:
+                        exerciseOrder,
+
+                    sets:
+                        item.sets,
+
+                    reps:
+                        item.reps,
+
+                    rest:
+                        item.rest
+
+                });
+
+
+                exerciseOrder++;
+
+            });
+
+
+            const {
+                error: exerciseError
+            } =
+                await supabaseClient
+                    .from("workout_exercises")
+                    .insert(
+                        workoutExercises
+                    );
+
+
+            if (exerciseError) {
+
+                /* Remove workout if exercise linking fails */
+
+                await supabaseClient
+                    .from("workouts")
+                    .delete()
+                    .eq(
+                        "id",
+                        workout.id
+                    );
+
+                throw exerciseError;
+
+            }
+
+
+            /* =================================
+               SUCCESS
+            ================================= */
+
+            workoutMessage.textContent =
+                "Workout created successfully.";
+
+            workoutMessage.className =
+                "workout-message success";
+
+
+            workoutForm.reset();
+
+
+            selectedExercises.clear();
+
+            currentDiscipline = "";
+
+            allExercises = [];
+
+
+            updateSelectedCount();
+
+
+            exerciseList.innerHTML = `
+                <div class="exercise-loading">
+                    Select a discipline to load exercises.
+                </div>
+            `;
+
+
+            const details =
+                document.getElementById(
+                    "selectedExerciseDetails"
+                );
+
+            if (details) {
+                details.innerHTML = "";
+            }
+
+
+            await loadWorkoutLibrary();
+
+
+        } catch (error) {
+
+            console.error(
+                "Workout creation error:",
+                error
+            );
+
+
+            workoutMessage.textContent =
+                error.message ||
+                "Unable to create workout.";
+
+            workoutMessage.className =
+                "workout-message error";
+
+        }
+
+
+        createWorkoutButton.disabled =
+            false;
+
+        createWorkoutButton.textContent =
+            "CREATE WORKOUT";
+
+    }
+);
+
+
+/* =========================================
+   LOAD WORKOUT LIBRARY
+========================================= */
+
+async function loadWorkoutLibrary() {
+
+    workoutLibrary.innerHTML = `
+        <div class="exercise-loading">
+            Loading workouts...
+        </div>
+    `;
+
+
+    const {
+        data: workouts,
+        error
+    } =
+        await supabaseClient
+            .from("workouts")
+            .select("*")
+            .order("created_at", {
+                ascending: false
+            });
+
+
+    if (error) {
+
+        console.error(error);
+
+        workoutLibrary.innerHTML = `
+            <div class="exercise-loading error">
+                Unable to load workouts.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    if (
+        !workouts ||
+        workouts.length === 0
+    ) {
+
+        workoutLibrary.innerHTML = `
+            <div class="workout-empty">
+                No workouts have been created yet.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    workoutLibrary.innerHTML = "";
+
+
+    workouts.forEach(workout => {
+
+        const card =
+            document.createElement("article");
+
+        card.className =
+            "admin-workout-item";
+
+
+        card.innerHTML = `
+
+            <div class="admin-workout-item-main">
+
+                <div class="admin-workout-item-meta">
+
+                    <span>
+                        ${escapeHtml(workout.discipline || "Training")}
+                    </span>
+
+                    <span>
+                        ${escapeHtml(workout.difficulty || "—")}
+                    </span>
+
+                    <span>
+                        ${workout.duration_minutes || "—"} MIN
+                    </span>
+
+                    <span class="${
+                        workout.is_active
+                            ? "active"
+                            : "inactive"
+                    }">
+
+                        ${
+                            workout.is_active
+                                ? "LIVE"
+                                : "HIDDEN"
+                        }
+
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    ${escapeHtml(workout.title)}
+                </h3>
+
+
+                <p>
+                    ${escapeHtml(
+                        workout.description ||
+                        "No description."
+                    )}
+                </p>
+
+            </div>
+
+
+            <div class="admin-workout-item-actions">
+
+                <button
+                    type="button"
+                    class="workout-toggle-button"
+                    data-id="${escapeHtml(workout.id)}"
+                    data-active="${workout.is_active}"
+                >
+                    ${
+                        workout.is_active
+                            ? "Hide"
+                            : "Publish"
+                    }
+                </button>
+
+
+                <button
+                    type="button"
+                    class="workout-delete-button"
+                    data-id="${escapeHtml(workout.id)}"
+                >
+                    Delete
+                </button>
+
+            </div>
+
+        `;
+
+
+        workoutLibrary.appendChild(card);
+
+    });
+
+
+    attachWorkoutLibraryActions();
+
+}
+
+
+/* =========================================
+   WORKOUT LIBRARY ACTIONS
+========================================= */
+
+function attachWorkoutLibraryActions() {
+
+    document
+        .querySelectorAll(
+            ".workout-toggle-button"
+        )
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                handleWorkoutToggle
+            );
+
+        });
+
+
+    document
+        .querySelectorAll(
+            ".workout-delete-button"
+        )
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                handleWorkoutDelete
+            );
+
+        });
+
+}
+
+
+/* =========================================
+   TOGGLE WORKOUT
+========================================= */
+
+async function handleWorkoutToggle(event) {
+
+    const button =
+        event.currentTarget;
+
+
+    const id =
+        button.dataset.id;
+
+
+    const currentState =
+        button.dataset.active === "true";
+
+
+    button.disabled =
+        true;
+
+
+    const {
+        error
+    } =
+        await supabaseClient
+            .from("workouts")
+            .update({
+                is_active:
+                    !currentState
+            })
+            .eq(
+                "id",
+                id
+            );
+
+
+    if (error) {
+
+        console.error(error);
+
+        alert(
+            "Unable to update workout."
+        );
+
+    }
+
+
+    await loadWorkoutLibrary();
+
+}
+
+
+/* =========================================
+   DELETE WORKOUT
+========================================= */
+
+async function handleWorkoutDelete(event) {
+
+    const button =
+        event.currentTarget;
+
+
+    const id =
+        button.dataset.id;
+
+
+    const confirmed =
+        confirm(
+            "Delete this workout? Its exercise links will also be removed."
+        );
+
+
+    if (!confirmed) {
+        return;
+    }
+
+
+    button.disabled =
+        true;
+
+
+    const {
+        error
+    } =
+        await supabaseClient
+            .from("workouts")
+            .delete()
+            .eq(
+                "id",
+                id
+            );
+
+
+    if (error) {
+
+        console.error(error);
+
+        alert(
+            error.message ||
+            "Unable to delete workout."
+        );
+
+        button.disabled =
+            false;
+
+        return;
+
+    }
+
+
+    await loadWorkoutLibrary();
+
+}
+
+
+/* =========================================
+   START
+========================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    checkAdmin
+);
+
+</script>
+
+</body>
+
+</html>

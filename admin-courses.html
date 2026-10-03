@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aurex Admin | Courses</title>
+
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="admin-courses.css">
+</head>
+
+<body class="admin-courses-page">
+
+<header class="admin-header">
+
+    <div class="admin-logo">
+        AUREX
+        <span>ADMIN PANEL</span>
+    </div>
+
+    <nav id="main-nav">
+        <a href="admin.html">Dashboard</a>
+        <a href="admin-workouts.html">Workouts</a>
+        <a href="admin-courses.html">Courses</a>
+        <a href="index.html">Home</a>
+    </nav>
+
+</header>
+
+
+<main class="admin-courses-container">
+
+    <!-- HERO -->
+
+    <section class="courses-hero">
+
+        <div>
+
+            <span class="section-label">
+                AUREX EDUCATION
+            </span>
+
+            <h1>
+                Course Management.
+            </h1>
+
+            <p>
+                Create, manage and publish educational fitness courses
+                for the Aurex platform.
+            </p>
+
+        </div>
+
+        <div class="courses-status">
+
+            <span class="status-dot"></span>
+
+            <span>
+                ADMIN ACCESS
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- CREATE COURSE -->
+
+    <section class="admin-card">
+
+        <div class="card-heading">
+
+            <div>
+
+                <span class="section-label">
+                    CREATE
+                </span>
+
+                <h2>
+                    Create a Course
+                </h2>
+
+                <p>
+                    Add a new course to the Aurex platform.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="course-form">
+
+            <div class="form-field">
+
+                <label for="courseTitle">
+                    Course Title
+                </label>
+
+                <input
+                    type="text"
+                    id="courseTitle"
+                    placeholder="e.g. Calisthenics Foundations"
+                >
+
+            </div>
+
+
+            <div class="form-field">
+
+                <label for="courseDiscipline">
+                    Discipline
+                </label>
+
+                <select id="courseDiscipline">
+
+                    <option value="">
+                        Select discipline
+                    </option>
+
+                    <option value="Gym">
+                        Gym
+                    </option>
+
+                    <option value="Calisthenics">
+                        Calisthenics
+                    </option>
+
+                    <option value="Bodybuilding">
+                        Bodybuilding
+                    </option>
+
+                    <option value="Nutrition">
+                        Nutrition
+                    </option>
+
+                    <option value="General Fitness">
+                        General Fitness
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-field">
+
+                <label for="courseDifficulty">
+                    Difficulty
+                </label>
+
+                <select id="courseDifficulty">
+
+                    <option value="">
+                        Select difficulty
+                    </option>
+
+                    <option value="Beginner">
+                        Beginner
+                    </option>
+
+                    <option value="Intermediate">
+                        Intermediate
+                    </option>
+
+                    <option value="Advanced">
+                        Advanced
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-field">
+
+                <label for="courseDuration">
+                    Duration
+                </label>
+
+                <input
+                    type="number"
+                    id="courseDuration"
+                    min="1"
+                    placeholder="e.g. 60"
+                >
+
+                <small>
+                    Duration in minutes
+                </small>
+
+            </div>
+
+
+            <div class="form-field full-width">
+
+                <label for="courseDescription">
+                    Description
+                </label>
+
+                <textarea
+                    id="courseDescription"
+                    rows="5"
+                    placeholder="Describe what athletes will learn from this course..."
+                ></textarea>
+
+            </div>
+
+        </div>
+
+
+        <div class="course-actions">
+
+            <button
+                type="button"
+                id="createCourseButton"
+                class="admin-primary-button"
+            >
+                CREATE COURSE →
+            </button>
+
+            <div
+                id="courseMessage"
+                class="course-message"
+            ></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- COURSE LIBRARY -->
+
+    <section class="admin-card">
+
+        <div class="library-header">
+
+            <div>
+
+                <span class="section-label">
+                    AUREX LIBRARY
+                </span>
+
+                <h2>
+                    Course Library
+                </h2>
+
+                <p>
+                    Manage courses currently stored in Aurex.
+                </p>
+
+            </div>
+
+            <div
+                id="courseCount"
+                class="library-count"
+            >
+                0 COURSES
+            </div>
+
+        </div>
+
+
+        <div
+            id="courseLibrary"
+            class="course-library"
+        >
+
+            <div class="library-loading">
+                Loading courses...
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- LESSON MANAGER -->
+
+    <section
+        class="admin-card lesson-manager"
+        id="lessonManager"
+        style="display: none;"
+    >
+
+        <div class="lesson-manager-header">
+
+            <div>
+
+                <span class="section-label">
+                    COURSE CONTENT
+                </span>
+
+                <h2 id="selectedCourseTitle">
+                    Course Lessons
+                </h2>
+
+                <p>
+                    Add and organise lessons using your existing Aurex videos.
+                </p>
+
+            </div>
+
+            <button
+                type="button"
+                id="closeLessonManager"
+                class="lesson-close-button"
+            >
+                CLOSE
+            </button>
+
+        </div>
+
+
+        <!-- ADD LESSON -->
+
+        <div class="lesson-builder">
+
+            <div class="lesson-builder-heading">
+
+                <span class="section-label">
+                    ADD LESSON
+                </span>
+
+                <h3>
+                    Create Course Lesson
+                </h3>
+
+            </div>
+
+
+            <div class="lesson-form">
+
+                <div class="form-field">
+
+                    <label for="lessonTitle">
+                        Lesson Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="lessonTitle"
+                        placeholder="e.g. Introduction to Pull-Ups"
+                    >
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label for="lessonOrder">
+                        Lesson Order
+                    </label>
+
+                    <input
+                        type="number"
+                        id="lessonOrder"
+                        min="1"
+                        value="1"
+                    >
+
+                </div>
+
+
+                <div class="form-field full-width">
+
+                    <label for="lessonDescription">
+                        Lesson Description
+                    </label>
+
+                    <textarea
+                        id="lessonDescription"
+                        rows="4"
+                        placeholder="Explain what this lesson covers..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-field full-width">
+
+                    <label for="lessonVideo">
+                        Aurex Video
+                    </label>
+
+                    <select id="lessonVideo">
+
+                        <option value="">
+                            No video selected
+                        </option>
+
+                    </select>
+
+                    <small>
+                        Select an existing video from the Aurex video library.
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="lesson-builder-actions">
+
+                <button
+                    type="button"
+                    id="addLessonButton"
+                    class="admin-primary-button"
+                >
+                    ADD LESSON →
+                </button>
+
+                <div
+                    id="lessonMessage"
+                    class="course-message"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LESSON LIST -->
+
+        <div class="lesson-list-section">
+
+            <div class="lesson-list-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        LESSONS
+                    </span>
+
+                    <h3>
+                        Course Structure
+                    </h3>
+
+                </div>
+
+                <span
+                    id="lessonCount"
+                    class="lesson-count"
+                >
+                    0 LESSONS
+                </span>
+
+            </div>
+
+
+            <div
+                id="lessonList"
+                class="lesson-list"
+            >
+
+                <div class="lesson-empty">
+                    No lessons have been added yet.
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer class="admin-footer">
+
+    <strong>
+        AUREX
+    </strong>
+
+    <span>
+        Fitness Without Barriers
+    </span>
+
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+
+
+<script>
+
+let currentUser = null;
+let selectedCourseId = null;
+
+
+/* =========================================
+   ELEMENTS
+========================================= */
+
+const courseTitle =
+    document.getElementById("courseTitle");
+
+const courseDescription =
+    document.getElementById("courseDescription");
+
+const courseDiscipline =
+    document.getElementById("courseDiscipline");
+
+const courseDifficulty =
+    document.getElementById("courseDifficulty");
+
+const courseDuration =
+    document.getElementById("courseDuration");
+
+const createCourseButton =
+    document.getElementById("createCourseButton");
+
+const courseMessage =
+    document.getElementById("courseMessage");
+
+const courseLibrary =
+    document.getElementById("courseLibrary");
+
+const courseCount =
+    document.getElementById("courseCount");
+
+
+const lessonManager =
+    document.getElementById("lessonManager");
+
+const selectedCourseTitle =
+    document.getElementById("selectedCourseTitle");
+
+const closeLessonManager =
+    document.getElementById("closeLessonManager");
+
+const lessonTitle =
+    document.getElementById("lessonTitle");
+
+const lessonDescription =
+    document.getElementById("lessonDescription");
+
+const lessonOrder =
+    document.getElementById("lessonOrder");
+
+const lessonVideo =
+    document.getElementById("lessonVideo");
+
+const addLessonButton =
+    document.getElementById("addLessonButton");
+
+const lessonMessage =
+    document.getElementById("lessonMessage");
+
+const lessonList =
+    document.getElementById("lessonList");
+
+const lessonCount =
+    document.getElementById("lessonCount");
+
+
+/* =========================================
+   ADMIN CHECK
+========================================= */
+
+async function checkAdmin() {
+
+    const {
+        data: {
+            user
+        }
+    } = await supabaseClient.auth.getUser();
+
+
+    if (!user) {
+
+        window.location.href = "login.html";
+
+        return false;
+    }
+
+
+    currentUser = user;
+
+
+    const {
+        data: adminUser,
+        error
+    } = await supabaseClient
+        .from("admin_users")
+        .select("user_id")
+        .eq("user_id", user.id)
+        .maybeSingle();
+
+
+    if (error || !adminUser) {
+
+        alert(
+            "You do not have permission to access this page."
+        );
+
+        window.location.href = "account.html";
+
+        return false;
+    }
+
+
+    return true;
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+function showCourseMessage(message, type = "success") {
+
+    courseMessage.textContent = message;
+
+    courseMessage.className =
+        `course-message ${type}`;
+
+}
+
+
+function showLessonMessage(message, type = "success") {
+
+    lessonMessage.textContent = message;
+
+    lessonMessage.className =
+        `course-message ${type}`;
+
+}
+
+
+/* =========================================
+   CREATE COURSE
+========================================= */
+
+async function createCourse() {
+
+    const title =
+        courseTitle.value.trim();
+
+    const description =
+        courseDescription.value.trim();
+
+    const discipline =
+        courseDiscipline.value;
+
+    const difficulty =
+        courseDifficulty.value;
+
+    const duration =
+        courseDuration.value
+            ? Number(courseDuration.value)
+            : null;
+
+
+    if (!title) {
+
+        showCourseMessage(
+            "Please enter a course title.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    if (!discipline) {
+
+        showCourseMessage(
+            "Please select a discipline.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    if (!difficulty) {
+
+        showCourseMessage(
+            "Please select a difficulty.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    createCourseButton.disabled = true;
+
+    createCourseButton.textContent =
+        "CREATING...";
+
+
+    const {
+        error
+    } = await supabaseClient
+        .from("courses")
+        .insert({
+
+            title,
+            description,
+            discipline,
+            difficulty,
+            duration_minutes: duration,
+            is_active: true
+
+        });
+
+
+    if (error) {
+
+        console.error(error);
+
+        showCourseMessage(
+            error.message,
+            "error"
+        );
+
+        createCourseButton.disabled = false;
+
+        createCourseButton.textContent =
+            "CREATE COURSE →";
+
+        return;
+    }
+
+
+    showCourseMessage(
+        "Course created successfully.",
+        "success"
+    );
+
+
+    courseTitle.value = "";
+    courseDescription.value = "";
+    courseDiscipline.value = "";
+    courseDifficulty.value = "";
+    courseDuration.value = "";
+
+
+    createCourseButton.disabled = false;
+
+    createCourseButton.textContent =
+        "CREATE COURSE →";
+
+
+    loadCourseLibrary();
+
+}
+
+
+/* =========================================
+   LOAD COURSE LIBRARY
+========================================= */
+
+async function loadCourseLibrary() {
+
+    courseLibrary.innerHTML = `
+        <div class="library-loading">
+            Loading courses...
+        </div>
+    `;
+
+
+    const {
+        data: courses,
+        error
+    } = await supabaseClient
+        .from("courses")
+        .select("*")
+        .order("created_at", {
+            ascending: false
+        });
+
+
+    if (error) {
+
+        console.error(error);
+
+        courseLibrary.innerHTML = `
+            <div class="library-error">
+                Unable to load courses.
+            </div>
+        `;
+
+        return;
+    }
+
+
+    courseCount.textContent =
+        `${courses.length} ${
+            courses.length === 1
+                ? "COURSE"
+                : "COURSES"
+        }`;
+
+
+    if (!courses.length) {
+
+        courseLibrary.innerHTML = `
+            <div class="library-empty">
+
+                <div class="empty-icon">
+                    +
+                </div>
+
+                <h3>
+                    No Courses Yet
+                </h3>
+
+                <p>
+                    Create your first Aurex course above.
+                </p>
+
+            </div>
+        `;
+
+        return;
+    }
+
+
+    courseLibrary.innerHTML =
+        courses.map(course => {
+
+            const status =
+                course.is_active
+                    ? "LIVE"
+                    : "HIDDEN";
+
+
+            const duration =
+                course.duration_minutes
+                    ? `${course.duration_minutes} min`
+                    : "Duration not set";
+
+
+            return `
+
+                <article
+                    class="course-library-card"
+                    data-course-id="${course.id}"
+                >
+
+                    <div class="course-card-main">
+
+                        <div class="course-card-top">
+
+                            <span class="course-status ${course.is_active ? "live" : "hidden"}">
+                                ${status}
+                            </span>
+
+                            <span class="course-discipline">
+                                ${escapeHtml(
+                                    course.discipline ||
+                                    "General"
+                                )}
+                            </span>
+
+                        </div>
+
+
+                        <h3>
+                            ${escapeHtml(course.title)}
+                        </h3>
+
+
+                        <p>
+                            ${escapeHtml(
+                                course.description ||
+                                "No course description provided."
+                            )}
+                        </p>
+
+
+                        <div class="course-meta">
+
+                            <span>
+                                ${escapeHtml(
+                                    course.difficulty ||
+                                    "Not set"
+                                )}
+                            </span>
+
+                            <span>
+                                ${duration}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="course-card-actions">
+
+                        <button
+                            type="button"
+                            class="course-manage-button"
+                            data-action="manage"
+                            data-id="${course.id}"
+                            data-title="${escapeHtml(course.title)}"
+                        >
+                            MANAGE LESSONS
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="course-toggle-button"
+                            data-action="toggle"
+                            data-id="${course.id}"
+                            data-active="${course.is_active}"
+                        >
+                            ${
+                                course.is_active
+                                    ? "HIDE"
+                                    : "PUBLISH"
+                            }
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="course-delete-button"
+                            data-action="delete"
+                            data-id="${course.id}"
+                        >
+                            DELETE
+                        </button>
+
+                    </div>
+
+                </article>
+
+            `;
+
+        }).join("");
+
+
+    attachCourseActions();
+
+}
+
+
+/* =========================================
+   COURSE ACTIONS
+========================================= */
+
+function attachCourseActions() {
+
+    document
+        .querySelectorAll("[data-action='manage']")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    openLessonManager(
+                        button.dataset.id,
+                        button.dataset.title
+                    );
+
+                }
+            );
+
+        });
+
+
+    document
+        .querySelectorAll("[data-action='toggle']")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    toggleCourse(
+                        button.dataset.id,
+                        button.dataset.active === "true"
+                    );
+
+                }
+            );
+
+        });
+
+
+    document
+        .querySelectorAll("[data-action='delete']")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    deleteCourse(
+                        button.dataset.id
+                    );
+
+                }
+            );
+
+        });
+
+}
+
+
+/* =========================================
+   TOGGLE COURSE
+========================================= */
+
+async function toggleCourse(
+    courseId,
+    currentStatus
+) {
+
+    const {
+        error
+    } = await supabaseClient
+        .from("courses")
+        .update({
+            is_active: !currentStatus
+        })
+        .eq("id", courseId);
+
+
+    if (error) {
+
+        console.error(error);
+
+        alert(
+            "Unable to update course status."
+        );
+
+        return;
+    }
+
+
+    loadCourseLibrary();
+
+}
+
+
+/* =========================================
+   DELETE COURSE
+========================================= */
+
+async function deleteCourse(courseId) {
+
+    const confirmed =
+        confirm(
+            "Delete this course? Its lessons will also be removed."
+        );
+
+
+    if (!confirmed) {
+        return;
+    }
+
+
+    const {
+        error
+    } = await supabaseClient
+        .from("courses")
+        .delete()
+        .eq("id", courseId);
+
+
+    if (error) {
+
+        console.error(error);
+
+        alert(
+            "Unable to delete course."
+        );
+
+        return;
+    }
+
+
+    if (selectedCourseId === courseId) {
+
+        closeLessonManagerPanel();
+
+    }
+
+
+    loadCourseLibrary();
+
+}
+
+
+/* =========================================
+   OPEN LESSON MANAGER
+========================================= */
+
+async function openLessonManager(
+    courseId,
+    title
+) {
+
+    selectedCourseId =
+        courseId;
+
+    selectedCourseTitle.textContent =
+        title;
+
+    lessonManager.style.display =
+        "block";
+
+
+    lessonManager.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+
+    clearLessonForm();
+
+    showLessonMessage("");
+
+    await loadVideos();
+
+    await loadLessons();
+
+}
+
+
+/* =========================================
+   CLOSE LESSON MANAGER
+========================================= */
+
+function closeLessonManagerPanel() {
+
+    selectedCourseId = null;
+
+    lessonManager.style.display =
+        "none";
+
+    clearLessonForm();
+
+}
+
+
+closeLessonManager.addEventListener(
+    "click",
+    closeLessonManagerPanel
+);
+
+
+/* =========================================
+   LOAD VIDEOS
+========================================= */
+
+async function loadVideos() {
+
+    lessonVideo.innerHTML = `
+        <option value="">
+            No video selected
+        </option>
+    `;
+
+
+    const {
+        data: videos,
+        error
+    } = await supabaseClient
+        .from("videos")
+        .select(
+            "id, title, category, created_at"
+        )
+        .order("created_at", {
+            ascending: false
+        });
+
+
+    if (error) {
+
+        console.error(error);
+
+        lessonVideo.innerHTML = `
+            <option value="">
+                Unable to load videos
+            </option>
+        `;
+
+        return;
+    }
+
+
+    videos.forEach(video => {
+
+        const option =
+            document.createElement("option");
+
+        option.value =
+            video.id;
+
+        option.textContent =
+            `${video.title} — ${video.category || "Aurex"}`;
+
+        lessonVideo.appendChild(
+            option
+        );
+
+    });
+
+}
+
+
+/* =========================================
+   LOAD LESSONS
+========================================= */
+
+async function loadLessons() {
+
+    if (!selectedCourseId) {
+        return;
+    }
+
+
+    lessonList.innerHTML = `
+        <div class="lesson-loading">
+            Loading lessons...
+        </div>
+    `;
+
+
+    const {
+        data: lessons,
+        error
+    } = await supabaseClient
+        .from("course_lessons")
+        .select(`
+            id,
+            title,
+            description,
+            lesson_order,
+            video_id,
+            videos (
+                id,
+                title,
+                category
+            )
+        `)
+        .eq("course_id", selectedCourseId)
+        .order("lesson_order", {
+            ascending: true
+        });
+
+
+    if (error) {
+
+        console.error(error);
+
+        lessonList.innerHTML = `
+            <div class="lesson-error">
+                Unable to load lessons.
+            </div>
+        `;
+
+        return;
+    }
+
+
+    lessonCount.textContent =
+        `${lessons.length} ${
+            lessons.length === 1
+                ? "LESSON"
+                : "LESSONS"
+        }`;
+
+
+    if (!lessons.length) {
+
+        lessonList.innerHTML = `
+            <div class="lesson-empty">
+
+                <strong>
+                    No lessons yet.
+                </strong>
+
+                <span>
+                    Add the first lesson above.
+                </span>
+
+            </div>
+        `;
+
+        return;
+    }
+
+
+    lessonList.innerHTML =
+        lessons.map(lesson => {
+
+            const videoName =
+                lesson.videos
+                    ? lesson.videos.title
+                    : "No video attached";
+
+
+            const videoCategory =
+                lesson.videos
+                    ? lesson.videos.category || "Aurex"
+                    : "";
+
+
+            return `
+
+                <article class="lesson-card">
+
+                    <div class="lesson-number">
+                        ${lesson.lesson_order}
+                    </div>
+
+
+                    <div class="lesson-content">
+
+                        <h4>
+                            ${escapeHtml(
+                                lesson.title
+                            )}
+                        </h4>
+
+
+                        <p>
+                            ${escapeHtml(
+                                lesson.description ||
+                                "No lesson description."
+                            )}
+                        </p>
+
+
+                        <div class="lesson-video-info">
+
+                            <span>
+                                VIDEO
+                            </span>
+
+                            <strong>
+                                ${escapeHtml(videoName)}
+                            </strong>
+
+                            ${
+                                videoCategory
+                                    ? `<small>
+                                        ${escapeHtml(videoCategory)}
+                                       </small>`
+                                    : ""
+                            }
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="lesson-delete-button"
+                        data-lesson-id="${lesson.id}"
+                    >
+                        DELETE
+                    </button>
+
+                </article>
+
+            `;
+
+        }).join("");
+
+
+    document
+        .querySelectorAll(".lesson-delete-button")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    deleteLesson(
+                        button.dataset.lessonId
+                    );
+
+                }
+            );
+
+        });
+
+}
+
+
+/* =========================================
+   ADD LESSON
+========================================= */
+
+async function addLesson() {
+
+    if (!selectedCourseId) {
+
+        showLessonMessage(
+            "Select a course first.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    const title =
+        lessonTitle.value.trim();
+
+    const description =
+        lessonDescription.value.trim();
+
+    const order =
+        Number(
+            lessonOrder.value
+        );
+
+    const videoId =
+        lessonVideo.value || null;
+
+
+    if (!title) {
+
+        showLessonMessage(
+            "Please enter a lesson title.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    if (!order || order < 1) {
+
+        showLessonMessage(
+            "Lesson order must be 1 or higher.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    addLessonButton.disabled = true;
+
+    addLessonButton.textContent =
+        "ADDING...";
+
+
+    const {
+        error
+    } = await supabaseClient
+        .from("course_lessons")
+        .insert({
+
+            course_id: selectedCourseId,
+
+            video_id: videoId,
+
+            title,
+
+            description,
+
+            lesson_order: order
+
+        });
+
+
+    if (error) {
+
+        console.error(error);
+
+        showLessonMessage(
+            error.message,
+            "error"
+        );
+
+        addLessonButton.disabled = false;
+
+        addLessonButton.textContent =
+            "ADD LESSON →";
+
+        return;
+    }
+
+
+    showLessonMessage(
+        "Lesson added successfully.",
+        "success"
+    );
+
+
+    clearLessonForm();
+
+
+    addLessonButton.disabled = false;
+
+    addLessonButton.textContent =
+        "ADD LESSON →";
+
+
+    loadLessons();
+
+}
+
+
+/* =========================================
+   DELETE LESSON
+========================================= */
+
+async function deleteLesson(
+    lessonId
+) {
+
+    const confirmed =
+        confirm(
+            "Delete this lesson?"
+        );
+
+
+    if (!confirmed) {
+        return;
+    }
+
+
+    const {
+        error
+    } = await supabaseClient
+        .from("course_lessons")
+        .delete()
+        .eq("id", lessonId);
+
+
+    if (error) {
+
+        console.error(error);
+
+        alert(
+            "Unable to delete lesson."
+        );
+
+        return;
+    }
+
+
+    loadLessons();
+
+}
+
+
+/* =========================================
+   CLEAR LESSON FORM
+========================================= */
+
+function clearLessonForm() {
+
+    lessonTitle.value = "";
+
+    lessonDescription.value = "";
+
+    lessonOrder.value = "1";
+
+    lessonVideo.value = "";
+
+}
+
+
+/* =========================================
+   ESCAPE HTML
+========================================= */
+
+function escapeHtml(value) {
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================================
+   EVENTS
+========================================= */
+
+createCourseButton.addEventListener(
+    "click",
+    createCourse
+);
+
+addLessonButton.addEventListener(
+    "click",
+    addLesson
+);
+
+
+/* =========================================
+   INIT
+========================================= */
+
+(async function init() {
+
+    const allowed =
+        await checkAdmin();
+
+    if (!allowed) {
+        return;
+    }
+
+    await loadCourseLibrary();
+
+})();
+
+</script>
+
+</body>
+</html>

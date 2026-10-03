@@ -1,0 +1,708 @@
+
+/* =========================================
+   AUREX MY WORKOUTS
+========================================= */
+
+.my-workouts-page {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 80px 20px 100px;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.workouts-hero {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 60px;
+    align-items: end;
+    margin-bottom: 75px;
+}
+
+
+.section-label {
+    display: block;
+    color: #22C55E;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+
+.workouts-hero h1 {
+    margin: 0;
+    font-size: clamp(52px, 7vw, 84px);
+    line-height: 0.94;
+    letter-spacing: -3px;
+    text-transform: uppercase;
+}
+
+
+.workouts-hero h1 span {
+    color: #22C55E;
+}
+
+
+.workouts-hero p {
+    max-width: 680px;
+    margin: 25px 0 0;
+    color: #999;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+
+.workouts-hero-mark {
+    min-height: 190px;
+    border: 1px solid #222;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 25px;
+    color: #151515;
+    font-size: 48px;
+    font-weight: 800;
+    background:
+        linear-gradient(
+            135deg,
+            transparent,
+            rgba(34, 197, 94, 0.04)
+        );
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.workouts-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+
+.workout-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 21px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    transition: 0.2s ease;
+}
+
+
+.workout-button.primary {
+    background: #22C55E;
+    color: #000;
+}
+
+
+.workout-button.primary:hover {
+    transform: translateY(-2px);
+}
+
+
+.workout-button.secondary {
+    border: 1px solid #333;
+    color: #fff;
+}
+
+
+.workout-button.secondary:hover {
+    border-color: #22C55E;
+    color: #22C55E;
+}
+
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+.workout-section {
+    margin-bottom: 80px;
+}
+
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+
+.section-heading h2 {
+    margin: 0;
+    font-size: 34px;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+
+.section-heading h2 span {
+    color: #22C55E;
+}
+
+
+.section-heading p {
+    max-width: 450px;
+    margin: 0;
+    color: #777;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   LOADING
+========================================= */
+
+.workouts-loading {
+    min-height: 150px;
+    border: 1px solid #222;
+    background: #080808;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #777;
+    font-size: 13px;
+}
+
+
+.loading-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #22C55E;
+    animation: aurexPulse 1.2s infinite ease-in-out;
+}
+
+
+@keyframes aurexPulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+/* =========================================
+   EMPTY WORKOUTS
+========================================= */
+
+.empty-workouts {
+    min-height: 260px;
+    border: 1px dashed #333;
+    background: #080808;
+    padding: 45px 30px;
+    text-align: center;
+}
+
+
+.empty-icon {
+    width: 42px;
+    height: 42px;
+    margin: 0 auto 18px;
+    border: 1px solid #22C55E;
+    color: #22C55E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+
+.empty-label {
+    display: block;
+    color: #22C55E;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+
+.empty-workouts h3 {
+    margin: 0 0 10px;
+    font-size: 24px;
+}
+
+
+.empty-workouts p {
+    max-width: 570px;
+    margin: 0 auto 25px;
+    color: #777;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   WORKOUT GRID
+========================================= */
+
+.workout-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+
+.workout-card {
+    background: #080808;
+    border: 1px solid #222;
+    padding: 30px;
+    min-height: 275px;
+    transition: 0.2s ease;
+}
+
+
+.workout-card:hover {
+    border-color: #22C55E;
+    transform: translateY(-3px);
+}
+
+
+.workout-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.workout-number {
+    color: #22C55E;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+
+.workout-type {
+    color: #555;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+
+.workout-card h3 {
+    margin: 28px 0 10px;
+    font-size: 24px;
+}
+
+
+.workout-card p {
+    margin: 0;
+    color: #777;
+    line-height: 1.7;
+    font-size: 13px;
+    max-width: 500px;
+}
+
+
+.workout-meta {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 22px 0;
+}
+
+
+.workout-meta span {
+    border: 1px solid #252525;
+    background: #111;
+    padding: 7px 10px;
+    color: #888;
+    font-size: 10px;
+}
+
+
+.workout-card a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #22C55E;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+.workout-card a span {
+    transition: 0.2s ease;
+}
+
+
+.workout-card a:hover span {
+    transform: translateX(4px);
+}
+
+
+/* =========================================
+   TRAINING PRINCIPLE
+========================================= */
+
+.training-principle {
+    border: 1px solid #222;
+    background:
+        linear-gradient(
+            135deg,
+            #090909,
+            #050505
+        );
+    padding: 45px;
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+
+.principle-number {
+    color: #444;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+
+.principle-content h2 {
+    margin: 0 0 15px;
+    font-size: 38px;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+
+.principle-content h2 span {
+    color: #22C55E;
+}
+
+
+.principle-content p {
+    max-width: 600px;
+    margin: 0;
+    color: #777;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 950px) {
+
+    .workouts-hero {
+        grid-template-columns: 1fr;
+    }
+
+
+    .workouts-hero-mark {
+        display: none;
+    }
+
+
+    .workout-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .my-workouts-page {
+        padding: 55px 20px 80px;
+    }
+
+
+    .workouts-hero {
+        margin-bottom: 55px;
+    }
+
+
+    .workouts-hero h1 {
+        font-size: 52px;
+        letter-spacing: -2px;
+    }
+
+
+    .section-heading {
+        display: block;
+    }
+
+
+    .section-heading p {
+        margin-top: 12px;
+    }
+
+
+    .workout-card {
+        padding: 25px;
+    }
+
+
+    .training-principle {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 30px;
+    }
+
+
+    .principle-content h2 {
+        font-size: 32px;
+    }
+
+}
+/* =========================================
+   ASSIGNED WORKOUTS
+========================================= */
+
+.assigned-workout {
+    background: #050505;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 32px;
+    margin-top: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.assigned-workout::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: #22C55E;
+}
+
+.assigned-workout-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 18px;
+}
+
+.assigned-workout-header h3 {
+    margin: 8px 0 0;
+    font-size: 30px;
+    line-height: 1.1;
+    color: #fff;
+}
+
+.workout-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 14px;
+    border: 1px solid rgba(34, 197, 94, 0.35);
+    color: #22C55E;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.assigned-workout-description {
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.7;
+    max-width: 760px;
+    margin-bottom: 24px;
+}
+
+.assigned-workout-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.assigned-workout-meta span {
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+}
+
+
+/* =========================================
+   EXERCISE LIST
+========================================= */
+
+.assigned-exercises {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.assigned-exercises-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.assigned-exercise {
+    display: grid;
+    grid-template-columns: 55px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.exercise-number {
+    color: #22C55E;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.exercise-information h4 {
+    margin: 0 0 6px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.exercise-information span {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 12px;
+}
+
+.exercise-details {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+}
+
+.exercise-details div {
+    min-width: 55px;
+    text-align: center;
+}
+
+.exercise-details strong {
+    display: block;
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.exercise-details span {
+    display: block;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.no-exercises {
+    padding: 25px 0;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 13px;
+}
+
+
+/* =========================================
+   WORKOUT FOOTER
+========================================= */
+
+.assigned-workout-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.assigned-date {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 12px;
+}
+
+
+/* =========================================
+   START WORKOUT BUTTON
+========================================= */
+
+.start-workout-button {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .assigned-workout {
+        padding: 22px;
+    }
+
+    .assigned-workout-header {
+        flex-direction: column;
+    }
+
+    .assigned-workout-header h3 {
+        font-size: 24px;
+    }
+
+    .assigned-exercise {
+        grid-template-columns: 35px minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .exercise-details {
+        grid-column: 2;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+
+    .assigned-workout-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .assigned-workout-footer .workout-button {
+        width: 100%;
+        text-align: center;
+    }
+
+}

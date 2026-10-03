@@ -1,0 +1,463 @@
+/* =========================================
+   AUREX WORKOUT SESSION
+========================================= */
+
+.workout-session-page {
+    background: #050505;
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.session-hero {
+    min-height: 480px;
+    padding: 120px 7% 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            135deg,
+            #050505 0%,
+            #0b0b0b 55%,
+            #07150c 100%
+        );
+}
+
+.session-hero::after {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    right: -180px;
+    top: -180px;
+    border: 1px solid rgba(34, 197, 94, 0.15);
+    border-radius: 50%;
+}
+
+.session-hero-content {
+    max-width: 850px;
+    position: relative;
+    z-index: 2;
+}
+
+.session-back {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    text-decoration: none;
+    margin-bottom: 35px;
+    transition: 0.2s ease;
+}
+
+.session-back:hover {
+    color: #22C55E;
+}
+
+.session-hero h1 {
+    margin: 15px 0;
+    color: #fff;
+    font-size: clamp(42px, 6vw, 78px);
+    line-height: 0.95;
+    text-transform: uppercase;
+}
+
+.session-hero p {
+    max-width: 700px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.8;
+}
+
+.session-hero-number {
+    position: relative;
+    z-index: 2;
+    color: rgba(34, 197, 94, 0.15);
+    font-size: 150px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.session-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.session-meta span {
+    padding: 9px 13px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+
+/* =========================================
+   PROGRESS
+========================================= */
+
+.session-progress-section {
+    padding: 65px 7% 40px;
+    background: #050505;
+}
+
+.session-progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+.session-progress-header h2 {
+    color: #fff;
+    margin: 12px 0 0;
+}
+
+.session-progress-header h2 span {
+    color: #22C55E;
+}
+
+.session-progress-count {
+    color: #22C55E;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.session-progress-bar {
+    width: 100%;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+}
+
+.session-progress-fill {
+    width: 0;
+    height: 100%;
+    background: #22C55E;
+    transition: width 0.3s ease;
+}
+
+
+/* =========================================
+   EXERCISES
+========================================= */
+
+.session-exercises-section {
+    padding: 25px 7% 80px;
+}
+
+.session-exercises {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.session-exercise {
+    display: grid;
+    grid-template-columns: 65px minmax(0, 1fr);
+    gap: 25px;
+    padding: 30px;
+    background: #090909;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: 0.25s ease;
+}
+
+.session-exercise.completed {
+    border-color: rgba(34, 197, 94, 0.5);
+    background: #071008;
+}
+
+.session-exercise-number {
+    color: #22C55E;
+    font-size: 14px;
+    font-weight: 700;
+    padding-top: 5px;
+}
+
+.session-exercise-main {
+    min-width: 0;
+}
+
+.session-exercise-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 25px;
+}
+
+.session-exercise-category {
+    display: block;
+    color: #22C55E;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.session-exercise-heading h3 {
+    color: #fff;
+    font-size: 25px;
+    margin: 0;
+}
+
+.exercise-complete-button {
+    flex-shrink: 0;
+    padding: 11px 16px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.65);
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.exercise-complete-button:hover {
+    border-color: #22C55E;
+    color: #22C55E;
+}
+
+.session-exercise.completed .exercise-complete-button {
+    background: #22C55E;
+    border-color: #22C55E;
+    color: #050505;
+}
+
+.session-exercise-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+    margin-top: 25px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.session-exercise-details div {
+    min-width: 65px;
+}
+
+.session-exercise-details strong {
+    display: block;
+    color: #fff;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.session-exercise-details span,
+.session-exercise-info span,
+.session-exercise-description > span {
+    display: block;
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.session-exercise-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 45px;
+    padding: 20px 0;
+}
+
+.session-exercise-info strong {
+    display: block;
+    margin-top: 6px;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 12px;
+}
+
+.session-exercise-description {
+    padding-top: 5px;
+}
+
+.session-exercise-description p {
+    max-width: 800px;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.7;
+    font-size: 13px;
+}
+
+
+/* =========================================
+   LOADING / EMPTY
+========================================= */
+
+.session-loading,
+.session-empty {
+    padding: 60px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.session-loading span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background: #22C55E;
+    animation: aurexSessionPulse 1s infinite ease-in-out;
+}
+
+@keyframes aurexSessionPulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
+.session-empty h3 {
+    color: #fff;
+    margin: 15px 0;
+}
+
+.session-empty p {
+    max-width: 550px;
+    margin: 0 auto 25px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   COMPLETION
+========================================= */
+
+.session-completion {
+    padding: 90px 7%;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    background: #080808;
+}
+
+.completion-content {
+    max-width: 800px;
+}
+
+.completion-content h2 {
+    color: #fff;
+    font-size: 42px;
+    margin: 12px 0;
+}
+
+.completion-content h2 span {
+    color: #22C55E;
+}
+
+.completion-content p {
+    max-width: 650px;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.finish-workout-button,
+.session-back-button {
+    display: inline-block;
+    padding: 14px 22px;
+    background: #22C55E;
+    border: 1px solid #22C55E;
+    color: #050505;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.finish-workout-button:hover,
+.session-back-button:hover {
+    opacity: 0.85;
+}
+
+.finish-workout-button:disabled {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.3);
+    cursor: not-allowed;
+}
+
+.finish-workout-button.ready {
+    background: #22C55E;
+    color: #050505;
+}
+
+.finish-workout-button.completed {
+    background: transparent;
+    color: #22C55E;
+    border-color: #22C55E;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 750px) {
+
+    .session-hero {
+        min-height: auto;
+        padding: 100px 5% 60px;
+    }
+
+    .session-hero-number {
+        display: none;
+    }
+
+    .session-progress-section,
+    .session-exercises-section,
+    .session-completion {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .session-progress-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .session-exercise {
+        grid-template-columns: 1fr;
+        padding: 22px;
+    }
+
+    .session-exercise-heading {
+        flex-direction: column;
+    }
+
+    .exercise-complete-button {
+        width: 100%;
+    }
+
+    .session-exercise-details {
+        gap: 20px;
+    }
+
+    .completion-content h2 {
+        font-size: 32px;
+    }
+
+}

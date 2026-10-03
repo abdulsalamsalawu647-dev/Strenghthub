@@ -1,5 +1,5 @@
 // ==========================================
-// STRENGTHHUB PROFILE
+// AUREX ATHLETE PROFILE
 // ==========================================
 
 
@@ -58,8 +58,8 @@ const workoutCount =
 const achievementCount =
     document.getElementById("achievementCount");
 
-const postCount =
-    document.getElementById("postCount");
+const connectionCount =
+    document.getElementById("connectionCount");
 
 
 // ==========================================
@@ -232,7 +232,7 @@ async function loadProfile() {
         } else {
 
             profileJoined.textContent =
-                "StrengthHub Member";
+                "Aurex Member";
 
         }
 
@@ -381,41 +381,44 @@ async function loadProfileStats(
 
 
     // ==========================================
-    // COMMUNITY POSTS
+    // CONNECTIONS
     // ==========================================
 
     const {
-        count,
+        data: connections,
         error
     } = await supabaseClient
 
-        .from("community_posts")
+        .from("connections")
 
-        .select(
-            "id",
-            {
-                count: "exact",
-                head: true
-            }
+        .select(`
+            id,
+            requester_id,
+            receiver_id,
+            status
+        `)
+
+        .or(
+            `requester_id.eq.${profileId},receiver_id.eq.${profileId}`
         )
 
         .eq(
-            "user_id",
-            profileId
+            "status",
+            "accepted"
         );
 
 
     if (error) {
 
         console.error(
-            "Profile post count error:",
+            "Profile connection count error:",
             error
         );
 
 
-        if (postCount) {
+        if (connectionCount) {
 
-            postCount.textContent =
+            connectionCount.textContent =
                 "0";
 
         }
@@ -425,10 +428,12 @@ async function loadProfileStats(
     }
 
 
-    if (postCount) {
+    if (connectionCount) {
 
-        postCount.textContent =
-            count || 0;
+        connectionCount.textContent =
+            connections
+                ? connections.length
+                : 0;
 
     }
 
@@ -721,7 +726,7 @@ if (logoutButton) {
 
 
             window.location.href =
-                "index.html";
+                "account.html";
 
         }
     );

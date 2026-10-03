@@ -1,0 +1,775 @@
+
+/* ==========================================
+   AUREX DASHBOARD
+========================================== */
+
+.dashboard-page {
+    min-height: 100vh;
+
+    background: #050505;
+
+    color: #ffffff;
+}
+
+
+/* ==========================================
+   WELCOME
+========================================== */
+
+.dashboard-welcome {
+    position: relative;
+
+    min-height: 55vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 100px 8%;
+
+    overflow: hidden;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    background:
+        radial-gradient(
+            circle at 75% 45%,
+            rgba(34,197,94,0.12),
+            transparent 35%
+        ),
+        #050505;
+}
+
+
+.dashboard-label {
+    display: inline-block;
+
+    margin-bottom: 20px;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    color: #22C55E;
+}
+
+
+.dashboard-welcome h1 {
+    max-width: 900px;
+
+    margin: 0;
+
+    font-size: clamp(50px, 7vw, 105px);
+
+    line-height: 0.92;
+
+    letter-spacing: -4px;
+
+    font-weight: 900;
+}
+
+
+.dashboard-welcome h1 span {
+    color: #22C55E;
+}
+
+
+.dashboard-welcome p {
+    margin-top: 35px;
+
+    color: #aaaaaa;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+}
+
+
+.dashboard-welcome-number {
+    position: absolute;
+
+    right: 6%;
+
+    bottom: 30px;
+
+    font-size: clamp(80px, 15vw, 220px);
+
+    font-weight: 900;
+
+    color: rgba(255,255,255,0.025);
+
+    pointer-events: none;
+}
+
+
+/* ==========================================
+   ATHLETE PROFILE
+========================================== */
+
+.dashboard-profile {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 50px;
+
+    padding: 55px 8%;
+
+    background: #0b0b0b;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+
+.dashboard-profile-main {
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+    min-width: 0;
+}
+
+
+.dashboard-profile-avatar {
+    position: relative;
+
+    width: 90px;
+    height: 90px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(34,197,94,0.5);
+
+    background: #050505;
+
+    color: #22C55E;
+
+    font-size: 30px;
+
+    font-weight: 900;
+}
+
+
+.dashboard-profile-avatar img {
+    width: 100%;
+    height: 100%;
+
+    display: none;
+
+    object-fit: cover;
+}
+
+
+.dashboard-profile-avatar span {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+
+.dashboard-profile-info {
+    min-width: 0;
+}
+
+
+.dashboard-profile-info .dashboard-label {
+    margin-bottom: 8px;
+}
+
+
+.dashboard-profile-info h2 {
+    margin: 0;
+
+    font-size: clamp(28px, 4vw, 45px);
+
+    line-height: 1;
+
+    letter-spacing: -1.5px;
+
+    font-weight: 900;
+}
+
+
+.dashboard-profile-info > p:not(.dashboard-profile-bio) {
+    margin: 8px 0 0;
+
+    color: #22C55E;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+.dashboard-profile-bio {
+    max-width: 600px;
+
+    margin: 12px 0 0;
+
+    color: #888888;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+.dashboard-profile-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-shrink: 0;
+}
+
+
+.dashboard-profile-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 46px;
+
+    padding: 0 22px;
+
+    border: 1px solid #22C55E;
+
+    background: #22C55E;
+
+    color: #050505;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.dashboard-profile-button:hover {
+    background: #ffffff;
+
+    border-color: #ffffff;
+
+    color: #050505;
+
+    transform: translateY(-2px);
+}
+
+
+.dashboard-profile-button-outline {
+    background: transparent;
+
+    color: #ffffff;
+}
+
+
+.dashboard-profile-button-outline:hover {
+    background: #22C55E;
+
+    border-color: #22C55E;
+
+    color: #050505;
+}
+
+
+/* ==========================================
+   MAIN SECTION
+========================================== */
+
+.dashboard-section {
+    padding: 120px 8%;
+}
+
+
+.dashboard-section-heading {
+    max-width: 800px;
+
+    margin-bottom: 65px;
+}
+
+
+.dashboard-section-heading h2 {
+    margin: 0;
+
+    font-size: clamp(45px, 6vw, 85px);
+
+    line-height: 0.95;
+
+    letter-spacing: -3px;
+}
+
+
+.dashboard-section-heading h2 span {
+    color: #22C55E;
+}
+
+
+/* ==========================================
+   DASHBOARD GRID
+========================================== */
+
+.dashboard-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 1px;
+
+    background: rgba(255,255,255,0.08);
+}
+
+
+.dashboard-card {
+    position: relative;
+
+    min-height: 300px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 35px;
+
+    background: #0b0b0b;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.dashboard-card:hover {
+    background: #111111;
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        inset 0 2px 0 #22C55E;
+}
+
+
+.dashboard-card-number {
+    position: absolute;
+
+    top: 22px;
+
+    right: 25px;
+
+    font-size: 11px;
+
+    color: #666666;
+}
+
+
+.dashboard-card-icon {
+    margin-top: 20px;
+
+    margin-bottom: 35px;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    color: #22C55E;
+}
+
+
+.dashboard-card h3 {
+    margin: 0 0 15px;
+
+    font-size: 24px;
+}
+
+
+.dashboard-card p {
+    margin: 0;
+
+    max-width: 280px;
+
+    color: #999999;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+.dashboard-card-link {
+    margin-top: auto;
+
+    padding-top: 30px;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: #22C55E;
+}
+
+
+/* ==========================================
+   HIGHLIGHT CARD
+========================================== */
+
+.dashboard-card-highlight {
+    background: #22C55E;
+
+    color: #050505;
+}
+
+
+.dashboard-card-highlight:hover {
+    background: #22C55E;
+
+    box-shadow:
+        inset 0 2px 0 #050505;
+}
+
+
+.dashboard-card-highlight .dashboard-card-number {
+    color: rgba(0,0,0,0.45);
+}
+
+
+.dashboard-card-highlight .dashboard-card-icon {
+    color: #050505;
+}
+
+
+.dashboard-card-highlight p {
+    color: rgba(0,0,0,0.7);
+}
+
+
+.dashboard-card-highlight .dashboard-card-link {
+    color: #050505;
+}
+
+
+/* ==========================================
+   BOTTOM
+========================================== */
+
+.dashboard-bottom {
+    min-height: 45vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 50px;
+
+    padding: 100px 8%;
+
+    background: #0b0b0b;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+
+.dashboard-bottom h2 {
+    max-width: 800px;
+
+    margin: 0;
+
+    font-size: clamp(45px, 6vw, 85px);
+
+    line-height: 0.95;
+
+    letter-spacing: -3px;
+}
+
+
+.dashboard-bottom h2 span {
+    color: #22C55E;
+}
+
+
+.dashboard-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-shrink: 0;
+}
+
+
+.dashboard-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 50px;
+
+    padding: 0 28px;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    background: transparent;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    transition: 0.3s ease;
+}
+
+
+.dashboard-button:hover {
+    border-color: #22C55E;
+
+    background: #22C55E;
+
+    color: #050505;
+}
+
+
+/* ==========================================
+   LOGOUT
+========================================== */
+
+.dashboard-logout {
+    min-height: 50px;
+
+    padding: 0 28px;
+
+    border: 1px solid #22C55E;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    transition: 0.3s ease;
+}
+
+
+.dashboard-logout:hover {
+    background: #22C55E;
+
+    color: #050505;
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1100px) {
+
+    .dashboard-profile {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .dashboard-profile-actions {
+        width: 100%;
+    }
+
+
+    .dashboard-profile-button {
+        flex: 1;
+    }
+
+
+    .dashboard-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 700px) {
+
+    .dashboard-welcome {
+        min-height: 60vh;
+
+        padding: 80px 7%;
+    }
+
+
+    .dashboard-welcome h1 {
+        letter-spacing: -2px;
+    }
+
+
+    .dashboard-profile {
+        padding: 45px 7%;
+
+        gap: 30px;
+    }
+
+
+    .dashboard-profile-main {
+        align-items: flex-start;
+
+        gap: 20px;
+    }
+
+
+    .dashboard-profile-avatar {
+        width: 70px;
+        height: 70px;
+
+        font-size: 24px;
+    }
+
+
+    .dashboard-profile-info h2 {
+        letter-spacing: -1px;
+    }
+
+
+    .dashboard-profile-bio {
+        max-width: 100%;
+
+        white-space: normal;
+
+        display: -webkit-box;
+
+        -webkit-line-clamp: 2;
+
+        -webkit-box-orient: vertical;
+
+        overflow: hidden;
+    }
+
+
+    .dashboard-profile-actions {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        width: 100%;
+    }
+
+
+    .dashboard-profile-button {
+        width: 100%;
+    }
+
+
+    .dashboard-section {
+        padding: 90px 7%;
+    }
+
+
+    .dashboard-section-heading {
+        margin-bottom: 45px;
+    }
+
+
+    .dashboard-section-heading h2 {
+        letter-spacing: -2px;
+    }
+
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .dashboard-card {
+        min-height: 260px;
+    }
+
+
+    .dashboard-bottom {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 90px 7%;
+    }
+
+
+    .dashboard-bottom h2 {
+        letter-spacing: -2px;
+    }
+
+
+    .dashboard-actions {
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .dashboard-button,
+    .dashboard-logout {
+        width: 100%;
+    }
+
+}

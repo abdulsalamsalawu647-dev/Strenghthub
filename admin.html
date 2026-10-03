@@ -33,26 +33,62 @@
     <div class="admin-label">
         ADMIN PANEL
     </div>
+<nav id="main-nav">
 
-    <nav id="main-nav">
+    <a href="admin.html">
+        Dashboard
+    </a>
 
-        <a href="index.html">Home</a>
+    <a href="admin-workouts.html">
+        Workouts
+    </a>
 
-    </nav>
+    <a href="index.html">
+        Home
+    </a>
+
+</nav>
 
 </header>
+
+
 
 <main class="admin-container">
 
 
-    <h1 class="admin-title">
-        Admin Dashboard
-    </h1>
+    <!-- ==========================================
+         ADMIN INTRO
+    =========================================== -->
 
+    <section class="admin-intro">
 
-    <p class="admin-subtitle">
-        Manage Aurex videos and content.
-    </p>
+        <div>
+
+            <span class="admin-eyebrow">
+                AUREX CONTENT
+            </span>
+
+            <h1 class="admin-title">
+                Admin Dashboard
+            </h1>
+
+            <p class="admin-subtitle">
+                Manage Aurex videos and content from one place.
+            </p>
+
+        </div>
+
+        <div class="admin-status">
+
+            <span class="admin-status-dot"></span>
+
+            <span>
+                ADMIN ACCESS
+            </span>
+
+        </div>
+
+    </section>
 
 
     <p id="adminMessage">
@@ -61,115 +97,397 @@
 
 
 
+    <!-- ==========================================
+         ADMIN PANEL
+    =========================================== -->
+
     <section
         id="adminPanel"
         style="display: none;"
     >
 
 
-        <div class="admin-card">
+        <!-- ======================================
+             QUICK OVERVIEW
+        ======================================= -->
+
+        <div class="admin-overview">
 
 
-            <h2>
-                Upload Video
-            </h2>
+            <div class="admin-stat-card">
+
+                <span class="admin-stat-label">
+                    VIDEO LIBRARY
+                </span>
+
+                <strong id="videoCount">
+                    0
+                </strong>
+
+                <span class="admin-stat-description">
+                    Uploaded videos
+                </span>
+
+            </div>
 
 
-            <p>
-                Upload a video to the Aurex video library.
-            </p>
+
+            <div class="admin-stat-card">
+
+                <span class="admin-stat-label">
+                    STORAGE
+                </span>
+
+                <strong>
+                    AUREX
+                </strong>
+
+                <span class="admin-stat-description">
+                    Aurex video storage
+                </span>
+
+            </div>
+
+
+
+            <div class="admin-stat-card">
+
+                <span class="admin-stat-label">
+                    STATUS
+                </span>
+
+                <strong class="admin-stat-live">
+                    LIVE
+                </strong>
+
+                <span class="admin-stat-description">
+                    Content system active
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ======================================
+             UPLOAD SECTION
+        ======================================= -->
+
+        <div class="admin-card upload-card">
+
+
+            <div class="admin-card-header">
+
+                <div>
+
+                    <span class="admin-section-label">
+                        MEDIA MANAGEMENT
+                    </span>
+
+                    <h2>
+                        Upload Video
+                    </h2>
+
+                    <p>
+                        Add a new video to the Aurex public video library.
+                    </p>
+
+                </div>
+
+                <div class="admin-card-number">
+                    01
+                </div>
+
+            </div>
 
 
 
             <form id="videoUploadForm">
 
 
-                <label for="videoTitle">
-                    Video Title
-                </label>
+                <!-- TITLE -->
 
+                <div class="admin-field">
 
-                <input
-                    type="text"
-                    id="videoTitle"
-                    placeholder="Enter video title"
-                    required
-                >
+                    <label for="videoTitle">
+                        Video Title
+                    </label>
 
+                    <input
+                        type="text"
+                        id="videoTitle"
+                        placeholder="Enter video title"
+                        autocomplete="off"
+                        required
+                    >
 
-
-                <label for="videoDescription">
-                    Description
-                </label>
-
-
-                <textarea
-                    id="videoDescription"
-                    placeholder="Enter video description"
-                    rows="5"
-                ></textarea>
+                </div>
 
 
 
-                <label for="videoCategory">
-                    Category
-                </label>
+                <!-- DESCRIPTION -->
 
-<select id="videoCategory" required>
-    <option value="">Select category</option>
-    <option value="Calisthenics">Calisthenics</option>
-    <option value="Bodybuilding">Bodybuilding</option>
-    <option value="Martial Arts">Martial Arts</option>
-    <option value="Gymnastics">Gymnastics</option>
-    <option value="Nutrition">Nutrition</option>
-</select>
+                <div class="admin-field">
 
+                    <label for="videoDescription">
+                        Description
+                    </label>
 
+                    <textarea
+                        id="videoDescription"
+                        placeholder="Describe what viewers will see in this video..."
+                        rows="5"
+                    ></textarea>
 
-                <label for="videoFile">
-                    Video File
-                </label>
-
-
-                <input
-                    type="file"
-                    id="videoFile"
-                    accept="video/*"
-                    required
-                >
+                </div>
 
 
 
-                <button
-                    type="submit"
-                    class="admin-button"
-                    id="uploadButton"
-                >
-                    Upload Video
-                </button>
+                <!-- CATEGORY -->
+
+                <div class="admin-field">
+
+                    <label for="videoCategory">
+                        Category
+                    </label>
+
+                    <select
+                        id="videoCategory"
+                        required
+                    >
+
+                        <option value="">
+                            Select category
+                        </option>
+
+                        <option value="Calisthenics">
+                            Calisthenics
+                        </option>
+
+                        <option value="Bodybuilding">
+                            Bodybuilding
+                        </option>
+
+                        <option value="Martial Arts">
+                            Martial Arts
+                        </option>
+
+                        <option value="Gymnastics">
+                            Gymnastics
+                        </option>
+
+                        <option value="Nutrition">
+                            Nutrition
+                        </option>
+
+                    </select>
+
+                </div>
 
 
-                <p id="uploadMessage"></p>
-                <hr class="admin-divider">
 
-<h2 class="library-title">
-    Your Videos
-</h2>
+                <!-- FILE -->
 
-<p class="library-subtitle">
-    Manage videos uploaded to Aurex.
-</p>
+                <div class="admin-field">
 
-<div id="videoLibrary" class="video-library">
+                    <label for="videoFile">
+                        Video File
+                    </label>
 
-    <p id="libraryMessage">
-        Loading videos...
-    </p>
+                    <div class="admin-file-wrapper">
 
-</div>
+                        <input
+                            type="file"
+                            id="videoFile"
+                            accept="video/*"
+                            required
+                        >
+
+                    </div>
+
+                    <p
+                        id="selectedFileMessage"
+                        class="file-selection-message"
+                    >
+                        No video selected.
+                    </p>
+
+                </div>
+
+
+
+                <!-- UPLOAD ACTION -->
+
+                <div class="upload-actions">
+
+                    <button
+                        type="submit"
+                        class="admin-button"
+                        id="uploadButton"
+                    >
+                        Upload Video
+                    </button>
+
+                </div>
+
+
+
+                <!-- UPLOAD MESSAGE -->
+
+                <div
+                    id="uploadMessage"
+                    class="upload-message"
+                    aria-live="polite"
+                ></div>
 
 
             </form>
+
+
+        </div>
+
+
+
+        <!-- ======================================
+             VIDEO LIBRARY
+        ======================================= -->
+
+        <div class="admin-card library-card">
+
+
+            <div class="admin-card-header">
+
+                <div>
+
+                    <span class="admin-section-label">
+                        CONTENT LIBRARY
+                    </span>
+
+                    <h2>
+                        Your Videos
+                    </h2>
+
+                    <p>
+                        Manage videos currently stored in Aurex.
+                    </p>
+
+                </div>
+
+                <div class="admin-card-number">
+                    02
+                </div>
+
+            </div>
+
+
+
+            <!-- LIBRARY TOOLS -->
+
+            <div class="admin-library-tools">
+
+
+                <div class="admin-search">
+
+                    <span class="admin-search-icon">
+                        SEARCH
+                    </span>
+
+                    <input
+                        type="search"
+                        id="videoSearch"
+                        placeholder="Search videos..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+
+                <div
+                    class="admin-library-count"
+                    id="libraryCount"
+                >
+                    0 VIDEOS
+                </div>
+
+
+            </div>
+
+
+
+            <!-- CATEGORY FILTERS -->
+
+            <div class="admin-video-filters">
+
+                <button
+                    type="button"
+                    class="admin-video-filter active"
+                    data-category="All"
+                >
+                    All
+                </button>
+
+                <button
+                    type="button"
+                    class="admin-video-filter"
+                    data-category="Calisthenics"
+                >
+                    Calisthenics
+                </button>
+
+                <button
+                    type="button"
+                    class="admin-video-filter"
+                    data-category="Bodybuilding"
+                >
+                    Bodybuilding
+                </button>
+
+                <button
+                    type="button"
+                    class="admin-video-filter"
+                    data-category="Martial Arts"
+                >
+                    Martial Arts
+                </button>
+
+                <button
+                    type="button"
+                    class="admin-video-filter"
+                    data-category="Gymnastics"
+                >
+                    Gymnastics
+                </button>
+
+                <button
+                    type="button"
+                    class="admin-video-filter"
+                    data-category="Nutrition"
+                >
+                    Nutrition
+                </button>
+
+            </div>
+
+
+
+            <!-- LIBRARY -->
+
+            <div
+                id="videoLibrary"
+                class="video-library"
+            >
+
+                <div
+                    id="libraryMessage"
+                    class="library-message"
+                >
+                    Loading videos...
+                </div>
+
+            </div>
 
 
         </div>
@@ -182,93 +500,306 @@
 
 
 
+<!-- ==========================================
+     VIDEO PREVIEW MODAL
+=========================================== -->
+
+<div
+    id="videoPreviewModal"
+    class="video-preview-modal"
+    aria-hidden="true"
+>
+
+
+    <div
+        class="video-preview-overlay"
+        id="videoPreviewOverlay"
+    ></div>
+
+
+    <div class="video-preview-content">
+
+
+        <button
+            type="button"
+            class="video-preview-close"
+            id="videoPreviewClose"
+            aria-label="Close video preview"
+        >
+            ×
+        </button>
+
+
+        <video
+            id="adminPreviewPlayer"
+            controls
+            playsinline
+        ></video>
+
+
+        <div class="video-preview-info">
+
+            <span
+                id="previewCategory"
+                class="preview-category"
+            ></span>
+
+            <h2 id="previewTitle">
+                Video Preview
+            </h2>
+
+            <p id="previewDescription"></p>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
 <script>
 
 
-async function checkAdmin() {
+/* ==========================================
+   GLOBAL STATE
+========================================== */
 
+let allVideos = [];
 
-    const message =
-        document.getElementById("adminMessage");
-
-
-    const panel =
-        document.getElementById("adminPanel");
-
-
-    const {
-        data: { user },
-        error: userError
-    } = await supabaseClient.auth.getUser();
+let activeVideoCategory = "All";
 
 
 
-    if (userError || !user) {
+/* ==========================================
+   ELEMENTS
+========================================== */
 
-        message.textContent =
-            "You must be logged in to access Aurex Admin.";
+const adminMessage =
+    document.getElementById("adminMessage");
 
-        return;
+const adminPanel =
+    document.getElementById("adminPanel");
 
+const videoUploadForm =
+    document.getElementById("videoUploadForm");
+
+const uploadButton =
+    document.getElementById("uploadButton");
+
+const uploadMessage =
+    document.getElementById("uploadMessage");
+
+const videoLibrary =
+    document.getElementById("videoLibrary");
+
+const libraryMessage =
+    document.getElementById("libraryMessage");
+
+const videoSearch =
+    document.getElementById("videoSearch");
+
+const videoCount =
+    document.getElementById("videoCount");
+
+const libraryCount =
+    document.getElementById("libraryCount");
+
+const videoFile =
+    document.getElementById("videoFile");
+
+const selectedFileMessage =
+    document.getElementById(
+        "selectedFileMessage"
+    );
+
+const videoPreviewModal =
+    document.getElementById(
+        "videoPreviewModal"
+    );
+
+const videoPreviewOverlay =
+    document.getElementById(
+        "videoPreviewOverlay"
+    );
+
+const videoPreviewClose =
+    document.getElementById(
+        "videoPreviewClose"
+    );
+
+const adminPreviewPlayer =
+    document.getElementById(
+        "adminPreviewPlayer"
+    );
+
+const previewCategory =
+    document.getElementById(
+        "previewCategory"
+    );
+
+const previewTitle =
+    document.getElementById(
+        "previewTitle"
+    );
+
+const previewDescription =
+    document.getElementById(
+        "previewDescription"
+    );
+
+
+
+/* ==========================================
+   ESCAPE HTML
+========================================== */
+
+function escapeHtml(value) {
+
+    if (value === null || value === undefined) {
+        return "";
     }
 
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
 
 
-    const { data, error } =
-        await supabaseClient
-            .from("admin_users")
-            .select("user_id")
-            .eq("user_id", user.id)
-            .maybeSingle();
+
+/* ==========================================
+   FORMAT DATE
+========================================== */
+
+function formatVideoDate(dateValue) {
+
+    if (!dateValue) {
+        return "Date unavailable";
+    }
+
+    const date =
+        new Date(dateValue);
+
+    if (Number.isNaN(date.getTime())) {
+        return "Date unavailable";
+    }
+
+    return date.toLocaleDateString(
+        "en-GB",
+        {
+            day: "numeric",
+            month: "short",
+            year: "numeric"
+        }
+    );
+
+}
 
 
 
-    if (error) {
+/* ==========================================
+   CHECK ADMIN
+========================================== */
+
+async function checkAdmin() {
+
+    try {
+
+        const {
+            data: { user },
+            error: userError
+        } =
+            await supabaseClient.auth.getUser();
+
+
+
+        if (userError || !user) {
+
+            adminMessage.textContent =
+                "You must be logged in to access Aurex Admin.";
+
+            return;
+
+        }
+
+
+
+        const {
+            data,
+            error
+        } =
+            await supabaseClient
+                .from("admin_users")
+                .select("user_id")
+                .eq("user_id", user.id)
+                .maybeSingle();
+
+
+
+        if (error) {
+
+            console.error(error);
+
+            adminMessage.textContent =
+                "Unable to verify admin access.";
+
+            return;
+
+        }
+
+
+
+        if (!data) {
+
+            adminMessage.textContent =
+                "Access denied.";
+
+            return;
+
+        }
+
+
+
+        adminMessage.textContent =
+            "Welcome to Aurex Admin.";
+
+        adminPanel.style.display =
+            "block";
+
+
+        await loadVideoLibrary();
+
+
+    } catch (error) {
 
         console.error(error);
 
-        message.textContent =
+        adminMessage.textContent =
             "Unable to verify admin access.";
 
-        return;
-
     }
-
-
-
-    if (!data) {
-
-        message.textContent =
-            "Access denied.";
-
-        return;
-
-    }
-
-
-
-    message.textContent =
-        "Welcome to Aurex Admin.";
-
-
-    panel.style.display = "block";
-
 
 }
-checkAdmin();
 
 
-// ==========================================
-// ADMIN VIDEO LIBRARY
-// ==========================================
+
+/* ==========================================
+   LOAD VIDEO LIBRARY
+========================================== */
 
 async function loadVideoLibrary() {
 
-    const library =
-        document.getElementById("videoLibrary");
-
-    const message =
-        document.getElementById("libraryMessage");
+    videoLibrary.innerHTML = `
+        <div class="library-message">
+            Loading videos...
+        </div>
+    `;
 
 
     const {
@@ -283,192 +814,673 @@ async function loadVideoLibrary() {
             });
 
 
+
     if (error) {
 
         console.error(error);
 
-        message.textContent =
-            "Unable to load videos.";
+        allVideos = [];
+
+        videoLibrary.innerHTML = `
+            <div class="library-message error">
+                Unable to load videos.
+            </div>
+        `;
+
+        updateLibraryCounters();
 
         return;
 
     }
 
 
-    if (!videos || videos.length === 0) {
 
-        message.textContent =
-            "No videos uploaded yet.";
-
-        return;
-
-    }
+    allVideos =
+        Array.isArray(videos)
+            ? videos
+            : [];
 
 
-    message.remove();
+    updateLibraryCounters();
+
+    renderVideoLibrary();
+
+}
 
 
-    for (const video of videos) {
 
-        const card =
-            document.createElement("div");
+/* ==========================================
+   UPDATE COUNTERS
+========================================== */
 
-        card.className =
-            "library-video";
+function updateLibraryCounters() {
+
+    const total =
+        allVideos.length;
 
 
-        card.innerHTML = `
+    videoCount.textContent =
+        total;
 
-            <div class="library-video-info">
+
+    libraryCount.textContent =
+        `${total} ${
+            total === 1
+                ? "VIDEO"
+                : "VIDEOS"
+        }`;
+
+}
+
+
+
+/* ==========================================
+   FILTER VIDEOS
+========================================== */
+
+function getFilteredVideos() {
+
+    const searchTerm =
+        videoSearch.value
+            .trim()
+            .toLowerCase();
+
+
+    return allVideos.filter(video => {
+
+        const matchesCategory =
+            activeVideoCategory === "All" ||
+            video.category === activeVideoCategory;
+
+
+        const title =
+            (video.title || "")
+                .toLowerCase();
+
+        const description =
+            (video.description || "")
+                .toLowerCase();
+
+        const category =
+            (video.category || "")
+                .toLowerCase();
+
+
+        const matchesSearch =
+            !searchTerm ||
+            title.includes(searchTerm) ||
+            description.includes(searchTerm) ||
+            category.includes(searchTerm);
+
+
+        return (
+            matchesCategory &&
+            matchesSearch
+        );
+
+    });
+
+}
+
+
+
+/* ==========================================
+   RENDER VIDEO LIBRARY
+========================================== */
+
+function renderVideoLibrary() {
+
+    const videos =
+        getFilteredVideos();
+
+
+    libraryCount.textContent =
+        `${videos.length} ${
+            videos.length === 1
+                ? "VIDEO"
+                : "VIDEOS"
+        }`;
+
+
+
+    if (videos.length === 0) {
+
+        videoLibrary.innerHTML = `
+
+            <div class="library-empty">
+
+                <span class="library-empty-number">
+                    00
+                </span>
 
                 <h3>
-                    ${video.title}
+                    No videos found
                 </h3>
 
                 <p>
-                    ${video.category || "No category"}
+                    Try another search or category.
                 </p>
 
             </div>
 
-            <button
-                class="delete-video-button"
-                data-id="${video.id}"
-                data-path="${video.file_path}"
-            >
-                Delete
-            </button>
-
         `;
 
-
-        library.appendChild(card);
+        return;
 
     }
 
 
-    // DELETE BUTTONS
+
+    videoLibrary.innerHTML = "";
+
+
+
+    videos.forEach(
+        (video, index) => {
+
+            const card =
+                document.createElement("article");
+
+            card.className =
+                "library-video";
+
+            card.style.setProperty(
+                "--video-index",
+                index
+            );
+
+
+
+            const title =
+                escapeHtml(
+                    video.title ||
+                    "Untitled Video"
+                );
+
+            const description =
+                escapeHtml(
+                    video.description ||
+                    "No description available."
+                );
+
+            const category =
+                escapeHtml(
+                    video.category ||
+                    "Uncategorised"
+                );
+
+            const date =
+                formatVideoDate(
+                    video.created_at
+                );
+
+            const filePath =
+                escapeHtml(
+                    video.file_path || ""
+                );
+
+
+
+            card.innerHTML = `
+
+                <div class="library-video-media">
+
+                    <div class="library-video-placeholder">
+
+                        <span>
+                            AUREX
+                        </span>
+
+                        <small>
+                            ${category}
+                        </small>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="preview-video-button"
+                        data-path="${filePath}"
+                        aria-label="Preview ${title}"
+                    >
+                        <span>
+                            ▶
+                        </span>
+                    </button>
+
+                </div>
+
+
+                <div class="library-video-info">
+
+                    <div class="library-video-top">
+
+                        <span class="library-video-category">
+                            ${category}
+                        </span>
+
+                        <span class="library-video-date">
+                            ${date}
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        ${title}
+                    </h3>
+
+
+                    <p>
+                        ${description}
+                    </p>
+
+
+                    <div class="library-video-actions">
+
+                        <button
+                            type="button"
+                            class="preview-video-text-button"
+                            data-path="${filePath}"
+                            data-title="${title}"
+                            data-description="${description}"
+                            data-category="${category}"
+                        >
+                            Preview
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="delete-video-button"
+                            data-id="${escapeHtml(video.id)}"
+                            data-path="${filePath}"
+                        >
+                            Delete
+                        </button>
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            videoLibrary.appendChild(card);
+
+        }
+    );
+
+
+
+    attachVideoActions();
+
+}
+
+
+
+/* ==========================================
+   ATTACH VIDEO ACTIONS
+========================================== */
+
+function attachVideoActions() {
+
 
     document
-        .querySelectorAll(".delete-video-button")
+        .querySelectorAll(
+            ".preview-video-button"
+        )
         .forEach(button => {
 
             button.addEventListener(
                 "click",
-                async function () {
-
-                    const videoId =
-                        this.dataset.id;
+                function () {
 
                     const filePath =
                         this.dataset.path;
 
-
-                    const confirmed =
-                        confirm(
-                            "Are you sure you want to delete this video?"
-                        );
-
-
-                    if (!confirmed) {
-                        return;
-                    }
-
-
-                    this.disabled = true;
-
-                    this.textContent =
-                        "Deleting...";
-
-
-                    // Delete file from Storage
-
-                    const {
-                        error: storageError
-                    } =
-                        await supabaseClient
-                            .storage
-                            .from("aurex-video")
-                            .remove([
-                                filePath
-                            ]);
-
-
-                    if (storageError) {
-
-                        console.error(
-                            storageError
-                        );
-
-                        alert(
-                            "Could not delete the video file."
-                        );
-
-                        this.disabled = false;
-
-                        this.textContent =
-                            "Delete";
-
-                        return;
-
-                    }
-
-
-                    // Delete database record
-
-                    const {
-                        error: databaseError
-                    } =
-                        await supabaseClient
-                            .from("videos")
-                            .delete()
-                            .eq(
-                                "id",
-                                videoId
-                            );
-
-
-                    if (databaseError) {
-
-                        console.error(
-                            databaseError
-                        );
-
-                        alert(
-                            "The video file was deleted, but the database record could not be removed."
-                        );
-
-                        return;
-
-                    }
-
-
-                    // Remove card from page
-
-                    this
-                        .closest(".library-video")
-                        .remove();
+                    openVideoPreview(
+                        filePath
+                    );
 
                 }
             );
 
         });
 
+
+
+    document
+        .querySelectorAll(
+            ".preview-video-text-button"
+        )
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    openVideoPreview(
+                        this.dataset.path,
+                        this.dataset.title,
+                        this.dataset.description,
+                        this.dataset.category
+                    );
+
+                }
+            );
+
+        });
+
+
+
+    document
+        .querySelectorAll(
+            ".delete-video-button"
+        )
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                handleDeleteVideo
+            );
+
+        });
+
 }
 
-// ==========================================
-// VIDEO UPLOAD
-// ==========================================
 
-const videoUploadForm =
-    document.getElementById("videoUploadForm");
 
-const uploadButton =
-    document.getElementById("uploadButton");
+/* ==========================================
+   OPEN VIDEO PREVIEW
+========================================== */
 
-const uploadMessage =
-    document.getElementById("uploadMessage");
+async function openVideoPreview(
+    filePath,
+    title = "Video Preview",
+    description = "",
+    category = ""
+) {
 
+    if (!filePath) {
+
+        alert(
+            "This video does not have a valid file path."
+        );
+
+        return;
+
+    }
+
+
+    try {
+
+        const {
+            data,
+            error
+        } =
+            await supabaseClient
+                .storage
+                .from("aurex-video")
+                .createSignedUrl(
+                    filePath,
+                    3600
+                );
+
+
+
+        if (error || !data?.signedUrl) {
+
+            console.error(error);
+
+            alert(
+                "Unable to preview this video."
+            );
+
+            return;
+
+        }
+
+
+
+        adminPreviewPlayer.src =
+            data.signedUrl;
+
+
+        previewTitle.textContent =
+            title || "Video Preview";
+
+
+        previewDescription.textContent =
+            description || "";
+
+
+        previewCategory.textContent =
+            category || "AUREX VIDEO";
+
+
+        videoPreviewModal
+            .classList
+            .add("open");
+
+
+        videoPreviewModal
+            .setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+
+        document.body.classList.add(
+            "admin-modal-open"
+        );
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            "Unable to preview this video."
+        );
+
+    }
+
+}
+
+
+
+/* ==========================================
+   CLOSE VIDEO PREVIEW
+========================================== */
+
+function closeVideoPreview() {
+
+    adminPreviewPlayer.pause();
+
+    adminPreviewPlayer.removeAttribute(
+        "src"
+    );
+
+    adminPreviewPlayer.load();
+
+
+    videoPreviewModal
+        .classList
+        .remove("open");
+
+
+    videoPreviewModal
+        .setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+
+    document.body.classList.remove(
+        "admin-modal-open"
+    );
+
+}
+
+
+
+/* ==========================================
+   DELETE VIDEO
+========================================== */
+
+async function handleDeleteVideo(event) {
+
+    const button =
+        event.currentTarget;
+
+
+    const videoId =
+        button.dataset.id;
+
+    const filePath =
+        button.dataset.path;
+
+
+    const video =
+        allVideos.find(
+            item =>
+                String(item.id) ===
+                String(videoId)
+        );
+
+
+    const videoTitle =
+        video?.title ||
+        "this video";
+
+
+    const confirmed =
+        confirm(
+            `Are you sure you want to delete "${videoTitle}"? This cannot be undone.`
+        );
+
+
+    if (!confirmed) {
+        return;
+    }
+
+
+    button.disabled =
+        true;
+
+    button.textContent =
+        "Deleting...";
+
+
+
+    try {
+
+        /* ======================================
+           DELETE STORAGE FILE
+        ======================================= */
+
+        const {
+            error: storageError
+        } =
+            await supabaseClient
+                .storage
+                .from("aurex-video")
+                .remove([
+                    filePath
+                ]);
+
+
+
+        if (storageError) {
+
+            console.error(
+                storageError
+            );
+
+            throw new Error(
+                "Could not delete the video file."
+            );
+
+        }
+
+
+
+        /* ======================================
+           DELETE DATABASE RECORD
+        ======================================= */
+
+        const {
+            error: databaseError
+        } =
+            await supabaseClient
+                .from("videos")
+                .delete()
+                .eq(
+                    "id",
+                    videoId
+                );
+
+
+
+        if (databaseError) {
+
+            console.error(
+                databaseError
+            );
+
+            throw new Error(
+                "The video file was deleted, but the database record could not be removed."
+            );
+
+        }
+
+
+
+        /* ======================================
+           REFRESH LIBRARY
+        ======================================= */
+
+        await loadVideoLibrary();
+
+
+        uploadMessage.textContent =
+            "Video deleted successfully.";
+
+
+        uploadMessage.className =
+            "upload-message success";
+
+
+    } catch (error) {
+
+        console.error(
+            "Video deletion failed:",
+            error
+        );
+
+
+        alert(
+            error.message ||
+            "Video deletion failed."
+        );
+
+
+        button.disabled =
+            false;
+
+        button.textContent =
+            "Delete";
+
+    }
+
+}
+
+
+
+/* ==========================================
+   UPLOAD VIDEO
+========================================== */
 
 videoUploadForm.addEventListener(
     "submit",
@@ -478,45 +1490,83 @@ videoUploadForm.addEventListener(
 
 
         const title =
-            document.getElementById("videoTitle").value.trim();
+            document
+                .getElementById(
+                    "videoTitle"
+                )
+                .value
+                .trim();
+
 
         const description =
-            document.getElementById("videoDescription").value.trim();
+            document
+                .getElementById(
+                    "videoDescription"
+                )
+                .value
+                .trim();
+
 
         const category =
-            document.getElementById("videoCategory").value;
+            document
+                .getElementById(
+                    "videoCategory"
+                )
+                .value;
+
 
         const file =
-            document.getElementById("videoFile").files[0];
+            videoFile.files[0];
 
 
-        if (!title || !category || !file) {
+
+        if (
+            !title ||
+            !category ||
+            !file
+        ) {
 
             uploadMessage.textContent =
                 "Please complete all required fields.";
+
+            uploadMessage.className =
+                "upload-message error";
 
             return;
 
         }
 
 
-        uploadButton.disabled = true;
+
+        uploadButton.disabled =
+            true;
+
 
         uploadButton.textContent =
             "Uploading...";
 
+
         uploadMessage.textContent =
-            "Uploading video...";
+            "Uploading video to Aurex storage...";
+
+
+        uploadMessage.className =
+            "upload-message loading";
+
 
 
         try {
 
-            // ==========================================
-            // CREATE UNIQUE FILE NAME
-            // ==========================================
+
+            /* ==================================
+               CREATE UNIQUE FILE NAME
+            =================================== */
 
             const fileExtension =
-                file.name.split(".").pop();
+                file.name
+                    .split(".")
+                    .pop();
+
 
             const fileName =
                 `${Date.now()}-${crypto.randomUUID()}.${fileExtension}`;
@@ -526,9 +1576,10 @@ videoUploadForm.addEventListener(
                 `videos/${fileName}`;
 
 
-            // ==========================================
-            // UPLOAD VIDEO TO STORAGE
-            // ==========================================
+
+            /* ==================================
+               UPLOAD TO STORAGE
+            =================================== */
 
             const {
                 error: storageError
@@ -547,6 +1598,7 @@ videoUploadForm.addEventListener(
                     );
 
 
+
             if (storageError) {
 
                 console.error(
@@ -559,9 +1611,15 @@ videoUploadForm.addEventListener(
             }
 
 
-            // ==========================================
-            // SAVE VIDEO INFORMATION
-            // ==========================================
+
+            uploadMessage.textContent =
+                "Video uploaded. Saving video information...";
+
+
+
+            /* ==================================
+               SAVE DATABASE RECORD
+            =================================== */
 
             const {
                 error: databaseError
@@ -569,11 +1627,20 @@ videoUploadForm.addEventListener(
                 await supabaseClient
                     .from("videos")
                     .insert({
+
                         title: title,
-                        description: description,
-                        category: category,
-                        file_path: filePath
+
+                        description:
+                            description,
+
+                        category:
+                            category,
+
+                        file_path:
+                            filePath
+
                     });
+
 
 
             if (databaseError) {
@@ -584,8 +1651,9 @@ videoUploadForm.addEventListener(
                 );
 
 
-                // Remove uploaded file if database
-                // record could not be created
+                /* ==============================
+                   CLEAN UP STORAGE
+                =============================== */
 
                 await supabaseClient
                     .storage
@@ -600,18 +1668,27 @@ videoUploadForm.addEventListener(
             }
 
 
-            // ==========================================
-            // SUCCESS
-            // ==========================================
+
+            /* ==================================
+               SUCCESS
+            =================================== */
 
             uploadMessage.textContent =
-                "Video uploaded successfully!";
+                "Video uploaded successfully.";
+
+            uploadMessage.className =
+                "upload-message success";
 
 
             videoUploadForm.reset();
 
 
+            selectedFileMessage.textContent =
+                "No video selected.";
+
+
             await loadVideoLibrary();
+
 
 
         } catch (error) {
@@ -626,19 +1703,169 @@ videoUploadForm.addEventListener(
                 error.message ||
                 "Video upload failed.";
 
+
+            uploadMessage.className =
+                "upload-message error";
+
         }
 
 
-        uploadButton.disabled = false;
+
+        uploadButton.disabled =
+            false;
+
 
         uploadButton.textContent =
             "Upload Video";
 
     }
 );
-// Load library
 
-loadVideoLibrary();
+
+
+/* ==========================================
+   FILE SELECTION
+========================================== */
+
+videoFile.addEventListener(
+    "change",
+    function () {
+
+        const file =
+            this.files[0];
+
+
+        if (!file) {
+
+            selectedFileMessage.textContent =
+                "No video selected.";
+
+            return;
+
+        }
+
+
+        const sizeMB =
+            (
+                file.size /
+                (1024 * 1024)
+            ).toFixed(1);
+
+
+        selectedFileMessage.textContent =
+            `${file.name} • ${sizeMB} MB`;
+
+    }
+);
+
+
+
+/* ==========================================
+   SEARCH
+========================================== */
+
+videoSearch.addEventListener(
+    "input",
+    function () {
+
+        renderVideoLibrary();
+
+    }
+);
+
+
+
+/* ==========================================
+   CATEGORY FILTERS
+========================================== */
+
+document
+    .querySelectorAll(
+        ".admin-video-filter"
+    )
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            function () {
+
+                document
+                    .querySelectorAll(
+                        ".admin-video-filter"
+                    )
+                    .forEach(
+                        filterButton => {
+
+                            filterButton
+                                .classList
+                                .remove(
+                                    "active"
+                                );
+
+                        }
+                    );
+
+
+                this
+                    .classList
+                    .add(
+                        "active"
+                    );
+
+
+                activeVideoCategory =
+                    this.dataset.category;
+
+
+                renderVideoLibrary();
+
+            }
+        );
+
+    });
+
+
+
+/* ==========================================
+   MODAL EVENTS
+========================================== */
+
+videoPreviewClose.addEventListener(
+    "click",
+    closeVideoPreview
+);
+
+
+videoPreviewOverlay.addEventListener(
+    "click",
+    closeVideoPreview
+);
+
+
+document.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (
+            event.key ===
+            "Escape"
+        ) {
+
+            closeVideoPreview();
+
+        }
+
+    }
+);
+
+
+
+/* ==========================================
+   START ADMIN
+========================================== */
+
+checkAdmin();
+
 </script>
 
 

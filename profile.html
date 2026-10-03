@@ -4,15 +4,24 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AurexHub | Profile</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="stylesheet" href="style.css">
+    <title>Aurex | Athlete Profile</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
 </head>
 
+
 <body>
+
 
 <!-- ==========================================
      HEADER
@@ -21,32 +30,66 @@
 <header>
 
     <div class="logo">
-        Aurex<span>HUB</span>
+        AUREX
     </div>
+
 
     <nav id="main-nav">
 
-        <a href="index.html">Home</a>
+        <a href="index.html">
+            Home
+        </a>
 
-        <a href="workouts.html">Workouts</a>
+        <a href="workouts.html">
+            Workouts
+        </a>
 
-        <a href="map.html">Map</a>
+        <a href="nutrition.html">
+            Nutrition
+        </a>
 
-        <a href="Community.html">Community</a>
+        <a href="map.html">
+            Map
+        </a>
 
-        <a href="about.html">About</a>
+        <a href="community.html">
+            Community
+        </a>
 
-        <a href="contact.html">Contact</a>
+        <a href="athletes.html">
+            Athletes
+        </a>
 
-        <a href="shop.html">Aurex</a>
+        <a href="videos.html">
+            Videos
+        </a>
 
-        <a href="profile.html" class="active">
-            My Profile
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+        <a
+            href="account.html"
+        >
+            Account
+        </a>
+
+        <a
+            href="admin.html"
+            id="adminNavLink"
+            style="display: none;"
+        >
+            Admin
         </a>
 
     </nav>
 
 </header>
+
 
 
 <!-- ==========================================
@@ -55,11 +98,17 @@
 
 <main class="profile-page">
 
+
+    <!-- ======================================
+         PLATFORM LABEL
+    ======================================= -->
+
     <section class="profile-card">
 
-        <!-- ==========================================
+
+        <!-- ======================================
              PROFILE HEADER
-        ========================================== -->
+        ======================================= -->
 
         <div class="profile-header">
 
@@ -81,7 +130,7 @@
             <div class="profile-main-info">
 
                 <span class="section-label">
-                    AUREXHUB ATHLETE
+                    AUREX ATHLETE
                 </span>
 
                 <h1 id="profileUsername">
@@ -97,9 +146,10 @@
         </div>
 
 
-        <!-- ==========================================
+
+        <!-- ======================================
              BIO
-        ========================================== -->
+        ======================================= -->
 
         <div class="profile-bio">
 
@@ -114,11 +164,13 @@
         </div>
 
 
-        <!-- ==========================================
+
+        <!-- ======================================
              FITNESS INFORMATION
-        ========================================== -->
+        ======================================= -->
 
         <div class="profile-info-grid">
+
 
             <div class="profile-info-box">
 
@@ -131,6 +183,7 @@
                 </strong>
 
             </div>
+
 
 
             <div class="profile-info-box">
@@ -146,6 +199,7 @@
             </div>
 
 
+
             <div class="profile-info-box">
 
                 <span>
@@ -157,6 +211,7 @@
                 </strong>
 
             </div>
+
 
 
             <div class="profile-info-box">
@@ -172,6 +227,7 @@
             </div>
 
 
+
             <div class="profile-info-box">
 
                 <span>
@@ -184,16 +240,19 @@
 
             </div>
 
+
         </div>
 
 
-        <!-- ==========================================
+
+        <!-- ======================================
              PROFILE ACTIONS
-        ========================================== -->
+        ======================================= -->
 
         <div class="profile-actions">
 
-            <!-- MY PROFILE -->
+
+            <!-- EDIT PROFILE -->
 
             <a
                 href="edit-profile.html"
@@ -204,7 +263,8 @@
             </a>
 
 
-            <!-- OTHER ATHLETE -->
+
+            <!-- CONNECT -->
 
             <button
                 id="connectButton"
@@ -216,7 +276,8 @@
             </button>
 
 
-            <!-- MY PROFILE -->
+
+            <!-- LOG OUT -->
 
             <button
                 id="logoutButton"
@@ -226,10 +287,14 @@
                 LOG OUT
             </button>
 
+
         </div>
 
 
-        <!-- CONNECTION MESSAGE -->
+
+        <!-- ======================================
+             MESSAGES
+        ======================================= -->
 
         <p
             id="connectionMessage"
@@ -242,7 +307,9 @@
             class="account-message"
         ></p>
 
+
     </section>
+
 
 
     <!-- ==========================================
@@ -250,6 +317,9 @@
     ========================================== -->
 
     <section class="profile-stats">
+
+
+        <!-- WORKOUTS -->
 
         <div class="profile-stat">
 
@@ -264,6 +334,9 @@
         </div>
 
 
+
+        <!-- ACHIEVEMENTS -->
+
         <div class="profile-stat">
 
             <strong id="achievementCount">
@@ -277,22 +350,27 @@
         </div>
 
 
+
+        <!-- CONNECTIONS -->
+
         <div class="profile-stat">
 
-            <strong id="postCount">
+            <strong id="connectionCount">
                 0
             </strong>
 
             <span>
-                POSTS
+                CONNECTIONS
             </span>
 
         </div>
 
+
     </section>
-    
+
 
 </main>
+
 
 
 <!-- ==========================================
@@ -304,6 +382,7 @@
 <script src="supabase.js"></script>
 
 <script src="profile.js"></script>
+
 
 </body>
 
